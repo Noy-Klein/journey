@@ -7,8 +7,25 @@
   height: 40vmin;
 }
 
+h1{
+  font-size: 30px;
+}
+
+h2{
+  font-size: 15px;
+}
+
+.searchinput{
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 370px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
