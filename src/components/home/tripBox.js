@@ -13,12 +13,10 @@ class TripBox extends Component {
 
     render() {
         return (
-            <Router>
                 <span>
                     <img alt='file' src="https://www.clipartmax.com/png/middle/253-2530688_airplane-take-off-comments-airplane-icon-png-free.png" height="30px"/>
                     <Link to={`/currTrip/${this.props.trip._id}`}>{this.props.trip.title}</Link>
                 </span>
-            </Router>
         );
     }
 }
