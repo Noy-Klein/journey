@@ -12,7 +12,6 @@ class TripBox extends Component {
     }
 
     render() {
-        //in the props it get a trip
         return (
             <Router>
                 <span>

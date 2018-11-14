@@ -25,9 +25,9 @@ app.use(function (req, res, next) {
   
 app.use(mapApi)
 app.use('/', tripApi)
-app.get('/key', (req,res)=>{
-    res.send('AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M')
-})
+// app.get('/key', (req,res)=>{
+//     res.send('AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M')
+// })
 
 app.listen(1000, () => {
     console.log('server started on port 1000')
