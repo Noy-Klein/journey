@@ -16,13 +16,13 @@ h2{
 }
 
 .popup {
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   position: fixed;
   width: 420px;
-  height: 105px;
-  background-color: rgba(255, 255, 255, 0.822);
+  height: 450px;
+  background-color: rgba(85, 83, 83, 0.637);
   border-radius: 7px;
 }
 
