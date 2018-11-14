@@ -4,7 +4,7 @@ const trips = require('../models/tripModel');
 const checkpoint = require('../models/checkpointModel');
 
 router.get('/trips', (req,res)=>{
-    trips.find({}).exec((err,data)=>{
+    trips.find({}).populate('checkpoints').exec((err,data)=>{
         if(err){
             res.status(500).send(err)
         }

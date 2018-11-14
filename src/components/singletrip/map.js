@@ -26,7 +26,7 @@ class MapContainer extends Component {
         //     pictures: ['https://www.toureiffel.paris/themes/custom/tour_eiffel/img/poster-tour-eiffel-jour-nuit.jpg'],
         //     coordinant: null
         // }, id: this.props.store.trip._id})
-        // console.log()
+        // console.log(this.props.store.trip.checkpoints)
         return (
             <Map className="map" style={{ width: '50%', height: '50%' }} initialCenter={this.props.store.trip.checkpoints[0].coordinant} google={this.props.google} zoom={14}>
                 <Polygon
