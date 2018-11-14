@@ -7,21 +7,19 @@ import '../../App.css';
 @observer
 class Popupaddtrip extends Component {
 
-  @observable trip={
-   title: "",
-   description: "",
-   startDate: "",
-   endDate: "",
-  }
+  @observable title= ""
+  @observable description= ""
+  @observable startDate= ""
+  @observable endDate= ""
 
   @action closepopup = () => {
     this.props.store.changeshowpopupaddtrip();
   }
 
-  @action inputChange = (e) => {this.trip[e.target.name] = e.target.value}
+  @action inputChange = (e) => {this[e.target.name] = e.target.value}
 
   @action Addthetrip = () => {
-    this.props.store.Addtrip(this.trip);
+    this.props.store.Addtrip(this.title, this.description, this.startDate, this.endDate);
   }
 
   render() {
@@ -37,10 +35,10 @@ class Popupaddtrip extends Component {
       <input name="startDate" onChange={this.inputChange} value={this.startDate} placeholder="Start Date" type="Date" className="form-control" aria-describedby="button-addon2" />
       </div>
       <div className="input-group  mb-3">
-      <input name="endDate" min={this.trip.startDate} onChange={this.inputChange} value={this.endDate} placeholder="End Date" type="Date" className="form-control" aria-describedby="button-addon2" />
+      <input name="endDate" min={this.startDate} onChange={this.inputChange} value={this.endDate} placeholder="End Date" type="Date" className="form-control" aria-describedby="button-addon2" />
       <br/>
       <div className="input-group-append">
-      <button className="btn btn-outline-secondary" onClick={this.Addthettrip} type="button" id="button-addon2">Create Trip</button>
+      <button className="btn btn-outline-secondary" onClick={this.Addthetrip} type="button" id="button-addon2">Create Trip</button>
       </div>
       </div>
       </div>
