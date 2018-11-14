@@ -6,14 +6,14 @@ import Popupaddtrip from './popupaddtrip';
 import {inject} from 'mobx-react';
 import '../../App.css';
 
-@inject ("tripStore")
+@inject ("store")
 class Home extends Component {
   render() {
     return (<div>
       <Logo />
       <Navbar />
       <Trips />
-      {this.props.tripStore.showpopupaddtrip ? <Popupaddtrip /> : null}
+      {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
       </div>
     );
   }

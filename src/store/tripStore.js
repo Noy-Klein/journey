@@ -1,42 +1,42 @@
-import { observable, action} from "mobx";
+import { observable, action } from "mobx";
 import axios from 'axios';
 
 class TripStore {
     @observable trip = null;
-  @observable showpopupaddtrip = false;
+    @observable showpopupaddtrip = false;
 
-getTrip = async () =>{
-    let trip = await axios.get('http://localhost:1000/trip/')
-    this.setTrip(trip.data)
-}
-
-@action setTrip = (trip) => {
-    this.trip = trip;
-}
-
-
-  @action changeshowpopupaddtrip = () => {
-    if (this.showpopupaddtrip){
-    this.showpopupaddtrip = false;
+    getTrip = async () => {
+        let trip = await axios.get('http://localhost:1000/trip/')
+        this.setTrip(trip.data)
     }
-    else {
-    this.showpopupaddtrip = true;
+
+    @action setTrip = (trip) => {
+        this.trip = trip;
     }
-  }
-addTrip = async (title, description, startDate,endDate, people, adress, pictures) => {
-    let trip = await axios.post('http://localhost:1000/trip',{
-        title: title,
-        description: description,
-        startDate: startDate,
-        endDate: endDate,
-        people: people,
-        adress: adress,
-        pictures: pictures
-    })
-    this.setTrip(trip)
-}
+
+
+    @action changeshowpopupaddtrip = () => {
+        if (this.showpopupaddtrip) {
+            this.showpopupaddtrip = false;
+        }
+        else {
+            this.showpopupaddtrip = true;
+        }
+    }
+    addTrip = async (title, description, startDate, endDate, people, adress, pictures) => {
+        let trip = await axios.post('http://localhost:1000/trip', {
+            title: title,
+            description: description,
+            startDate: startDate,
+            endDate: endDate,
+            people: people,
+            adress: adress,
+            pictures: pictures
+        })
+        this.setTrip(trip)
+    }
 }
 
-const store = new TripStore();
+const Store = new TripStore();
 
-export default store;
+export default Store;

@@ -3,7 +3,7 @@ import {observer, inject} from 'mobx-react';
 import {action, observable} from "mobx";
 import '../../App.css';
  
-@inject ("tripStore")
+@inject ("store")
 @observer
 class Navbar extends Component {
 
@@ -17,7 +17,7 @@ class Navbar extends Component {
       <img src="https://www.pngarts.com/files/3/Plus-Symbol-PNG-Image-with-Transparent-Background.png" height="40px" alt="error"/>
       <input name="searchedtrip" onChange={this.inputChange} value={this.searchedtrip} placeholder="Find a trip" type="text" class="form-control" aria-describedby="button-addon2" />
       <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button" onClick={this.props.tripStore.changeshowpopupaddtrip} id="button-addon2">search</button>
+      <button class="btn btn-outline-secondary" type="button" onClick={this.props.store.changeshowpopupaddtrip} id="button-addon2">search</button>
       </div>
       </div>
     );
