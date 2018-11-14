@@ -8,7 +8,6 @@ import '../../App.css';
 class Navbar extends Component {
 
     @observable searchedtrip= "";
-    @observable text = "";
     
     @action inputChange = (e) => {this[e.target.name] = e.target.value}
 
@@ -16,6 +15,14 @@ class Navbar extends Component {
       this.props.store.changeshowpopupaddtrip();
     }
     
+    @action searchtrip = () => {
+      if (this.searchedtrip==""){
+        alert ("Please enter search word")
+    }
+    else{
+      //////עדיין לא מציג
+    }
+    }
 
   render() {
     return (

@@ -22,6 +22,17 @@ h2{
   position: fixed;
   width: 420px;
   height: 280px;
+  background-color: rgba(165, 186, 201, 0.712);
+  border-radius: 7px;
+}
+
+.popupcurr {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 420px;
+  height: 360px;
   background-color: rgba(154, 174, 187, 0.801);
   border-radius: 7px;
 }
@@ -80,6 +91,15 @@ h2{
   background-color: rgba(255, 255, 255, 0.39);
 }
 
+.addtripbuttoncurr{
+  top: 85%;
+  left:36%;
+  float: left;
+  position: fixed;
+  width: 100px;
+  background-color: rgba(255, 255, 255, 0.39);
+}
+
 .searchbutton{
   top: 30%;
   left: 61%;
@@ -125,4 +145,28 @@ h2{
   left: 350px;
   top: 200px;
   z-index: -1;
+}
+
+#inputCurr{
+bottom: 285px;
+}
+
+#inputCurr1{
+bottom: 237px;
+}
+
+#inputCurr2{
+bottom: 189px;
+}
+
+#inputCurr3{
+  bottom: 141px;
+}
+
+#inputCurr4{
+  bottom: 93px;
+}
+
+#inputCurr5{
+  bottom: 45px;
 }
