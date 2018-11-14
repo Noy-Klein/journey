@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {observer, inject} from 'mobx-react';
+import Home from './components/home/home';
 import './App.css';
 import AddForm from './components/singletrip/addForm.js'
 
@@ -9,6 +10,7 @@ class App extends Component {
     return (
       <div className="App">
       <AddForm />
+      <Home />
       </div>
     );
   }
