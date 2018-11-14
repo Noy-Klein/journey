@@ -2,7 +2,7 @@ import { observable, action} from "mobx";
 import axios from 'axios';
 
 class TripStore {
-    @observable trip = null;
+  @observable trip = null;
   @observable showpopupaddtrip = false;
 
 getTrip = async () =>{
