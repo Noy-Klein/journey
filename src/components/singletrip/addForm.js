@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { observable } from "mobx";
-import AddButton from './addButton';
+import AddButton from '../singletrip/addButton';
 
 @inject("store")
 @observer

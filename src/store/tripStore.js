@@ -26,8 +26,19 @@ class TripStore {
         this.showpopupaddtrip = !this.showpopupaddtrip
     }
 
-    Addtrip = async (trip) => {
-        let newtrip = await axios.post('http://localhost:1000/trips', { trip })
+    addNewCheckpoint = async (title, description, startDate, people, adress, pictures) => {
+        let trip = await axios.post('http://localhost:1000/checkpoints', {
+            title: title,
+            description: description,
+            startDate: startDate,
+            people: people,
+            adress: adress,
+            pictures: pictures
+        })
+    }
+        //this.setCheckPoint(trip)
+    Addtrip = async (title, description, startDate, endDate) => {
+        let newtrip = await axios.post('http://localhost:1000/trips', {title:title, description:description, startDate:startDate, endDate:endDate })
         this.setTrip(newtrip)
     }
 
