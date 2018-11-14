@@ -4,7 +4,6 @@ const CheckpointSchema = new mongoose.Schema({
     title: String,
     description: String,
     startDate: Date,
-    endDate: Date,
     people: [String],
     adress: String,
     pictures: [String],
