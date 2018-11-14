@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { observable, action } from "mobx";
+import '../../styles/addButton.css'
 
 @inject("store")
 @observer
@@ -25,7 +26,7 @@ class AddButton extends Component {
       
 
       addNewCheckpoint = () => { 
-        this.props.store.addCheckPoint(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
+        this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
     }
 
     render() {
@@ -46,6 +47,7 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="buttonAdd" type="button" value="Add Trip" onClick={this.addNewCheckpoint}/>
                 <input className="closeButton" type="button" value="X" onClick={this.closeButton}/>
+               
                 </div>
             </div>
         )

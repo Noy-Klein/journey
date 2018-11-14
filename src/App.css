@@ -58,3 +58,10 @@ h2{
     transform: rotate(360deg);
   }
 }
+
+.map{
+  position: fixed;
+  left: 350px;
+  top: 200px;
+  z-index: -1;
+}
