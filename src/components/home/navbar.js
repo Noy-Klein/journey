@@ -8,12 +8,14 @@ import '../../App.css';
 class Navbar extends Component {
 
     @observable searchedtrip= "";
+    @observable text = "";
     
     @action inputChange = (e) => {this[e.target.name] = e.target.value}
 
     @action changeshowpopup = () => {
       this.props.store.changeshowpopupaddtrip();
     }
+    
 
   render() {
     return (

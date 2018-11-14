@@ -1,6 +1,7 @@
 import { Map, Marker, GoogleApiWrapper, Polygon } from 'google-maps-react';
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import '../../App.css'
 
 @inject("store")
 @observer
@@ -18,7 +19,7 @@ class MapContainer extends Component {
         // })
         console.log(this.props.store.trip.checkpoints)
         return (
-            <Map style={{ width: '50%', height: '50%' }} initialCenter={{ lat: 48.859489, lng: 2.320582 }} google={this.props.google} zoom={14}>
+            <Map className="map" style={{ width: '50%', height: '50%' }} initialCenter={{ lat: 48.859489, lng: 2.320582 }} google={this.props.google} zoom={14}>
 
                 <Polygon
                     paths={

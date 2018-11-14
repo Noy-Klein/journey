@@ -16,7 +16,8 @@ class AddForm extends Component {
     render() {
         return (
             <div className="addForm">
-                <input className="add" type="button" value="+" onClick={this.togglePopup} />
+                  <img src="https://www.pngarts.com/files/3/Plus-Symbol-PNG-Image-with-Transparent-Background.png" height="40px" alt="error" onClick={this.togglePopup} value="button"/>
+                {/* <input className="add" type="button" value="+" onClick={this.togglePopup} /> */}
                 <div>
                     {this.showPopup ?
                         <AddButton
