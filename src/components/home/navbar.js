@@ -16,7 +16,7 @@ class Navbar extends Component {
     }
     
     @action searchtrip = () => {
-      if (this.searchedtrip==""){
+      if (this.searchedtrip===""){
         alert ("Please enter search word")
     }
     else{

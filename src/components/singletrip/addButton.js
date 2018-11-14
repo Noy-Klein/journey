@@ -27,10 +27,11 @@ class AddButton extends Component {
           if((this.trip.title==="")||(this.trip.description==="")||(this.trip.startDate==="")||(this.trip.people==="")||(this.trip.adress==="")){
             alert ("Please fill out all the fields!")
         }
+        // this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
         else{
-            this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
-            this.closeButton()
-            alert ("Your checkpoint saved!")
+        this.props.store.addCheckPoint({data:{title:this.trip.title, description:this.trip.description, startDate:this.trip.startDate, people:this.trip.people, adress:this.trip.adress, pictures:this.trip.pictures}})
+        this.closeButton()
+        alert ("Your checkpoint saved!")
         }
     }
 

@@ -58,6 +58,7 @@ class TripStore {
     }
 }
 
+
 const Store = new TripStore();
 
 export default Store;
