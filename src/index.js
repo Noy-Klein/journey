@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import tripStore from './store/tripStore';
-import {Provider} from '../node_modules/mobx-react';
+import {Provider} from 'mobx-react';
 
 window.tripStore = tripStore
 
