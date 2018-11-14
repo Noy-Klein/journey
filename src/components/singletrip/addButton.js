@@ -25,7 +25,7 @@ class AddButton extends Component {
       
 
       addNewCheckpoint = () => { 
-        this.props.store.addCheckPoint(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
+        this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
     }
 
     render() {
