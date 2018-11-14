@@ -7,36 +7,42 @@ import '../../App.css'
 @observer
 class MapContainer extends Component {
     render() {
-        // console.log(this.props.store.trip)
-        // this.props.store.addCheckPoint({
-        //     title: 'louvre',
-        //     description: 'THE museum',
+        // console.log(this.props.store.trip._id)
+        // this.props.store.addCheckPoint({data:{
+        //     title: 'Champ De Mars',
+        //     description: 'THE park',
         //     startDate: new Date(2, 2, 2018),
         //     people: ['dani', 'may'],
-        //     adress: 'louvre paris',
+        //     adress: 'Champ De Mars',
         //     pictures: ['https://www.toureiffel.paris/themes/custom/tour_eiffel/img/poster-tour-eiffel-jour-nuit.jpg'],
         //     coordinant: null
-        // })
-        console.log(this.props.store.trip.checkpoints)
+        // }, id: this.props.store.trip._id})
+        // this.props.store.addCheckPoint({data:{
+        //     title: 'Eiffel Tower',
+        //     description: 'THE tower',
+        //     startDate: new Date(2, 2, 2018),
+        //     people: ['dani', 'may'],
+        //     adress: 'Eiffel Tower',
+        //     pictures: ['https://www.toureiffel.paris/themes/custom/tour_eiffel/img/poster-tour-eiffel-jour-nuit.jpg'],
+        //     coordinant: null
+        // }, id: this.props.store.trip._id})
+        // console.log()
         return (
-            <Map className="map" style={{ width: '50%', height: '50%' }} initialCenter={{ lat: 48.859489, lng: 2.320582 }} google={this.props.google} zoom={14}>
-
+            <Map className="map" style={{ width: '50%', height: '50%' }} initialCenter={this.props.store.trip.checkpoints[0].coordinant} google={this.props.google} zoom={14}>
                 <Polygon
                     paths={
-                        [
-                            { lat: 43.70724, lng: 7.2617893 },
-                            { lat: 48.859489, lng: 2.320582 }
-                        ]
+                        this.props.store.trip.checkpoints.map(c => {return c.coordinant})
                     }
-                    strokeColor="#0000FF"
-                    strokeOpacity={0.8}
-                    strokeWeight={2} />
+                    strokeColor="#0000FF" />
+                    {/* // strokeOpacity={0.8}
+                    // strokeWeight={2} /> */}
 
-                <Marker onClick={this.onMarkerClick}
+                {this.props.store.trip.checkpoints.map(c => {return <Marker name={c.title} position={c.coordinant} />})}
+                {/* <Marker onClick={this.onMarkerClick}
                     name={'Current location'} />
                 <Marker onClick={this.onMarkerClick}
                     position={{ lat: 43.70724, lng: 7.2617893 }}
-                    name={'p'} />
+                    name={'p'} /> */}
             </Map>
         );
     }
