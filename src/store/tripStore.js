@@ -25,12 +25,7 @@ class TripStore {
     }
 
     @action changeshowpopupaddtrip = () => {
-        if (this.showpopupaddtrip) {
-            this.showpopupaddtrip = false;
-        }
-        else {
-            this.showpopupaddtrip = true;
-        }
+        this.showpopupaddtrip= !this.showpopupaddtrip
     }
 
     addNewCheckpoint = async (title, description, startDate, people, adress, pictures) => {
@@ -43,13 +38,22 @@ class TripStore {
             pictures: pictures
         })
         //this.setCheckPoint(trip)
+    Addtrip = async (title, description, startDate, endDate) => {
+        let newtrip = await axios.post('http://localhost:1000/trips', {title:title, description:description, startDate:startDate, endDate:endDate })
+        this.setTrip(newtrip)
     }
 
-    @action addCheckPoint = async (newCheckPoint) =>{
+    @action addCheckPoint = async (newCheckPoint) =>{ //send the trips id
         let data = await axios.post('https://maps.googleapis.com/maps/api/geocode/json?address=' + newCheckPoint.adress + '&key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M')
         let checkpoint = await axios.post('http://localhost:1000/checkpoints', newCheckPoint);
-        checkpoint.data.coordinant = data.results[0].geometry.location; //returns a bigger object whith key data?
-        this.trip.checkpoints.push(checkpoint._id)
+        // console.log(data.data.results[0].geometry.location)
+        // console.log(checkpoint.data.checkpoint)
+        checkpoint.data.coordinant = data.data.results[0].geometry.location; //returns a bigger object whith key data?
+        this.trip.checkpoints.push(checkpoint.data._id)
+        // console.log(this.trip)
+        // let coorCP = await axios.get('http://localhost:1000/checkpoints');
+        // let cp = coorCP.data.find(c => c._id === checkpoint.data._id);
+        // console.log(cp.coordinant)
     }
 }
 
