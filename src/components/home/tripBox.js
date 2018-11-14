@@ -5,13 +5,23 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 @inject('store')
 @observer
-class TripBox extends Component{
-    render(){
+class TripBox extends Component {
+
+    set = () => {
+        this.props.store.setTrip(this.props.trip._id);
+    }
+
+    render() {
         //in the props it get a trip
-        return(
-            <span>
-                <Link to={`http://localhost:3000/currTrip/${this.props.trip._id}`}>{this.props.trip.title}</Link>
-            </span>
+        // console.log(this.props.store.trips)
+        // this.props.store.setTrip(this.props.trip._id);
+        // console.log(this.props.store.trip)
+        return (
+            <Router>
+                <span>
+                    <Link to={`/currTrip/${this.props.trip._id}`}>{this.props.trip.title}</Link>
+                </span>
+            </Router>
         );
     }
 }
