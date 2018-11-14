@@ -10,7 +10,8 @@ class TripBox extends Component{
         //in the props it get a trip
         return(
             <span>
-                <Link to={`http://localhost:3000/currTrip/${this.props.trip._id}`}>{this.props.trip.title}</Link>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Closed_Book_Icon.svg/2000px-Closed_Book_Icon.svg.png" height="30px"/>
+                <Link to={`/currTrip/${this.props.trip._id}`}>{this.props.trip.title}</Link>
             </span>
         );
     }

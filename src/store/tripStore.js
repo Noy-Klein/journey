@@ -17,25 +17,12 @@ class TripStore {
     }
 
     @action changeshowpopupaddtrip = () => {
-        if (this.showpopupaddtrip) {
-            this.showpopupaddtrip = false;
-        }
-        else {
-            this.showpopupaddtrip = true;
-        }
+        this.showpopupaddtrip= !this.showpopupaddtrip
     }
 
-    addTrip = async (title, description, startDate, endDate, people, adress, pictures) => {
-        let trip = await axios.post('http://localhost:1000/trips', {
-            title: title,
-            description: description,
-            startDate: startDate,
-            endDate: endDate,
-            people: people,
-            adress: adress,
-            pictures: pictures
-        })
-        this.setTrip(trip)
+    Addtrip = async (trip) => {
+        let newtrip = await axios.post('http://localhost:1000/trips', {trip})
+        this.setTrip(newtrip)
     }
 
     @action addCheckPoint = async (newCheckPoint) =>{
