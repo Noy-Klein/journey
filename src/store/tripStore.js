@@ -33,7 +33,7 @@ addTrip = async (title, description, startDate,endDate, people, adress, pictures
         pictures: pictures
     })
     this.setTrip(trip)
-
+}
 }
 
 const store = new TripStore();
