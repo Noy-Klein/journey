@@ -3,7 +3,7 @@ import TripBox from './tripBox';
 import '../../App.css';
 import { inject, observer } from 'mobx-react';
 
-@inject('store')
+@inject("store")
 @observer
 class Trips extends Component {
 
