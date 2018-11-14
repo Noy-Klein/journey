@@ -1,15 +1,14 @@
-const mongoose = require ('mongoose')
+const mongoose = require('mongoose')
 
 const CheckpointSchema = new mongoose.Schema({
-
-title: String,
-description: String,
-startDate: Date,
-endDate: Date,
-people: [String],
-adress: String,
-pictures: [String]
-
+    title: String,
+    description: String,
+    startDate: Date,
+    endDate: Date,
+    people: [String],
+    adress: String,
+    pictures: [String],
+    coordinant: Object
 });
 
 
