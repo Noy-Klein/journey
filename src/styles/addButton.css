@@ -1,0 +1,31 @@
+.inputTitle{
+    border-radius: 10px;
+}
+
+.inputDescription{
+    border-radius: 10px;
+}
+
+.inputStartDate{
+    border-radius: 10px;
+}
+
+.inputPeople{
+    border-radius: 10px;
+}
+
+.inputAdress{
+    border-radius: 10px;
+}
+
+.inputPictures{
+    border-radius: 10px;
+}
+
+.buttonAdd{
+    border-radius: 7px;
+    height: 33px;
+    width: 96px;
+    font-size: 15px;
+    background-color: white;
+}

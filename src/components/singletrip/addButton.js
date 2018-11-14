@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { observable, action } from "mobx";
+import '../../styles/addButton.css'
 
 @inject("store")
 @observer
@@ -31,7 +32,7 @@ class AddButton extends Component {
     render() {
         return (
             <div className="add-button">
-                <div className="popup">
+                <div className="popUp">
                 <input className="inputTitle" type="text" name="title" placeholder="Title" value={this.title} onChange={this.inputChange}/>
                 <br></br><br></br>
                 <input className="inputDescription" type="text" name="description" placeholder="Description" value={this.description} onChange={this.inputChange}/>
@@ -44,6 +45,8 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="inputPictures" type="text" name="pictures" placeholder="Pictures" value={this.pictures} onChange={this.inputChange}/>
                 <br></br><br></br>
+                </div>
+                <div>
                 <input className="buttonAdd" type="button" value="Add Trip" onClick={this.addNewCheckpoint}/>
                 <input className="closeButton" type="button" value="X" onClick={this.closeButton}/>
                 </div>
