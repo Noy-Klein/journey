@@ -8,7 +8,8 @@ startDate: Date,
 endDate: Date,
 people: [String],
 adress: String,
-pictures: [String]
+pictures: [String],
+coordinants: Object
 
 });
 

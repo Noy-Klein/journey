@@ -1,12 +1,13 @@
 import { Map, InfoWindow, Marker, GoogleApiWrapper, Polyline, Polygon } from 'google-maps-react';
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 
+@inject('store')
+@observer
 export class MapContainer extends Component {
     onMarkerClick = () => {
         alert('here')
     }
-
-
     render() {
 
         const triangleCoords = [
@@ -15,36 +16,20 @@ export class MapContainer extends Component {
             { lat: 32.321, lng: -64.757 },
             { lat: 25.774, lng: -80.190 }
         ];
-        //[2.320582, 48.859489]
-        //[48.859489, 2.320582]
-        // const center = {lat: 48.859489, lng: 2.320582}
-        // const center = [48.859489, 2.320582]
-        // console.log(this.props.google)
         return (
-            <Map style={{ width: '50%', height: '50%' }} initialCenter={{ lat: 48.859489, lng: 2.320582 }} google={this.props.google} zoom={14}>
+            <Map style={{ width: '50%', height: '50%' }} initialCenter={'the first coordinant'} google={this.props.google} zoom={14}>
 
                 <Polygon
-                    paths={
-                        [
-                            { lat: 43.70724, lng: 7.2617893 },
-                            { lat: 48.859489, lng: 2.320582 }
-                        ]
-                    }
+                    paths={'all of the coordinants - axios request and populate'}
                     strokeColor="#0000FF"
                     strokeOpacity={0.8}
                     strokeWeight={2} />
-
+                {/* map through the checkpoint and for each add a marker with name and position, and the paths get only the coordinants */}
                 <Marker onClick={this.onMarkerClick}
-                    name={'Current location'} />
+                    name={'checkpoint name'} />
                 <Marker onClick={this.onMarkerClick}
-                    position={{ lat: 43.70724, lng: 7.2617893 }}
+                    position={'checkpoint coordinants'}
                     name={'p'} />
-
-                {/* <InfoWindow onClose={this.onInfoWindowClose}>
-                    <div>
-                        <h1>Israel</h1>
-                    </div>
-                </InfoWindow> */}
             </Map>
         );
     }
