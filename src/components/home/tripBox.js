@@ -13,12 +13,10 @@ class TripBox extends Component {
 
     render() {
         //in the props it get a trip
-        // console.log(this.props.store.trips)
-        // this.props.store.setTrip(this.props.trip._id);
-        // console.log(this.props.store.trip)
         return (
             <Router>
                 <span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Closed_Book_Icon.svg/2000px-Closed_Book_Icon.svg.png" height="30px"/>
                     <Link to={`/currTrip/${this.props.trip._id}`}>{this.props.trip.title}</Link>
                 </span>
             </Router>

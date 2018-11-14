@@ -3,10 +3,11 @@ import Navbar from './navbar';
 import Trips from './trips';
 import Logo from './logo';
 import Popupaddtrip from './popupaddtrip';
-import {inject} from 'mobx-react';
+import {observer, inject} from 'mobx-react';
 import '../../App.css';
 
 @inject ("store")
+@observer
 class Home extends Component {
   render() {
     return (<div>
