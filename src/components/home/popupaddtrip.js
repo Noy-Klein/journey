@@ -7,8 +7,8 @@ import '../../App.css';
 class Popupaddtrip extends Component {
 
   render() {
-    return (<div>
-
+    return (<div className="popup">
+    <h1>may</h1>
       </div>
     );
   }
