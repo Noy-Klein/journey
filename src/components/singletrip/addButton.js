@@ -21,12 +21,17 @@ class AddButton extends Component {
 
     @action inputChange = (t) => {
         this.trip[t.target.name] = t.target.value;
-      }
-
-      
+    } 
 
       addNewCheckpoint = () => { 
-        this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
+          if((this.trip.title==="")||(this.trip.description==="")||(this.trip.startDate==="")||(this.trip.people==="")||(this.trip.adress==="")){
+            alert ("Please fill out all the fields!")
+        }
+        else{
+            this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
+            this.closeButton()
+            alert ("Your checkpoint saved!")
+        }
     }
 
     render() {
@@ -45,7 +50,7 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="form-control inputpopup" id="inputCurr5" type="text" name="pictures" placeholder="Pictures" value={this.pictures} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="btn btn-outline-secondary addtripbuttoncurr" type="button" value="Add Trip" onClick={this.addNewCheckpoint}/>
+                <input className="btn btn-outline-secondary addtripbuttoncurr" type="button" value="Add Checkpoint" onClick={this.addNewCheckpoint}/>
                 <input className="btn btn-outline-secondary closepopupbutton" type="button" value="X" onClick={this.closeButton}/>
                
                 </div>

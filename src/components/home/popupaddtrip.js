@@ -19,7 +19,7 @@ class Popupaddtrip extends Component {
   @action inputChange = (e) => {this[e.target.name] = e.target.value}
 
   @action Addthetrip = () => {
-    if ((this.title=="")||( this.description=="")||( this.startDate=="")||(this.endDate=="")){
+    if ((this.title==="")||( this.description==="")||( this.startDate==="")||(this.endDate==="")){
         alert ("Please fill out all the fields!")
     }
     else{
