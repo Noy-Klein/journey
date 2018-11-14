@@ -3,7 +3,7 @@ import { observer, inject } from 'mobx-react';
 import Home from './components/home/home';
 import './App.css';
 import CurrTrip from './components/singletrip/currTrip';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 @inject("store")
 @observer
