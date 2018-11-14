@@ -7,12 +7,12 @@ class TripStore {
     @observable trips = [this.getTrips()]
     @observable showpopupaddtrip = false;
 
-    @action getTrips = async () => {
+    @action getCheckPoint = async () => {
         let trips = await axios.get('http://localhost:1000/trips')
-        this.setTrip(trips.data)
+        this.setCheckPoint(trips.data)
     }
 
-    @action setTrip = (trips) => {
+    @action setCheckPoint = (trips) => {
         this.trips = trips;
     }
 
@@ -25,17 +25,16 @@ class TripStore {
         }
     }
 
-    addTrip = async (title, description, startDate, endDate, people, adress, pictures) => {
+    addNewCheckpoint = async (title, description, startDate, people, adress, pictures) => {
         let trip = await axios.post('http://localhost:1000/trips', {
             title: title,
             description: description,
             startDate: startDate,
-            endDate: endDate,
             people: people,
             adress: adress,
             pictures: pictures
         })
-        this.setTrip(trip)
+        this.setCheckPoint(trip)
     }
 
     @action addCheckPoint = async (newCheckPoint) =>{

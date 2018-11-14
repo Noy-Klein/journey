@@ -9,7 +9,6 @@ class AddButton extends Component {
         title: "",
         description: "",
         startDate: "",
-        endDate: "",
         people: "",
         adress: "",
         pictures: ""
@@ -25,8 +24,8 @@ class AddButton extends Component {
 
       
 
-    addTrip = () => { 
-        this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
+      addNewCheckpoint = () => { 
+        this.props.store.addCheckPoint(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
     }
 
     render() {
@@ -37,9 +36,7 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="inputDescription" type="text" name="description" placeholder="Description" value={this.description} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="inputStartDate" type="text" name="startDate" placeholder="StartDate" value={this.startDate} onChange={this.inputChange}/>
-                <br></br><br></br>
-                <input className="inputEndDate" type="text" name="endDate" placeholder="EndDate" value={this.endDate} onChange={this.inputChange}/>
+                <input className="inputStartDate" type="Date" name="startDate" placeholder="StartDate" value={this.startDate} onChange={this.inputChange}/>
                 <br></br><br></br>
                 <input className="inputPeople" type="text" name="people" placeholder="People" value={this.people} onChange={this.inputChange}/>
                 <br></br><br></br>
@@ -47,7 +44,7 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="inputPictures" type="text" name="pictures" placeholder="Pictures" value={this.pictures} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="buttonAdd" type="button" value="Add Trip" onClick={this.addTrip}/>
+                <input className="buttonAdd" type="button" value="Add Trip" onClick={this.addNewCheckpoint}/>
                 <input className="closeButton" type="button" value="X" onClick={this.closeButton}/>
                 </div>
             </div>

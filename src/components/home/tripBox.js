@@ -10,7 +10,7 @@ class TripBox extends Component{
         //in the props it get a trip
         return(
             <span>
-                <Link to={`http://localhost:3000/currTrip/${this.props.trip._id}`}>{this.props.trip.title}</Link>
+                <Link to={`/currTrip/${this.props.trip._id}`}>{this.props.trip.title}</Link>
             </span>
         );
     }
