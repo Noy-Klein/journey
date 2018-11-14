@@ -1,6 +1,5 @@
 import { observable, action } from "mobx";
-import axios from 'axios'
-
+import axios from 'axios';
 
 class TripStore {
     @observable trip = null;
@@ -38,6 +37,6 @@ class TripStore {
     }
 }
 
-const store = new TripStore();
+const Store = new TripStore();
 
-export default store;
+export default Store;

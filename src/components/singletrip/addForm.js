@@ -7,25 +7,25 @@ import AddButton from './addButton';
 @observer
 class AddForm extends Component {
 
-    @observable showPopup =  false;
+    @observable showPopup = false;
 
     togglePopup = () => {
         this.showPopup = !this.showPopup
     }
 
-render() {
-    return(
-        <div className="addForm">
+    render() {
+        return (
+            <div className="addForm">
                 <input className="add" type="button" value="+" onClick={this.togglePopup} />
                 <div>
                     {this.showPopup ?
                         <AddButton
-                            closePopup={this.togglePopup}  
+                            closePopup={this.togglePopup}
                         />
                         : null}
                 </div>
-        </div>
-    )
-}
+            </div>
+        )
+    }
 }
 export default AddForm;

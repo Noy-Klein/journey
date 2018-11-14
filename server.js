@@ -1,7 +1,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
-let usersApi = require("./Apis/tripApi")
+let tripApi = require("./Apis/tripApi")
 let app = express()
 
 mongoose.connect('mongodb://localhost/trip', function () {
