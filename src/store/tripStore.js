@@ -4,15 +4,16 @@ import axios from 'axios';
 class TripStore {
 
     @observable trip = null;
+    @observable trips = [this.getTrips()]
     @observable showpopupaddtrip = false;
 
-    getTrip = async () => {
-        let trip = await axios.get('http://localhost:1000/trips')
-        this.setTrip(trip.data)
+    @action getTrips = async () => {
+        let trips = await axios.get('http://localhost:1000/trips')
+        this.setTrip(trips.data)
     }
 
-    @action setTrip = (trip) => {
-        this.trip = trip;
+    @action setTrip = (trips) => {
+        this.trips = trips;
     }
 
     @action changeshowpopupaddtrip = () => {
