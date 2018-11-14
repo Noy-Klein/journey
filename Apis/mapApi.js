@@ -23,7 +23,7 @@ router.post('/checkpoints', (req, res) => {
             trip.checkpoints.push(newCheckPoint);
             trip.save((err, trip) => {
                 console.log(trip)
-                res.send(trip.coordinant);
+                res.send(trip);
             });
         });
     })
