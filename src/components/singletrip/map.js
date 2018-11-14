@@ -7,7 +7,6 @@ import '../../App.css'
 @observer
 class MapContainer extends Component {
     render() {
-        // console.log(this.props.store.trip._id)
         // this.props.store.addCheckPoint({data:{
         //     title: 'Champ De Mars',
         //     description: 'THE park',
