@@ -12,7 +12,7 @@ class CurrTrip extends Component {
             <div>
                 {/* <AddForm /> */}
                 {/* <AddButton /> */}
-            <Logo />
+            {/* <Logo /> */}
                 {/* add addForm, map, addbutton */}
             </div>
         );
