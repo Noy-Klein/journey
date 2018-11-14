@@ -20,15 +20,15 @@ router.post('/trips', (req,res)=>{
     res.send(newTrip)
 });
 
-trips.create({
-    title: 'Paris',
-    description: 'With My Friends',
-    startDate: new Date(2,2,2018),
-    endDate: new Date(2,3,2018),
-    checkpoints: []
-}, (err,data)=>{
-    console.log(data)
-})
+// trips.create({
+//     title: 'Paris',
+//     description: 'With My Friends',
+//     startDate: new Date(2,2,2018),
+//     endDate: new Date(2,3,2018),
+//     checkpoints: []
+// }, (err,data)=>{
+//     console.log(data)
+// })
 
 // checkpoint.create({
 //     title: 'Eiffel Tower',
