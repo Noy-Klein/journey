@@ -8,6 +8,7 @@ class CurrTrip extends Component {
     render() {
         return (
             <div>
+            <Logo />
                 {/* add addForm, map, addbutton */}
             </div>
         );
