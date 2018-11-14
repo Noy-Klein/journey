@@ -9,11 +9,19 @@ class TripStore {
 
     @action getTrips = async () => {
         let trips = await axios.get('http://localhost:1000/trips')
-        this.setTrip(trips.data)
+        this.setTripsValue(trips.data)
     }
 
-    @action setTrip = (trips) => {
-        this.trips = trips;
+    @action setTripsValue = (trips) => {
+        this.trips = trips
+    }
+
+    @action setTrip = async (id) => {
+        // let tripsDemo = await axios.get('http://localhost:1000/trips')
+        await this.getTrips();
+        // tripsDemo = tripsDemo.data
+        let theTrip = this.trips.find(t => t._id === id)
+        this.trip = theTrip
     }
 
     @action changeshowpopupaddtrip = () => {
