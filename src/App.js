@@ -12,6 +12,9 @@ class App extends Component {
     return (<div>
        <Router>
       <div className="App">
+        <CurrTrip />
+        <Home />
+        {/* <AddForm /> */}
           {/* Main Links */}
           <li><Link to="/currTrip">CurrTrip</Link></li>
           <li><Link to="/home">Home</Link></li>
