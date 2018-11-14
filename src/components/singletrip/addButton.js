@@ -32,20 +32,23 @@ class AddButton extends Component {
     render() {
         return (
             <div className="add-button">
-                <div className="popUp">
-                <input className="inputTitle" type="text" name="title" placeholder="title" value={this.title} onChange={this.inputChange}/>
+                <div className="popup">
+                <input className="inputTitle" type="text" name="title" placeholder="Title" value={this.title} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="inputDescription" type="text" name="description" placeholder="description" value={this.description} onChange={this.inputChange}/>
+                <input className="inputDescription" type="text" name="description" placeholder="Description" value={this.description} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="inputStartDate" type="text" name="startDate" placeholder="startDate" value={this.startDate} onChange={this.inputChange}/>
+                <input className="inputStartDate" type="text" name="startDate" placeholder="StartDate" value={this.startDate} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="inputEndDate" type="text" name="endDate" placeholder="endDate" value={this.endDate} onChange={this.inputChange}/>
+                <input className="inputEndDate" type="text" name="endDate" placeholder="EndDate" value={this.endDate} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="inputPeople" type="text" name="people" placeholder="people" value={this.people} onChange={this.inputChange}/>
+                <input className="inputPeople" type="text" name="people" placeholder="People" value={this.people} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="inputAdress" type="text" name="adress" placeholder="adress" value={this.adress} onChange={this.inputChange}/>
+                <input className="inputAdress" type="text" name="adress" placeholder="Adress" value={this.adress} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="inputPictures" type="text" name="pictures" placeholder="pictures" value={this.pictures} onChange={this.inputChange}/>
+                <input className="inputPictures" type="text" name="pictures" placeholder="Pictures" value={this.pictures} onChange={this.inputChange}/>
+                <br></br><br></br>
+                <input className="buttonAdd" type="button" value="Add Trip" onClick={this.addTrip}/>
+                <input className="closeButton" type="button" value="X" onClick={this.closeButton}/>
                 </div>
             </div>
         )
