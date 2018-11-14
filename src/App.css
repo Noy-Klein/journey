@@ -2,9 +2,9 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+body{
+  background-image: url("http://thewallpaper.co/wp-content/uploads/2016/03/passenger-flight-aeroplane-in-sky-widescreen-high-resolution-wallpaper-images-for-desktop-background-free-windows-wallpaper-amazing-colors-1920x1200.jpg");
+  background-size: cover;
 }
 
 h1{
@@ -21,18 +21,79 @@ h2{
   transform: translate(-50%,-50%);
   position: fixed;
   width: 420px;
-  height: 450px;
-  background-color: rgba(85, 83, 83, 0.637);
+  height: 280px;
+  background-color: rgba(154, 174, 187, 0.801);
   border-radius: 7px;
 }
 
 .searchinput{
   top: 30%;
+  left: 48%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 270px;
+  background-color: rgba(255, 255, 255, 0.493);
+}
+
+.inputpopup{
   left: 50%;
   transform: translate(-50%,-50%);
   position: fixed;
-  width: 370px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+}
+
+#input1{
+  top: 10%;
+}
+
+#input2{
+  top: 30%;
+}
+
+#input3{
+  top: 50%;
+}
+
+#input4{
+  top: 70%;
+}
+
+.closepopupbutton{
+  top: 2%;
+  left: 90%;
+  position: fixed;
+  width: 40px;
   background-color: rgba(255, 255, 255, 0);
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.addtripbutton{
+  top: 80%;
+  left:36%;
+  float: left;
+  position: fixed;
+  width: 100px;
+  background-color: rgba(255, 255, 255, 0.39);
+}
+
+.searchbutton{
+  top: 30%;
+  left: 61%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 81px;
+  background-color: rgba(255, 255, 255, 0.575);
+}
+
+#plus{
+  position: fixed;
+  left:35%;
+  top:27%;
+  height:40px;
 }
 
 .App-header {

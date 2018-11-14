@@ -24,23 +24,16 @@ class Popupaddtrip extends Component {
 
   render() {
     return (<div className="popup">
-    <button onClick={this.closepopup} type="button">X</button>
-    <div className="input-group  mb-3">
-      <input name="title" onChange={this.inputChange} value={this.title} placeholder="Trip title" type="text" className="form-control" aria-describedby="button-addon2" />
-      </div>
-      <div className="input-group  mb-3">
-      <input name="description" onChange={this.inputChange} value={this.description} placeholder="Description" type="text" className="form-control" aria-describedby="button-addon2" />
-      </div>
-      <div className="input-group  mb-3">
-      <input name="startDate" onChange={this.inputChange} value={this.startDate} placeholder="Start Date" type="Date" className="form-control" aria-describedby="button-addon2" />
-      </div>
-      <div className="input-group  mb-3">
-      <input name="endDate" min={this.startDate} onChange={this.inputChange} value={this.endDate} placeholder="End Date" type="Date" className="form-control" aria-describedby="button-addon2" />
+      <input id="input1" name="title" onChange={this.inputChange} value={this.title} placeholder="Trip title" type="text" className="form-control inputpopup" aria-describedby="button-addon2" />
       <br/>
-      <div className="input-group-append">
-      <button className="btn btn-outline-secondary" onClick={this.Addthetrip} type="button" id="button-addon2">Create Trip</button>
-      </div>
-      </div>
+      <input id="input2" name="description" onChange={this.inputChange} value={this.description} placeholder="Description" type="text" className="form-control inputpopup" aria-describedby="button-addon2" />
+      <br/>
+      <input id="input3" name="startDate" onChange={this.inputChange} value={this.startDate} placeholder="Start Date" type="Date" className="form-control inputpopup" aria-describedby="button-addon2" />
+      <br/>
+      <input id="input4" name="endDate" min={this.startDate} onChange={this.inputChange} value={this.endDate} placeholder="End Date" type="Date" className="form-control inputpopup" aria-describedby="button-addon2" />
+      <br/>
+      <button className="btn btn-outline-secondary addtripbutton" onClick={this.Addthetrip} type="button" id="button-addon2">Create Trip</button>
+      <button onClick={this.closepopup} className="btn btn-outline-secondary closepopupbutton" type="button">X</button>
       </div>
     );
   }
