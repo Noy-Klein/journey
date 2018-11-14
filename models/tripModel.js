@@ -5,6 +5,7 @@ const TripSchema = new mongoose.Schema({
     description: String,
     startDate: Date,
     endDate: Date,
+    checkpoints: [{ type: Schema.Types.ObjectId, ref: 'checkpoint' }]
 })
 
 const Trip = mongoose.model('trip', TripSchema)

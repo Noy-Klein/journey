@@ -3,21 +3,21 @@ const router = express.Router();
 const trips = require('../models/tripModel');
 const checkpoint = require('../models/checkpointModel');
 
-router.get('/trips', (req,res)=>{
-    trips.find({}).exec((err,data)=>{
+router.get('/checkpoints', (req,res)=>{
+    checkpoint.find({}).exec((err, data)=>{
         if(err){
             res.status(500).send(err)
         }
         else{
-            res.send(data)
+           res.send(data) 
         }
     })
 });
 
-router.post('/trips', (req,res)=>{
-    let newTrip = new trips(req.body);
-    newTrip.save();
-    res.send(newTrip)
+router.post('/checkpoints', (req,res)=>{
+    let newCheckPoint = new checkpoint(req.body);
+    newCheckPoint.save();
+    res.send(newCheckPoint);
 })
 
 module.exports = router
