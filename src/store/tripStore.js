@@ -1,7 +1,7 @@
 import { observable, action } from "mobx";
 
-class tripStore {
-
+class TripStore {
+@observable trip = null
   @observable showpopupaddtrip = false;
 
   @action changeshowpopupaddtrip = () => {
@@ -14,5 +14,6 @@ class tripStore {
   }
 }
 
-const store = new tripStore();
+const store = new TripStore();
+
 export default store;
