@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Logo from '../home/logo';
 import { inject, observer } from 'mobx-react';
 import '../../App.css';
-import Map from './map'
 import AddForm from './addForm'
 import { observable } from 'mobx';
 import ShowCheckPoint from './showcheckpoint'
+import TripDetails from './tripDetails';
+import MapContainer from './map'
 
 @inject("store")
 @observer
@@ -20,14 +21,18 @@ class CurrTrip extends Component {
     }
 
 
+    componentDidMount=()=>{
+        this.props.store.setTrip(this.props.match.params._id)
+    }
+
     render() {
-        this.props.store.setTrip(this.props.match.params._id);
         return (
             <div>
             <Logo />
-                <AddForm />
+                <AddForm id={this.props.match.params._id} />
+                <TripDetails id={this.props.match.params._id} />
                 {/* add addForm, map, addbutton */}
-                <Map togglePopupCheckPoint={this.togglePopupCheckPoint}/>
+                <MapContainer id={this.props.match.params._id} togglePopupCheckPoint={this.togglePopupCheckPoint}/>
                 <div>
                         {this.showPopup ?
                             <ShowCheckPoint marker={this.props.store.marker}
@@ -36,7 +41,6 @@ class CurrTrip extends Component {
                             />
                             : null}
                     </div>
-
             </div>
         );
     }

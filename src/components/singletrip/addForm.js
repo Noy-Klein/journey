@@ -18,11 +18,7 @@ class AddForm extends Component {
             <div className="addForm">
                   <img src="https://www.pngarts.com/files/3/Plus-Symbol-PNG-Image-with-Transparent-Background.png" height="40px" alt="error" onClick={this.togglePopup} value="button"/>
                 <div>
-                    {this.showPopup ?
-                        <AddButton
-                            closePopup={this.togglePopup}
-                        />
-                        : null}
+                    {this.showPopup ?<AddButton id={this.props.id} closePopup={this.togglePopup}/>: null}
                 </div>
             </div>
         )

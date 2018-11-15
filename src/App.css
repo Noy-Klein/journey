@@ -7,6 +7,10 @@ body{
   background-size: cover;
 }
 
+.tripfolder{
+  top: 90%;
+}
+
 h1{
   font-size: 30px;
 }
