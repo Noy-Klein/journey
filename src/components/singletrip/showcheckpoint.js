@@ -33,10 +33,11 @@ class ShowCheckPoint extends Component {
             return (
                 <div className="popup-checkpoint">
                     <input className="btn btn-outline-secondary closepopupbutton" type="button" value="X" onClick={this.closeButtonCheckPoint} />
-                    <div>{cp.title}</div>
-                    <p>{cp.description}</p>
-                    <div>{this.fixDate(cp.startDate)}</div>
-                    <div>with: {cp.people.map(p => {return <span> {p}</span>})}</div>
+                    <br/>
+                    <h1>{cp.title}</h1>
+                    <h2>Description: {cp.description}</h2>
+                    <h2>Date: {this.fixDate(cp.startDate)}</h2>
+                    <h2>with: {cp.people.map(p => {return <span> {p}</span>})}</h2>
                 </div>
             )
         }
