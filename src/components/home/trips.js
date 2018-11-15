@@ -8,6 +8,7 @@ import { inject, observer } from 'mobx-react';
 class Trips extends Component {
 
   render() {
+    // console.log(this.props.store.trips)
     return (
       <div>
         {this.props.store.tripstosearch.map(t => {
