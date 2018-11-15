@@ -23,8 +23,6 @@ class AddButton extends Component {
         this.trip[t.target.name] = t.target.value;
       }
 
-      
-
       addNewCheckpoint = () => { 
         this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
     }
@@ -45,7 +43,7 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="form-control inputpopup" id="inputCurr5" type="text" name="pictures" placeholder="Pictures" value={this.pictures} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="btn btn-outline-secondary addtripbuttoncurr" type="button" value="Add Trip" onClick={this.addNewCheckpoint}/>
+                <input className="btn btn-outline-secondary addtripbuttoncurr" type="button" value="Add Checkpoint" onClick={this.addNewCheckpoint}/>
                 <input className="btn btn-outline-secondary closepopupbutton" type="button" value="X" onClick={this.closeButton}/>
                
                 </div>

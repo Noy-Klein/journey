@@ -6,6 +6,12 @@ class TripStore {
     @observable trip = null;
     @observable trips = [];
     @observable showpopupaddtrip = false;
+    @observable marker = {}
+    @observable currCheckpoint = null
+
+    @action setMarker = (marker) => {
+        this.marker = marker
+    }
 
     @action getTrips = async () => {
         let trips = await axios.get('http://localhost:1000/trips')
@@ -15,6 +21,19 @@ class TripStore {
     @action setTripsValue = (trips) => {
         this.trips = trips
     }
+
+    @action setCheckPoint = async (id) => {
+        // console.log(this.marker.id)
+        let checkpoint = await axios.get('http://localhost:1000/checkpoints/' + id)
+        // console.log(checkpoint.data)
+        this.currCheckpoint = checkpoint.data
+        // this.setCheckPoint(checkpoint.data)
+    }
+
+    // @action setCheckPoint = (checkpoint) => {
+        
+    // }
+
 
     @action setTrip = async (id) => {
         await this.getTrips();
