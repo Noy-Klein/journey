@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import { observable, action } from "mobx";
 import '../../App.css';
 
 @inject("store")
@@ -10,10 +9,6 @@ class ShowCheckPoint extends Component {
     closeButtonCheckPoint = () => {
         this.props.closeCheckPoint()
     }
-
-    // getCheckPoint = () => {
-    //     this.props.store.getCheckPoint()
-    // }
 
     componentWillMount = () => {
         this.props.store.setCheckPoint()
@@ -29,6 +24,7 @@ class ShowCheckPoint extends Component {
 
     render() {
         let cp = this.props.store.currCheckpoint
+        console.log(cp)
         if (cp) {
             return (
                 <div className="popup-checkpoint">

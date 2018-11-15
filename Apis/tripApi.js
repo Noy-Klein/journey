@@ -16,8 +16,15 @@ router.get('/trips', (req,res)=>{
 
 router.post('/trips', (req,res)=>{
     let newTrip = new trips(req.body);
-    newTrip.save();
-    res.send(newTrip)
+    newTrip.save(function(err, data){
+        if(err){
+            res.status(500).send(err)
+        }
+        else{
+            console.log(data)
+            res.send(data)
+        }
+    });
 });
 
 module.exports = router
