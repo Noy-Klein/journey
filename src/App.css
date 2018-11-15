@@ -7,8 +7,27 @@ body{
   background-size: cover;
 }
 
+.addcheckpointbtn{
+  top: 100px;
+  left: 0px;
+  position: relative;
+  width: 130px;
+  background-color: rgba(255, 255, 255, 0.575);
+}
+
 .logo{
   position: "block";
+}
+
+.tripdetails{
+margin-top: -40px;
+}
+
+hr{
+  width: 700px;
+  height: 2px;
+  border: 0ch;
+  background-color: rgba(255, 255, 255, 0.575);
 }
 
 .tripfolder{
@@ -147,9 +166,8 @@ h2{
 }
 
 .map{
-  position: fixed;
-  left: 350px;
-  top: 200px;
+  top: 60%;
+  left: 25%;
   z-index: -1;
 }
 
