@@ -7,8 +7,27 @@ body{
   background-size: cover;
 }
 
+.addcheckpointbtn{
+  top: 100px;
+  left: 0px;
+  position: relative;
+  width: 130px;
+  background-color: rgba(255, 255, 255, 0.575);
+}
+
 .logo{
   position: "block";
+}
+
+.tripdetails{
+margin-top: -40px;
+}
+
+hr{
+  width: 700px;
+  height: 2px;
+  border: 0ch;
+  background-color: rgba(255, 255, 255, 0.575);
 }
 
 .tripfolder{
@@ -151,7 +170,10 @@ h2{
  margin-left:25%
 }
 .map{
-  position:static
+  //position:static
+  top: 60%;
+  left: 25%;
+  z-index: -1;
 }
 
 #inputCurr{
@@ -189,5 +211,4 @@ bottom: 189px;
   background-color: rgba(165, 186, 201, 0.712);
   border-radius: 7px;
 }
-
-
+/* rgba(165, 186, 201, 0.712) */

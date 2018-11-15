@@ -29,7 +29,8 @@ class CurrTrip extends Component {
         return (
             <div>
             <Logo />
-                <AddForm id={this.props.match.params._id} />
+            <hr />
+                <AddForm id={this.props.match.params._id}/>
                 <TripDetails id={this.props.match.params._id} />
                 {/* add addForm, map, addbutton */}
                 <MapContainer id={this.props.match.params._id} togglePopupCheckPoint={this.togglePopupCheckPoint}/>
