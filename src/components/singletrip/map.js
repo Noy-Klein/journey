@@ -1,59 +1,44 @@
-import { Map, Marker, GoogleApiWrapper, Polygon } from 'google-maps-react';
+import { Map, Marker, GoogleApiWrapper, Polyline } from 'google-maps-react';
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import '../../App.css'
+// import { observable } from 'mobx';
 
 @inject("store")
-@observer
+@observer 
 class MapContainer extends Component {
-    render() {
-        // this.props.store.addCheckPoint({data:{
-        //     title: 'Champ De Mars',
-        //     description: 'THE park',
-        //     startDate: new Date(2, 2, 2018),
-        //     people: ['dani', 'may'],
-        //     adress: 'Champ De Mars',
-        //     pictures: ['https://www.toureiffel.paris/themes/custom/tour_eiffel/img/poster-tour-eiffel-jour-nuit.jpg'],
-        //     coordinant: null
-        // }, id: this.props.store.trip._id})
-        // this.props.store.addCheckPoint({data:{
-        //     title: 'Eiffel Tower',
-        //     description: 'THE tower',
-        //     startDate: new Date(2, 2, 2018),
-        //     people: ['dani', 'may'],
-        //     adress: 'Eiffel Tower',
-        //     pictures: ['https://www.toureiffel.paris/themes/custom/tour_eiffel/img/poster-tour-eiffel-jour-nuit.jpg'],
-        //     coordinant: null
-        // }, id: this.props.store.trip._id})
-        console.log(this.props.store.trip)
-        if (this.props.store.trip !== null) {
-            return (
-                <Map className="map" style={{ width: '50%', height: '50%' }} initialCenter={this.props.store.trip.checkpoints[0].coordinant} google={this.props.google} zoom={14}>
-                    <Polygon
-                        paths={
-                            this.props.store.trip.checkpoints.map(c => { return c.coordinant })
-                        }
-                        strokeColor="#0000FF" />
-                    {/* // strokeOpacity={0.8}
-                    // strokeWeight={2} /> */}
 
-                    {this.props.store.trip.checkpoints.map(c => { return <Marker name={c.title} position={c.coordinant} /> })}
-                    {/* <Marker onClick={this.onMarkerClick}
-                    name={'Current location'} />
-                <Marker onClick={this.onMarkerClick}
-                    position={{ lat: 43.70724, lng: 7.2617893 }}
-                    name={'p'} /> */}
-                </Map>
-            )
-        }
-        else{
-            return null
-        }
+    componentDidMount=()=>{
+        this.props.store.setTrip(this.props.id)
+    }
+
+    render() {
+        let trip = this.props.store.trip ;
+        if (trip && trip.checkpoints.length) {
+                return (
+                    <Map className="map" style={{ width: '50%', height: '50%' }} initialCenter={trip.checkpoints[0].coordinant} google={this.props.google} zoom={14}>
+                        <Polyline
+                            path={
+                                trip.checkpoints.map(c => { return c.coordinant })
+                            }
+                            strokeColor="#0000FF" />
+                       
+
+                        {trip.checkpoints.map(c => { return <Marker name={c.title} position={c.coordinant} /> })}
+                        
+                    </Map>
+                )
+            }
+            else {
+                return (
+                    <Map className="map" style={{ width: '50%', height: '50%' }} google={this.props.google} zoom={14}></Map>
+                );
+            }
     }
 }
 
 // export default MapContainer
 export default GoogleApiWrapper({
     apiKey: ('AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M'),
-    MapContainer: MapContainer
+    MapContainer
 })(MapContainer)

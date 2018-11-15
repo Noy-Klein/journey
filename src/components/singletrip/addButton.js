@@ -29,9 +29,9 @@ class AddButton extends Component {
         }
         // this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
         else{
-        this.props.store.addCheckPoint({data:{title:this.trip.title, description:this.trip.description, startDate:this.trip.startDate, people:this.trip.people, adress:this.trip.adress, pictures:this.trip.pictures}})
+        this.props.store.addCheckPoint({data:{title:this.trip.title, description:this.trip.description, startDate:this.trip.startDate, people:this.trip.people, adress:this.trip.adress, pictures:this.trip.pictures}, id:this.props.id})
         this.closeButton()
-        alert ("Your checkpoint saved!")
+        // alert ("Your checkpoint saved!")
         }
     }
 
