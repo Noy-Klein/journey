@@ -35,8 +35,12 @@ router.post('/checkpoints', (req, res) => {
         newCheckPoint.coordinant = req.body.coo;
         newCheckPoint.save((err, trip) => {
             trip.save((err, trip) => {
-                console.log(trip)
-                res.send(trip);
+                if(err){
+                    res.send(trip);
+                }
+                else{
+                    res.status(500).send(err)
+                }
             });
         });
     })
@@ -45,13 +49,11 @@ router.post('/checkpoints', (req, res) => {
 
 router.get('/checkpoints/:id', (req, res)=>{
     let idc = req.params.id;
-    console.log(idc)
     checkpoint.findById(idc).exec(function(err, data){
         if(err){
             res.status(500).send(err)
         }
         else{
-            console.log(data)
             res.send(data)
         }
     })
