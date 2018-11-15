@@ -23,9 +23,9 @@ class TripDetails extends Component {
         let trip = this.props.store.trip;
         if (trip) {
             return (
-                <div>
-                    <div>{trip.title}</div>
-                    <p>{trip.description}</p>
+                <div className="tripdetails">
+                    <h1>{trip.title}</h1>
+                    <h2>{trip.description}</h2>
                     <div>{this.fixDate(trip.startDate)} - {this.fixDate(trip.endDate)}</div>
                 </div>
             );

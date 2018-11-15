@@ -29,7 +29,7 @@ componentDidMount=()=>{
                         }
                         strokeColor="#0000FF" />
                    
-                   {trip.checkpoints.map(c => { return <Marker name={c.title} position={c.coordinant} /> })}
+                   {trip.checkpoints.map(c => { return <Marker id={c._id} onClick={this.click} name={c.title} position={c.coordinant} /> })}
                 </Map>
 
 

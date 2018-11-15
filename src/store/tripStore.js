@@ -25,11 +25,8 @@ class TripStore {
     }
 
     @action setCheckPoint = async (id) => {
-        // console.log(this.marker.id)
         let checkpoint = await axios.get('http://localhost:1000/checkpoints/' + id)
-        // console.log(checkpoint.data)
         this.currCheckpoint = checkpoint.data
-        // this.setCheckPoint(checkpoint.data)
     }
 
 
@@ -54,10 +51,6 @@ class TripStore {
         })
         this.trip = trip.data;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> de4744d17acbe543bed117cdd70037112ac3a0fe
     
     Addtrip = async (title, description, startDate, endDate) => {
         let newtrip = await axios.post('http://localhost:1000/trips', {title:title, description:description, startDate:startDate, endDate:endDate })
