@@ -165,7 +165,12 @@ h2{
   }
 }
 
+.mapDiv{
+ text-align: center;
+ margin-left:25%
+}
 .map{
+  //position:static
   top: 60%;
   left: 25%;
   z-index: -1;
@@ -198,11 +203,12 @@ bottom: 189px;
 .popup-checkpoint{
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   position: fixed;
-  width: 420px;
-  height: 280px;
-  background-color: red;
+  width: 332px;
+  height: 173px;
+  background-color: rgba(165, 186, 201, 0.712);
   border-radius: 7px;
 }
 /* rgba(165, 186, 201, 0.712) */

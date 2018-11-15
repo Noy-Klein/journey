@@ -22,6 +22,7 @@ componentDidMount=()=>{
       let trip = this.props.store.trip ;
       if (trip && trip.checkpoints.length) {
         return (
+            <div className="mapDiv">
                 <Map className="map" style={{ width: '50%', height: '50%' }} initialCenter={trip.checkpoints[0].coordinant} google={this.props.google} zoom={14}>
                     <Polyline
                         path={
@@ -31,13 +32,13 @@ componentDidMount=()=>{
                    
                    {trip.checkpoints.map(c => { return <Marker id={c._id} onClick={this.click} name={c.title} position={c.coordinant} /> })}
                 </Map>
-
+                </div>
 
         );
       }
       else{
           return (
-                    <Map className="map" style={{ width: '50%', height: '50%' }} google={this.props.google} zoom={14}></Map>
+                    <Map style={{ width: '50%', height: '50%' }} google={this.props.google} zoom={14}></Map>
                 );
       }
     }
