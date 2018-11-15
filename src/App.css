@@ -103,7 +103,7 @@ h2{
   left:36%;
   float: left;
   position: fixed;
-  width: 100px;
+  width: 135px;
   background-color: rgba(255, 255, 255, 0.39);
 }
 
@@ -175,4 +175,15 @@ bottom: 189px;
 
 #inputCurr5{
   bottom: 45px;
+}
+
+.popup-checkpoint{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 420px;
+  height: 280px;
+  background-color: rgba(165, 186, 201, 0.712);
+  border-radius: 7px;
 }
