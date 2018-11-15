@@ -10,7 +10,7 @@ class Trips extends Component {
   render() {
     return (
       <div>
-        {this.props.store.trips.map(t => {
+        {this.props.store.tripstosearch.map(t => {
           return <TripBox key={t._id} trip={t} />
         })}
       </div>

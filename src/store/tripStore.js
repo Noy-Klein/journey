@@ -5,11 +5,13 @@ class TripStore {
 
     @observable trip = null;
     @observable trips = [];
+    @observable tripstosearch = [];
     @observable showpopupaddtrip = false;
 
     @action getTrips = async () => {
         let trips = await axios.get('http://localhost:1000/trips')
         this.setTripsValue(trips.data)
+        this.tripstosearch = [...this.trips];
     }
 
     @action setTripsValue = (trips) => {
@@ -37,10 +39,10 @@ class TripStore {
             pictures: pictures
         })
     }
-        //this.setCheckPoint(trip)
-    
+    //this.setCheckPoint(trip)
+
     Addtrip = async (title, description, startDate, endDate) => {
-        let newtrip = await axios.post('http://localhost:1000/trips', {title:title, description:description, startDate:startDate, endDate:endDate })
+        let newtrip = await axios.post('http://localhost:1000/trips', { title: title, description: description, startDate: startDate, endDate: endDate })
         this.setTrip(newtrip)
     }
 
@@ -54,6 +56,15 @@ class TripStore {
         }
         catch (err) {
             console.error(err)
+        }
+    }
+
+    @action searchtrip = (searchword) => {
+        if (this.searchword != "") {
+            let filterdarr = this.trips.filter((trip) => {
+                return trip.title.toString().toLowerCase().includes(searchword.toLowerCase())
+            })
+            this.tripstosearch = filterdarr
         }
     }
 }

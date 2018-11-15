@@ -7,6 +7,10 @@ body{
   background-size: cover;
 }
 
+.logo{
+  position: "block";
+}
+
 .tripfolder{
   top: 90%;
 }
@@ -16,7 +20,7 @@ h1{
 }
 
 h2{
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .popup {
@@ -42,10 +46,9 @@ h2{
 }
 
 .searchinput{
-  top: 30%;
-  left: 48%;
-  transform: translate(-50%,-50%);
-  position: fixed;
+  bottom: 33px;
+  left: 517px;
+  position: relative;
   width: 270px;
   background-color: rgba(255, 255, 255, 0.493);
 }
@@ -105,18 +108,17 @@ h2{
 }
 
 .searchbutton{
-  top: 30%;
-  left: 61%;
-  transform: translate(-50%,-50%);
-  position: fixed;
+  bottom: 70px;
+  left: 150px;
+  position: relative;
   width: 81px;
   background-color: rgba(255, 255, 255, 0.575);
 }
 
 #plus{
-  position: fixed;
-  left:35%;
-  top:27%;
+  position: relative;
+  right: 187px;
+  top:6px;
   height:40px;
 }
 

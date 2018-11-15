@@ -13,9 +13,9 @@ class TripBox extends Component {
 
     render() {
         return (
-                <div style={{display: 'inline-block', width: '20%'}}>
-                    <img alt='file' src="http://icons.iconarchive.com/icons/dtafalonso/yosemite-flat/256/Folder-icon.png" height="30px"/>
-                    <Link to={`/currTrip/${this.props.trip._id}`}>{this.props.trip.title}</Link>
+                <div style={{display: 'inline-block', width: '15%'}}>
+                    <Link to={`/currTrip/${this.props.trip._id}`}><img alt='file' src="http://icons.iconarchive.com/icons/dtafalonso/yosemite-flat/256/Folder-icon.png" height="100px"/></Link>
+                    <h2>{this.props.trip.title}</h2>
                 </div>
         );
     }
