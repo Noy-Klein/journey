@@ -17,9 +17,9 @@ class Home extends Component {
   render() {
     return (<div>
       <Logo />
-      <div><Navbar /></div>
+      <Navbar />
       {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
-      <div><Trips /></div>
+      <Trips />
       </div>
     );
   }

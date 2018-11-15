@@ -5,6 +5,7 @@ class TripStore {
 
     @observable trip = null;
     @observable trips = [];
+    @observable tripstosearch = [];
     @observable showpopupaddtrip = false;
     @observable marker = {}
     @observable currCheckpoint = null
@@ -16,6 +17,7 @@ class TripStore {
     @action getTrips = async () => {
         let trips = await axios.get('http://localhost:1000/trips')
         this.setTripsValue(trips.data)
+        this.tripstosearch = [...this.trips];
     }
 
     @action setTripsValue = (trips) => {
@@ -29,10 +31,6 @@ class TripStore {
         this.currCheckpoint = checkpoint.data
         // this.setCheckPoint(checkpoint.data)
     }
-
-    // @action setCheckPoint = (checkpoint) => {
-        
-    // }
 
 
     @action setTrip = async (id) => {
@@ -73,6 +71,15 @@ class TripStore {
         }
         catch (err) {
             console.error(err)
+        }
+    }
+
+    @action searchtrip = (searchword) => {
+        if (this.searchword != "") {
+            let filterdarr = this.trips.filter((trip) => {
+                return trip.title.toString().toLowerCase().includes(searchword.toLowerCase())
+            })
+            this.tripstosearch = filterdarr
         }
     }
 }
