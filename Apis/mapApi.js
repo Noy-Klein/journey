@@ -42,4 +42,19 @@ router.post('/checkpoints', (req, res) => {
     })
 })
 
-module.exports = router
+
+router.get('/checkpoints/:id', (req, res)=>{
+    let idc = req.params.id;
+    console.log(idc)
+    checkpoint.findById(idc).exec(function(err, data){
+        if(err){
+            res.status(500).send(err)
+        }
+        else{
+            console.log(data)
+            res.send(data)
+        }
+    })
+});
+
+module.exports = router;

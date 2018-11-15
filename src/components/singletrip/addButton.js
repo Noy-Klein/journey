@@ -21,7 +21,7 @@ class AddButton extends Component {
 
     @action inputChange = (t) => {
         this.trip[t.target.name] = t.target.value;
-    } 
+      }
 
       addNewCheckpoint = () => { 
           if((this.trip.title==="")||(this.trip.description==="")||(this.trip.startDate==="")||(this.trip.people==="")||(this.trip.adress==="")){
