@@ -1,5 +1,6 @@
 import { observable, action } from "mobx";
 import axios from 'axios';
+let GoogleImages = require('google-images');
 
 class TripStore {
 
@@ -61,8 +62,9 @@ class TripStore {
         this.setSignUp(newuser.data.username)
     }
     
-    Addtrip = async (title, description, startDate, endDate, username) => {
-        await axios.post('http://localhost:1000/' + username + '/trips', {title:title, description:description, startDate:startDate, endDate:endDate })
+
+    Addtrip = async (title, description, startDate, endDate, imageurl, username) => {
+        await axios.post('http://localhost:1000/' + username + '/trips', {title:title, description:description, startDate:startDate, endDate:endDate, imageurl:imageurl })
         // console.log(newtrip)
         // this.trips.push(newtrip.data);
         this.getTrips(username)
@@ -98,7 +100,6 @@ class TripStore {
         }
     }
 }
-
 
 const Store = new TripStore();
 

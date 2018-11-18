@@ -11,6 +11,7 @@ class Popupaddtrip extends Component {
   @observable description= ""
   @observable startDate= ""
   @observable endDate= ""
+  @observable imageurl= ""
 
   @action closepopup = () => {
     this.props.store.changeshowpopupaddtrip();
@@ -19,11 +20,11 @@ class Popupaddtrip extends Component {
   @action inputChange = (e) => {this[e.target.name] = e.target.value}
 
   @action Addthetrip = () => {
-    if ((this.title==="")||( this.description==="")||( this.startDate==="")||(this.endDate==="")){
+    if ((this.title==="")||( this.description==="")||( this.startDate==="")||(this.endDate==="")||(this.imageurl==="")){
         alert ("Please fill out all the fields!")
     }
     else{
-      this.props.store.Addtrip(this.title, this.description, this.startDate, this.endDate, this.props.username);
+      this.props.store.Addtrip(this.title, this.description, this.startDate, this.endDate, this.imageurl, this.props.username);
       this.closepopup()
       alert ("Your trip saved!")
     }
@@ -38,6 +39,8 @@ class Popupaddtrip extends Component {
       <input id="input3" name="startDate" onChange={this.inputChange} value={this.startDate} placeholder="Start Date" type="Date" className="form-control inputpopup" aria-describedby="button-addon2" />
       <br/>
       <input id="input4" name="endDate" min={this.startDate} onChange={this.inputChange} value={this.endDate} placeholder="End Date" type="Date" className="form-control inputpopup" aria-describedby="button-addon2" />
+      <br/>
+      <input id="input5" name="imageurl" onChange={this.inputChange} value={this.imageurl} placeholder="Image url" type="text" className="form-control inputpopup" aria-describedby="button-addon2" />
       <br/>
       <button className="btn btn-outline-secondary addtripbutton" onClick={this.Addthetrip} type="button" id="button-addon2">Create Trip</button>
       <button onClick={this.closepopup} className="btn btn-outline-secondary closepopupbutton" type="button">X</button>

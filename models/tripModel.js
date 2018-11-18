@@ -5,6 +5,7 @@ const TripSchema = new mongoose.Schema({
     description: String,
     startDate: Date,
     endDate: Date,
+    imageurl: String,
     checkpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: 'checkpoint' }]
 })
 
