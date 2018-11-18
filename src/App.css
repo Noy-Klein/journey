@@ -167,15 +167,16 @@ h2{
   }
 }
 
-.mapDiv{
+/* .mapDiv{
  text-align: center;
  margin-left:25%
-}
+} */
 .map{
   /* position:static */
   top: 65%;
   left: 25%;
   z-index: -1;
+  
 }
 
 #inputCurr{
@@ -214,3 +215,104 @@ bottom: 189px;
   border-radius: 7px;
 }
 /* rgba(165, 186, 201, 0.712) */
+
+.inputSignUp1{
+  left: 50%;
+  top:65%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+}
+
+.inputSignUp2{
+  left: 50%;
+  top:70%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+}
+
+.inputSignUp3{
+  left: 50%;
+  top:75%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+}
+
+.inputSignUp4{
+  left: 50%;
+  top:80%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+}
+
+.sign-up{
+  top: 22%;
+  left: 85%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 420px;
+  height: 980px;
+  background-color: rgba(165, 186, 201, 0.712);
+  border-radius: 7px;
+}
+
+.signUp{
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+}
+
+.title-sign-up{
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  font-size: 80px;
+  font-family: fantasy;
+}
+
+.login{
+  top: 22%;
+  left: 85%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 420px;
+  height: 980px;
+  background-color: rgba(165, 186, 201, 0.712);
+  border-radius: 7px;
+}
+
+.inputLogin1{
+  left: 50%;
+  top:70%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+}
+
+.inputLogin2{
+  left: 50%;
+  top:75%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+}
+
+.title-login{
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  font-size: 80px;
+  font-family: fantasy;
+}
