@@ -48,7 +48,7 @@ h2{
   transform: translate(-50%,-50%);
   position: fixed;
   width: 420px;
-  height: 280px;
+  height: 310px;
   background-color: rgba(165, 186, 201, 0.712);
   border-radius: 7px;
 }
@@ -85,15 +85,19 @@ h2{
 }
 
 #input2{
-  top: 30%;
+  top: 26%;
 }
 
 #input3{
-  top: 50%;
+  top: 42%;
 }
 
 #input4{
-  top: 70%;
+  top: 58%;
+}
+
+#input5{
+  top: 74%;
 }
 
 .closepopupbutton{
@@ -109,7 +113,7 @@ h2{
 }
 
 .addtripbutton{
-  top: 80%;
+  top: 85%;
   left:36%;
   float: left;
   position: fixed;
@@ -170,7 +174,7 @@ h2{
  margin-left:25%
 }
 .map{
-  //position:static
+  /* //position:static */
   top: 60%;
   left: 25%;
   z-index: -1;

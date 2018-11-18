@@ -1,5 +1,6 @@
 import { observable, action } from "mobx";
 import axios from 'axios';
+let GoogleImages = require('google-images');
 
 class TripStore {
 
@@ -8,7 +9,7 @@ class TripStore {
     @observable tripstosearch = [];
     @observable showpopupaddtrip = false;
     @observable marker = {}
-    @observable currCheckpoint = null
+    @observable currCheckpoint = null;
 
     @action setMarker = (marker) => {
         this.marker = marker
@@ -52,8 +53,8 @@ class TripStore {
     //     this.trip = trip.data;
     // }
     
-    Addtrip = async (title, description, startDate, endDate) => {
-        let newtrip = await axios.post('http://localhost:1000/trips', {title:title, description:description, startDate:startDate, endDate:endDate })
+    Addtrip = async (title, description, startDate, endDate, imageurl) => {
+        let newtrip = await axios.post('http://localhost:1000/trips', {title:title, description:description, startDate:startDate, endDate:endDate, imageurl:imageurl })
         // console.log(newtrip)
         // this.trips.push(newtrip.data);
         this.getTrips()
@@ -81,7 +82,6 @@ class TripStore {
         }
     }
 }
-
 
 const Store = new TripStore();
 

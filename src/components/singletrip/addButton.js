@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { observable, action } from "mobx";
+import Images from './Images';
 import '../../App.css';
 
 @inject("store")
@@ -12,7 +13,7 @@ class AddButton extends Component {
         startDate: "",
         people: "",
         adress: "",
-        pictures: ""
+        pictures: []
     };
 
     closeButton = () => {
@@ -51,8 +52,9 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="form-control inputpopup" id="inputCurr5" type="text" name="pictures" placeholder="Pictures" value={this.pictures} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="btn btn-outline-secondary addtripbuttoncurr" type="button" value="Add Checkpoint" onClick={this.addNewCheckpoint}/>
-                <input className="btn btn-outline-secondary closepopupbutton" type="button" value="X" onClick={this.closeButton}/>
+                <Images />
+                <button className="btn btn-outline-secondary addtripbuttoncurr" type="button" value="Add Checkpoint" onClick={this.addNewCheckpoint}/>
+                <button className="btn btn-outline-secondary closepopupbutton" type="button" value="X" onClick={this.closeButton}/>
                
                 </div>
             </div>
