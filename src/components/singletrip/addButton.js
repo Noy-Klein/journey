@@ -37,6 +37,7 @@ class AddButton extends Component {
     }
 
     render() {
+        let trip = this.props.store.trip;
         return (
             <div className="add-button">
                 <div className="popupcurr">
@@ -44,7 +45,7 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="form-control inputpopup" id="inputCurr1" type="text" name="description" placeholder="Description" value={this.description} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="form-control inputpopup" id="inputCurr2" type="Date" name="startDate" placeholder="StartDate" value={this.startDate} onChange={this.inputChange}/>
+                <input className="form-control inputpopup" id="inputCurr2" min={trip.startDate} max={trip.endDate} type="Date" name="startDate" placeholder="StartDate" value={this.startDate} onChange={this.inputChange}/>
                 <br></br><br></br>
                 <input className="form-control inputpopup" id="inputCurr3" type="text" name="people" placeholder="People" value={this.people} onChange={this.inputChange}/>
                 <br></br><br></br>

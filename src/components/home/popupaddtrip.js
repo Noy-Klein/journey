@@ -24,7 +24,7 @@ class Popupaddtrip extends Component {
         alert ("Please fill out all the fields!")
     }
     else{
-      this.props.store.Addtrip(this.title, this.description, this.startDate, this.endDate, this.imageurl);
+      this.props.store.Addtrip(this.title, this.description, this.startDate, this.endDate, this.imageurl, this.props.username);
       this.closepopup()
       alert ("Your trip saved!")
     }
@@ -32,7 +32,7 @@ class Popupaddtrip extends Component {
 
   render() {
     return (<div className="popup">
-      <input id="input1" name="title" onChange={this.inputChange} value={this.title} placeholder="Trip title: israel 2017" type="text" className="form-control inputpopup" aria-describedby="button-addon2" />
+      <input id="input1" name="title" onChange={this.inputChange} value={this.title} placeholder="Trip title" type="text" className="form-control inputpopup" aria-describedby="button-addon2" />
       <br/>
       <input id="input2" name="description" onChange={this.inputChange} value={this.description} placeholder="Description" type="text" className="form-control inputpopup" aria-describedby="button-addon2" />
       <br/>
