@@ -12,7 +12,7 @@ class Trips extends Component {
     return (
       <div>
         {this.props.store.tripstosearch.map(t => {
-          return <TripBox key={t._id} trip={t} />
+          return <TripBox username={this.props.username} key={t._id} trip={t} />
         })}
       </div>
     );

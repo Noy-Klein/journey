@@ -9,14 +9,15 @@ class TripStore {
     @observable showpopupaddtrip = false;
     @observable marker = {}
     @observable currCheckpoint = null
+    @observable ifexists = false
 
     @action setMarker = (marker) => {
         this.marker = marker
     }
 
-    @action getTrips = async () => {
-        let trips = await axios.get('http://localhost:1000/trips')
-        this.setTripsValue(trips.data)
+    @action getTrips = async (username) => {
+        let trips = await axios.get('http://localhost:1000/' + username + '/trips')
+        this.setTripsValue(trips.data.trips)
         this.tripstosearch = [...this.trips];
     }
 
@@ -39,24 +40,31 @@ class TripStore {
         this.showpopupaddtrip = !this.showpopupaddtrip
     }
 
+    @action setSignUp = async (username) => {
+        let trips = await axios.get('http://localhost:1000/' + username)
+        this.trips= trips.data
+    }
 
-    // addNewCheckpoint = async (title, description, startDate, people, adress, pictures) => { //useless
-    //     let trip = await axios.post('http://localhost:1000/checkpoints', {
-    //         title: title,
-    //         description: description,
-    //         startDate: startDate,
-    //         people: people,
-    //         adress: adress,
-    //         pictures: pictures
-    //     })
-    //     this.trip = trip.data;
-    // }
+    @action setLogin = async (username, password) => {
+        let trips = await axios.get('http://localhost:1000/' + username + '/' + password)
+        // this.trips = trips.data
+        if(trips.data.username){
+            this.ifexists = true
+        }
+    }
+
+    AddUser = async (newUser) => {
+        let newuser = await axios.post('http://localhost:1000/users', newUser)
+        // this.trips = []
+        console.log(newuser.data.username)
+        this.setSignUp(newuser.data.username)
+    }
     
-    Addtrip = async (title, description, startDate, endDate) => {
-        let newtrip = await axios.post('http://localhost:1000/trips', {title:title, description:description, startDate:startDate, endDate:endDate })
+    Addtrip = async (title, description, startDate, endDate, username) => {
+        await axios.post('http://localhost:1000/' + username + '/trips', {title:title, description:description, startDate:startDate, endDate:endDate })
         // console.log(newtrip)
         // this.trips.push(newtrip.data);
-        this.getTrips()
+        this.getTrips(username)
     }
 
     @action addCheckPoint = async (newCheckPoint) => {

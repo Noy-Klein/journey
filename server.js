@@ -3,6 +3,7 @@ let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 let tripApi = require("./Apis/tripApi");
 let mapApi = require('./Apis/mapApi');
+let usersApi = require('./Apis/userApi')
 
 let app = express()
 
@@ -24,6 +25,7 @@ app.use(function (req, res, next) {
   })
   
 app.use(mapApi)
+app.use(usersApi)
 app.use('/', tripApi)
 // app.get('/key', (req,res)=>{
 //     res.send('AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M')

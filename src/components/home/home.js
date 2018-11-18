@@ -11,15 +11,16 @@ import '../../App.css';
 class Home extends Component {
 
   componentDidMount = async () => {
-    this.props.store.getTrips()
+    this.props.store.getTrips(this.props.match.params.username)
 }
 
   render() {
+    console.log()
     return (<div>
       <Logo />
       <Navbar />
-      {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
-      <Trips />
+      {this.props.store.showpopupaddtrip ? <Popupaddtrip username={this.props.match.params.username} /> : null}
+      <Trips username={this.props.match.params.username} />
       </div>
     );
   }
