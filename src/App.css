@@ -4,9 +4,10 @@
 
 body{
   background-image: url("http://thewallpaper.co/wp-content/uploads/2016/03/passenger-flight-aeroplane-in-sky-widescreen-high-resolution-wallpaper-images-for-desktop-background-free-windows-wallpaper-amazing-colors-1920x1200.jpg");
-  background-size: cover;
-  /* background-repeat: no-repeat; */
-  /* background-attachment: fixed; */
+  /* background-size: cover; */
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .addcheckpointbtn{
@@ -323,4 +324,6 @@ bottom: 189px;
 
 .logout{
   float: right;
+  text-decoration: none;
+  color: black
 }

@@ -17,13 +17,21 @@ class SignUp extends Component {
     @action inputChangeSignUp = (e) => { this[e.target.name] = e.target.value }
 
     add = async () => {
+        if(this.password.length < 4){
+            alert('Your Password Must Contains More Than 3 Characters')
+            return
+        }
+        if(this.phone.length < 10){
+            alert('Your Phone Number Must Contain 10 Characters')
+            return
+        }
         //validation!
         await this.props.store.AddUser({username:this.username, password:this.password, phone:this.phone, email:this.email})
         let user = await this.props.store.setLogin(this.username, this.password)
         this.props.store.setId(user.data._id)
         this.clicked = true;
         this.props.store.login();
-        console.log(this.props.store.logged)
+        // console.log(this.props.store.logged)
     }
 
     render() {

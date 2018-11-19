@@ -20,6 +20,7 @@ class Login extends Component {
             this.props.store.getTripsInLogin(user.data._id)
             this.props.store.setId(user.data._id)
             this.props.store.login();
+            alert('Welcome Back ' + user.data.username + ' !')
         }
         else {
             this.ifexists = false

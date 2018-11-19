@@ -7,6 +7,7 @@ import { observer, inject } from 'mobx-react';
 import '../../App.css';
 import { Link, Redirect } from 'react-router-dom';
 import { observable } from 'mobx';
+var FontAwesome = require('react-fontawesome');
 
 @inject("store")
 @observer
@@ -27,7 +28,7 @@ class Home extends Component {
     console.log(this.props.store.logged)
     return (
       <div>
-        <div onClick={this.logout} className='logout'><Link to='/'>LOG OUT</Link></div>
+        <div onClick={this.logout} className='logout'><FontAwesome name='sign-out-alt' className='fas fa-sign-out-alt' size='2px' /><Link to='/' className='logout'>LOG OUT</Link></div>
         <Logo />
         <Navbar />
         {this.props.store.showpopupaddtrip ? <Popupaddtrip username={this.props.match.params.username} /> : null}
