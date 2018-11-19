@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import TripBox from './tripBox';
 import '../../App.css';
-import { inject, observer } from 'mobx-react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Landing extends Component{
     render(){

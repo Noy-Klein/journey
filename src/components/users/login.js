@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import '../../App.css'
 import { observable, action } from 'mobx';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 @inject("store")
 @observer
@@ -10,17 +10,24 @@ class Login extends Component {
     @observable username = "";
     @observable password = "";
 
+    @observable ifexists = false
+    @observable clicked = false
+
     click = async () => {
-        let j = await this.props.store.setLogin(this.username, this.password)
-        if(this.props.store.ifexists){
-            return
+        let user = await this.props.store.setLogin(this.username, this.password)
+        if (user.data.username) {
+            this.ifexists = true
+            this.props.store.getTripsInLogin(user.data._id)
+            this.props.store.setId(user.data._id)
+            this.props.store.login();
         }
-        else{
+        else {
+            this.ifexists = false
             alert('username or passward wrong')
         }
-    } 
-    //figure out how to stop a react link
-
+        this.clicked = true
+    }
+    // welcome back alert...
 
     @action inputChangeLogin = (e) => { this[e.target.name] = e.target.value }
 
@@ -30,9 +37,10 @@ class Login extends Component {
                 <h1 className="title-login">Login</h1>
                 <input className="form-control inputLogin1" name="username" placeholder="Username" type="text" onChange={this.inputChangeLogin} value={this.username} />
                 <br></br><br></br>
-                <input className="form-control inputLogin2" name="password" placeholder="Password" type="text" onChange={this.inputChangeLogin} value={this.password} />
+                <input className="form-control inputLogin2" name="password" placeholder="Password" type="password" onChange={this.inputChangeLogin} value={this.password} />
                 <br></br><br></br>
-                <Link className="btn btn-outline-secondary signUp" onClick={this.click} to={`/users/${this.username}`}>LOGIN</Link>
+                <button className="btn btn-outline-secondary signUp" type='button' onClick={this.click}>LOGIN</button>
+                {this.clicked && this.ifexists ? <Redirect to='/trips'/> : null}
             </div>
         )
     }

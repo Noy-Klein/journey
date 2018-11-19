@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Logo from '../home/logo';
 import { inject, observer } from 'mobx-react';
 import '../../App.css';
 

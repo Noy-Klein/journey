@@ -1,4 +1,4 @@
-import { Map, Marker, GoogleApiWrapper, Polyline, lineSymbol } from 'google-maps-react';
+import { Map, Marker, GoogleApiWrapper, Polyline } from 'google-maps-react';
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import '../../App.css'
@@ -9,14 +9,12 @@ import { observable } from 'mobx';
 class MapContainer extends Component {
     componentDidMount = () => {
         this.props.store.setTrip(this.props.id)
-        this.props.store.addInitialCenter(this.props.store.trip.title.split(' ')[0])
     }
     @observable marker = {}
 
     click = (marker, e) => {
         this.props.togglePopupCheckPoint();
         this.marker = marker;
-        //    this.props.store.setMarker(this.marker)
         this.props.store.setCheckPoint(this.marker.id)
     }
 
@@ -37,7 +35,7 @@ class MapContainer extends Component {
                             strokeOpacity={0.3}
                         />
 
-                        {trip.checkpoints.map(c => { return <Marker id={c._id} onClick={this.click} name={c.title} position={c.coordinant} /> })}
+                        {trip.checkpoints.map(c => { return <Marker key={c._id} id={c._id} onClick={this.click} name={c.title} position={c.coordinant} /> })}
                     </Map>
                 </div>
 
@@ -55,7 +53,7 @@ class MapContainer extends Component {
                         strokeWeight={2}
                         strokeStyle='dotted'
                         strokeOpacity={0.3} />
-                    {/* <Marker id='1' onClick={this.click} name={trip.title} position={initialCenter} /> */}
+                    <Marker id='1' onClick={this.click} name={trip.title} position={initialCenter} />
                 </Map>
             );
         }

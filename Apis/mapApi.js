@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const trips = require('../models/tripModel');
 const checkpoint = require('../models/checkpointModel');
+const users = require('../models/signupModel');
 
 router.get('/checkpoints', (req, res) => {
     checkpoint.find({}).exec((err, data) => {
@@ -16,16 +17,22 @@ router.get('/checkpoints', (req, res) => {
 
 router.get('/trips/:id', (req, res) => {
     let id = req.params.id;
-    console.log(id)
-    trips.findOne({ _id: id }).populate('checkpoints').exec((err, data) => {
-        if (err) {
+    trips.findOne({_id: id}).populate('checkpoints').exec((err, data)=>{
+        if(err){
             res.status(500).send(err)
         }
-        else {
-            console.log(data)
+        else{
             res.send(data)
         }
     })
+    // trips.findOne({ _id: id }).populate('checkpoints').exec((err, data) => {
+    //     if (err) {
+    //         res.status(500).send(err)
+    //     }
+    //     else {
+    //         res.send(data)
+    //     }
+    // })
 })
 
 // router.post('/checkpoints', (req, res) => {

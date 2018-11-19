@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/users/:username/:password', function (req, res) {
     let username = req.params.username
     let password = req.params.password
-    User.find({ username: username, password: password }).populate('trips').exect((err, user) => {
+    users.findOne({ username: username, password: password }).populate('trips').exec((err, user) => {
         if (err) {
             res.status(500).send(err);
         }
