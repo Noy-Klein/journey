@@ -27,12 +27,25 @@ class MapContainer extends Component {
         let trip = this.props.store.trip;
         let initialCenter = this.props.store.initialCenter;
         if (trip && trip.checkpoints.length) {
+            let coordns = []
+            for (let c of trip.checkpoints) {
+                coordns.push(c.coordinant)
+            }
+            coordns.sort(function (a, b) {
+                if (a.lng > b.lng) {
+                    return 1
+                }
+                if (a.lng < b.lng) {
+                    return -1
+                }
+            })
             return (
                 <div className="mapDiv">
                     <Map className="map" style={{ width: '50%', height: '50%' }} center={trip.checkpoints[0].coordinant} initialCenter={trip.checkpoints[0].coordinant} google={this.props.google} zoom={14}>
                         <Polyline
                             path={
-                                trip.checkpoints.map(c => { return c.coordinant })
+                                // trip.checkpoints.map(c => { return c.coordinant })
+                                coordns.map(c => { return c })
                             }
                             strokeColor="green"
                             strokeWeight={2}
@@ -62,8 +75,8 @@ class MapContainer extends Component {
                 </Map>
             );
         }
-        else{
-            return(
+        else {
+            return (
                 <Map className='map' style={{ width: '50%', height: '50%' }} google={this.props.google} zoom={7}></Map>
             )
         }

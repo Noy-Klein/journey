@@ -7,6 +7,7 @@ import { observer, inject } from 'mobx-react';
 import '../../App.css';
 import { Link, Redirect } from 'react-router-dom';
 import { observable } from 'mobx';
+var FontAwesome = require('react-fontawesome');
 
 @inject("store")
 @observer

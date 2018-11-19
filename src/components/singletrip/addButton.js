@@ -59,7 +59,7 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="form-control inputpopup" id="inputCurr3" type="text" name="people" placeholder="People" value={this.people} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="form-control inputpopup" id="inputCurr4" type="text" name="adress" placeholder="Adress" value={this.adress} onChange={this.inputChange}/>
+                <input className="form-control inputpopup" id="inputCurr4" type="text" name="adress" placeholder="Adress - Please Be Specific!" value={this.adress} onChange={this.inputChange}/>
                 <br></br><br></br>
                 <input className="form-control inputpopup" id="inputCurr5" type="text" name="pictures" placeholder="Pictures" value={this.pictures} onChange={this.inputChange}/>
                 <br></br><br></br>

@@ -357,7 +357,8 @@ input[placeholder], [placeholder], *[placeholder]
 }
 
 .logout{
-  float: right;
+  text-decoration: none;
+  color: black
 }
 
 .wrapper {
