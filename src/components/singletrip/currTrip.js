@@ -42,7 +42,7 @@ class CurrTrip extends Component {
                         />
                         : null}
                 </div>
-                {this.props.store.userId === '' ? <Redirect to='/'/> : null}
+                {!this.props.store.logged ? <Redirect to='/'/> : null}
             </div>
         );
     }

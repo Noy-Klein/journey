@@ -19,6 +19,7 @@ class Login extends Component {
             this.ifexists = true
             this.props.store.getTripsInLogin(user.data._id)
             this.props.store.setId(user.data._id)
+            this.props.store.login();
         }
         else {
             this.ifexists = false
