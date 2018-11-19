@@ -3,9 +3,10 @@
 }
 
 body{
-  background-image: url("http://thewallpaper.co/wp-content/uploads/2016/03/passenger-flight-aeroplane-in-sky-widescreen-high-resolution-wallpaper-images-for-desktop-background-free-windows-wallpaper-amazing-colors-1920x1200.jpg");
-  overflow-x: hidden;
-  /* background-size: cover; */
+  background-image: url("https://www.eccgreece.gr/wp-content/uploads/2017/07/pexels-photo-59519.jpeg");
+  background-size: cover;
+  overflow-x:hidden;
+  /* overflow-y:hidden; */
   /* background-repeat: no-repeat; */
   /* background-attachment: fixed; */
 }
@@ -14,12 +15,19 @@ body{
   top: 100px;
   left: 0px;
   position: relative;
-  width: 130px;
-  background-color: rgba(255, 255, 255, 0.575);
+  width: 200px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.493);
+  border: none;
 }
 
 .logo{
   position: "block";
+}
+
+.biglogo{
+  margin-top: 4%;
+  margin-left: -30%;
 }
 
 .tripdetails{
@@ -39,10 +47,14 @@ hr{
 
 h1{
   font-size: 30px;
+  color: black;
+  font-weight: 400;
 }
 
 h2{
   font-size: 17px;
+  color: black;
+  font-weight: 400;
 }
 
 .popup {
@@ -52,7 +64,7 @@ h2{
   position: fixed;
   width: 420px;
   height: 310px;
-  background-color: rgba(165, 186, 201, 0.712);
+  background-color: rgba(82, 26, 30, 0.555);
   border-radius: 7px;
 }
 
@@ -63,17 +75,20 @@ h2{
   position: fixed;
   width: 420px;
   height: 360px;
-  background-color: rgba(154, 174, 187, 0.801);
+  background-color: rgba(82, 26, 30, 0.555);
   border-radius: 7px;
   z-index: 1;
 }
 
 .searchinput{
   bottom: 33px;
+  //bottom: 1px;
   left: 517px;
   position: relative;
   width: 270px;
   background-color: rgba(255, 255, 255, 0.493);
+  border: none;
+  color: black;
 }
 
 .inputpopup{
@@ -81,7 +96,9 @@ h2{
   transform: translate(-50%,-50%);
   position: fixed;
   width: 300px;
-  background-color: rgba(255, 255, 255, 0.493);
+  background-color: rgba(255, 255, 255, 0.685);
+  border: none;
+  color: black;
 }
 
 #input1{
@@ -111,42 +128,52 @@ h2{
   width: 40px;
   background-color: rgba(255, 255, 255, 0);
   border: none;
-  font-size: 16px;
+  color: black;
+  font-size: 18px;
+  font-weight: 400;
   cursor: pointer;
   display: inline-block;
 }
 
 .addtripbutton{
   top: 85%;
-  left:36%;
+  left:26%;
   float: left;
   position: fixed;
-  width: 100px;
-  background-color: rgba(255, 255, 255, 0.39);
+  width: 200px;
+  color: black;
+  border: 0ch;
+  background-color: rgba(255, 255, 255, 0.678);
 }
 
 .addtripbuttoncurr{
   top: 85%;
-  left:36%;
+  left:26%;
   float: left;
   position: fixed;
-  width: 135px;
-  background-color: rgba(255, 255, 255, 0.39);
+  width: 200px;
+  border: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.699);
 }
 
 .searchbutton{
-  bottom: 70px;
+  bottom: 38px;
   left: 150px;
   position: relative;
   width: 81px;
-  background-color: rgba(255, 255, 255, 0.575);
+  background-color: rgba(255, 255, 255, 0.493);
+  color: black;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
 }
 
-#plus{
+.plusbtn{
   position: relative;
   right: 187px;
-  top:6px;
-  height:40px;
+  top:32px;
+  height:30px;
 }
 
 .App-header {
@@ -216,14 +243,15 @@ bottom: 189px;
   position: fixed;
   width: 332px;
   height: 200px;
-  background-color: rgba(165, 186, 201, 0.712);
+  background-color: rgba(99, 45, 48, 0.719);
   border-radius: 7px;
+  color: black;
+  border: none;
 }
-/* rgba(165, 186, 201, 0.712) */
 
 .inputSignUp1{
   left: 50%;
-  top:65%;
+  top:72%;
   transform: translate(-50%,-50%);
   position: fixed;
   width: 300px;
@@ -232,7 +260,7 @@ bottom: 189px;
 
 .inputSignUp2{
   left: 50%;
-  top:70%;
+  top:77%;
   transform: translate(-50%,-50%);
   position: fixed;
   width: 300px;
@@ -241,7 +269,7 @@ bottom: 189px;
 
 .inputSignUp3{
   left: 50%;
-  top:75%;
+  top:82%;
   transform: translate(-50%,-50%);
   position: fixed;
   width: 300px;
@@ -250,7 +278,7 @@ bottom: 189px;
 
 .inputSignUp4{
   left: 50%;
-  top:80%;
+  top:87%;
   transform: translate(-50%,-50%);
   position: fixed;
   width: 300px;
@@ -264,24 +292,21 @@ bottom: 189px;
   position: fixed;
   width: 420px;
   height: 980px;
-  background-color: rgba(165, 186, 201, 0.712);
+  background-color: rgba(82, 26, 30, 0.555);
   border-radius: 7px;
 }
 
 .signUp{
   top: 90%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  left: 14%;
   position: fixed;
-}
-
-.title-sign-up{
-  left: 50%;
-  top:50%;
-  transform: translate(-50%,-50%);
-  position: fixed;
-  font-size: 80px;
-  font-family: fantasy;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+  color: black;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .login{
@@ -291,22 +316,31 @@ bottom: 189px;
   position: fixed;
   width: 420px;
   height: 980px;
-  background-color: rgba(165, 186, 201, 0.712);
+  background-color: rgba(82, 26, 30, 0.555);
   border-radius: 7px;
 }
 
 .inputLogin1{
   left: 50%;
-  top:70%;
+  top:80%;
   transform: translate(-50%,-50%);
   position: fixed;
   width: 300px;
   background-color: rgba(255, 255, 255, 0.493);
 }
 
+INPUT::-webkit-input-placeholder, 
+INPUT:-moz-placeholder {
+    color:black;
+}
+input[placeholder], [placeholder], *[placeholder]
+{
+    color:black;
+}
+
 .inputLogin2{
   left: 50%;
-  top:75%;
+  top:85%;
   transform: translate(-50%,-50%);
   position: fixed;
   width: 300px;
@@ -324,24 +358,6 @@ bottom: 189px;
 
 .logout{
   float: right;
-}
-
-.timeline{
-    /* -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    top: 585px;
-    left: 200px;
-    position: relative;
-    width: 2300px;
-    height: 270px;
-    background-color: rgba(165, 186, 201, 0.712);
-    border-radius: 7px; */
-    /* top: 800px;
-    left: 500px;
-    position: absolute;
-    border-radius: 7px;
-    background-color: rgba(165, 186, 201, 0.712); */
-   
 }
 
 .wrapper {
@@ -364,4 +380,101 @@ bottom: 189px;
   height: 2px;
   border: 0ch;
   background-color: rgba(255, 255, 255, 0.575);
+
+.hey{
+  left: 5px;
+  position: fixed; 
+}
+
+.logoutlink{
+  right: 5px;
+  position: fixed; 
+  color: black;
+}
+
+.logoutlink:hover {
+  color: rgb(0, 0, 0);
+}
+
+.signupbtn{
+  top: 60%;
+  left: 40%;
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+  color: black;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.loginbtn{
+  top: 68%;
+  left: 40%;
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+  color: black;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+h5{
+  color: black;
+  font-weight: 100;
+  font-size: 100px;
+}
+
+h6{
+  color: black;
+  font-size: 20px;
+}
+
+.title-sign-up{
+  color: black;
+  font-weight: 100;
+  font-size: 90px;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+}
+
+.homebtn{
+  top: 60%;
+  left: 14%;
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+  color: black;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.hometitle{
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.homesectitle{
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.homesignupbtn{
+  top: 63%;
+  left: 14%;
+  position: fixed;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.493);
+  color: black;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
 }
