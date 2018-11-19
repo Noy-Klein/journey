@@ -16,6 +16,8 @@ class AddButton extends Component {
         pictures: []
     };
 
+    @observable
+
     closeButton = () => {
         this.props.closePopup(null)
     }
@@ -30,14 +32,22 @@ class AddButton extends Component {
         }
         // this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
         else{
-        this.props.store.addCheckPoint({data:{title:this.trip.title, description:this.trip.description, startDate:this.trip.startDate, people:this.trip.people, adress:this.trip.adress, pictures:this.trip.pictures}, id:this.props.store.tripId})
+        this.props.store.addCheckPoint({data:{title:this.trip.title, description:this.trip.description, startDate:this.trip.startDate, people:this.trip.people, adress:this.trip.adress, pictures:this.trip.pictures}, id:this.props.store.trip._id})
         this.closeButton()
         // alert ("Your checkpoint saved!")
         }
     }
 
+    fixDate = (time) => {
+        time = time.split('-');
+        let year = time[0];
+        let month = time[1];
+        let day = time[2][0] + '' + time[2][1];
+        return (year + '-' + month + '-' + day);
+    }
+
     render() {
-        let trip = this.props.store.trip;
+        console.log(this.props.store.trip.endDate)
         return (
             <div className="add-button">
                 <div className="popupcurr">
@@ -45,7 +55,7 @@ class AddButton extends Component {
                 <br></br><br></br>
                 <input className="form-control inputpopup" id="inputCurr1" type="text" name="description" placeholder="Description" value={this.description} onChange={this.inputChange}/>
                 <br></br><br></br>
-                <input className="form-control inputpopup" id="inputCurr2" min={trip.startDate} max={trip.endDate} type="Date" name="startDate" placeholder="StartDate" value={this.startDate} onChange={this.inputChange}/>
+                <input className="form-control inputpopup" id="inputCurr2" min={this.fixDate(this.props.store.trip.startDate)} max={this.fixDate(this.props.store.trip.endDate)} type="Date" name="startDate" placeholder="StartDate" value={this.startDate} onChange={this.inputChange}/>
                 <br></br><br></br>
                 <input className="form-control inputpopup" id="inputCurr3" type="text" name="people" placeholder="People" value={this.people} onChange={this.inputChange}/>
                 <br></br><br></br>
