@@ -81,8 +81,8 @@ h2{
 }
 
 .searchinput{
-  bottom: 33px;
-  //bottom: 1px;
+  /* bottom: 33px; */
+  bottom: 1px;
   left: 517px;
   position: relative;
   width: 270px;
@@ -242,11 +242,32 @@ bottom: 189px;
   transform: translate(-50%,-50%);
   position: fixed;
   width: 332px;
-  height: 200px;
-  background-color: rgba(99, 45, 48, 0.719);
+  height: 300px;
+  background-color: rgba(99, 45, 48, 0.904);
   border-radius: 7px;
   color: black;
   border: none;
+}
+
+.btnsendmail{
+  top: 85%;
+  left: 21%;
+  position: fixed;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.616);
+  color: black;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#inputmail2{
+  top: 60%;
+}
+
+#inputmail1{
+  top: 75%;
 }
 
 .inputSignUp1{
@@ -366,7 +387,7 @@ input[placeholder], [placeholder], *[placeholder]
     left: 450px; */
     position: absolute;
     /* border-radius: 7px; */
-    background-color: rgba(165, 186, 201, 0.712);
+    background-color: rgba(255, 255, 255, 0.493);
     width: 20%;
     bottom: -80px;
     left: 1080px;
@@ -381,10 +402,15 @@ input[placeholder], [placeholder], *[placeholder]
   height: 2px;
   border: 0ch;
   background-color: rgba(255, 255, 255, 0.575);
+}
 
 .hey{
   left: 5px;
   position: fixed; 
+}
+
+.btn:hover {
+background-color: rgba(26, 25, 25, 0.575);;
 }
 
 .logoutlink{

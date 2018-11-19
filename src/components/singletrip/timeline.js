@@ -51,7 +51,7 @@ class TimeLine extends Component {
                         return (
                             <div>
                                 <div className="timeline" >
-                                    <h5 onClick={this.clickTitle}> {c.title}</h5>
+                                    <h6 onClick={this.clickTitle}> {c.title}</h6>
                                     <br />
                                 </div>
                             </div>
