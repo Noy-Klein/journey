@@ -22,9 +22,9 @@ class Popupaddtrip extends Component {
   @action Addthetrip = () => {
     if ((this.title==="")||( this.description==="")||( this.startDate==="")||(this.endDate==="")||(this.imageurl==="")){
         alert ("Please fill out all the fields!")
-    }
+    }// two folders cant have the same name!!
     else{
-      this.props.store.Addtrip(this.title, this.description, this.startDate, this.endDate, this.imageurl, this.props.username);
+      this.props.store.Addtrip(this.title, this.description, this.startDate, this.endDate, this.imageurl);
       this.closepopup()
       alert ("Your trip saved!")
     }

@@ -14,13 +14,13 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div className="App">
-      <Route path='/' exact render={()=> <Landing />}/>
-      <Route path="/users/:username/currTrip/:_id" exact render={({match})=><CurrTrip match={match} /> } />
-      <Route path="/users/:username" exact render={({match})=> <Home match={match} /> } />
-      <Route path="/signup" exact render={()=> <SignUp /> } />
-      <Route path="/login" exact render={()=> <Login /> } />
-      </div>
+        <div className="App">
+          <Route path='/' exact render={() => <Landing />} />
+          <Route path="/trips/:id" exact render={({ match }) => <CurrTrip match={match} />} />
+          <Route path="/trips" exact render={({ match }) => <Home match={match} />} />
+          <Route path="/signup" exact render={() => <SignUp />} />
+          <Route path="/login" exact render={() => <Login />} />
+        </div>
       </Router>
     )
   }
