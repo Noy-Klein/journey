@@ -6,8 +6,6 @@ import Popupaddtrip from './popupaddtrip';
 import { observer, inject } from 'mobx-react';
 import '../../App.css';
 import { Link, Redirect } from 'react-router-dom';
-import { observable } from 'mobx';
-var FontAwesome = require('react-fontawesome');
 
 @inject("store")
 @observer
@@ -28,8 +26,8 @@ class Home extends Component {
     console.log(this.props.store.logged)
     return (
       <div>
-        <h2 onClick={this.logout} className='hey'>Hey {this.props.store.username},</h2>
-        <h2><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
+        <h2 className='hey'>Hey {this.props.store.username},</h2>
+        <h2 onClick={this.logout}><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
         <Logo />
         <Navbar />
         {this.props.store.showpopupaddtrip ? <Popupaddtrip username={this.props.match.params.username} /> : null}
