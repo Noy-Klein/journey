@@ -4,7 +4,8 @@
 
 body{
   background-image: url("http://thewallpaper.co/wp-content/uploads/2016/03/passenger-flight-aeroplane-in-sky-widescreen-high-resolution-wallpaper-images-for-desktop-background-free-windows-wallpaper-amazing-colors-1920x1200.jpg");
-  background-size: cover;
+  overflow-x: hidden;
+  /* background-size: cover; */
   /* background-repeat: no-repeat; */
   /* background-attachment: fixed; */
 }
@@ -64,6 +65,7 @@ h2{
   height: 360px;
   background-color: rgba(154, 174, 187, 0.801);
   border-radius: 7px;
+  z-index: 1;
 }
 
 .searchinput{
@@ -176,11 +178,10 @@ h2{
  margin-left:25%
 } */
 .map{
-  /* position:static */
+  position: absolute;
   top: 65%;
   left: 25%;
-  z-index: -1;
-  
+  /* z-index: -1; */
 }
 
 #inputCurr{
@@ -326,21 +327,41 @@ bottom: 189px;
 }
 
 .timeline{
-  /* top: 22%;
-  left: 85%;
-  transform: translate(-50%,-50%);
-  position: fixed;
-  width: 420px;
-  height: 980px;
-  background-color: rgba(165, 186, 201, 0.712);
-  border-radius: 7px; */
-    top: 22%;
-    left: 89%;
-    -webkit-transform: translate(-50%,-50%);
+    /* -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    position: fixed;
-    width: 370px;
-    height: 1028px;
+    top: 585px;
+    left: 200px;
+    position: relative;
+    width: 2300px;
+    height: 270px;
     background-color: rgba(165, 186, 201, 0.712);
+    border-radius: 7px; */
+    /* top: 800px;
+    left: 500px;
+    position: absolute;
     border-radius: 7px;
+    background-color: rgba(165, 186, 201, 0.712); */
+   
+}
+
+.wrapper {
+    /* top: 800px;
+    left: 450px; */
+    position: absolute;
+    /* border-radius: 7px; */
+    background-color: rgba(165, 186, 201, 0.712);
+    width: 20%;
+    bottom: -80px;
+    left: 1080px;
+}
+
+.timelinedetails{
+  display: none;
+}
+
+.hr1{
+  width: 270px;
+  height: 2px;
+  border: 0ch;
+  background-color: rgba(255, 255, 255, 0.575);
 }

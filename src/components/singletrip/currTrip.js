@@ -8,6 +8,7 @@ import ShowCheckPoint from './showcheckpoint'
 import TripDetails from './tripDetails';
 import MapContainer from './map';
 import { Redirect } from 'react-router-dom';
+import TimeLine from './timeline'
 
 @inject("store")
 @observer
@@ -34,6 +35,7 @@ class CurrTrip extends Component {
                 <AddForm />
                 <TripDetails id={this.props.match.params.id} />
                 <MapContainer id={this.props.match.params.id} togglePopupCheckPoint={this.togglePopupCheckPoint} />
+                <TimeLine id={this.props.match.params.id} />
                 <div>
                     {this.showPopup ?
                         <ShowCheckPoint marker={this.props.store.marker}
@@ -42,7 +44,9 @@ class CurrTrip extends Component {
                         />
                         : null}
                 </div>
+
                 {!this.props.store.logged ? <Redirect to='/'/> : null}
+                
             </div>
         );
     }

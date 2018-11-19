@@ -56,6 +56,8 @@ router.get('/trips/:id', (req, res) => {
 router.post('/checkpoints', (req, res) => {
     let id = req.body.object.id;
     let newCheckPoint = new checkpoint(req.body.object.data);
+    console.log(id)
+    console.log(newCheckPoint)
     trips.findOneAndUpdate({ _id: id }, { $push: { checkpoints: newCheckPoint } }, { new: true }).exec((err, trip) => {
         newCheckPoint.coordinant = req.body.coo;
         newCheckPoint.save((err, cp) => {
