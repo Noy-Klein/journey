@@ -15,6 +15,18 @@ router.get('/users/:username/:password', function (req, res) {
     })
 });
 
+router.get('/users/:id', function (req, res) {
+    let id = req.params.id
+    users.findOne({ _id:id }).exec((err, user) => {
+        if (err) {
+            res.status(500).send(err);
+        }
+        else {
+            res.send(user)
+        }
+    })
+});
+
 
 router.post('/users', (req, res) => {
     let newUser = new users(req.body);
