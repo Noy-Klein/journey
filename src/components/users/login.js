@@ -30,7 +30,7 @@ class Login extends Component {
                 <h1 className="title-login">Login</h1>
                 <input className="form-control inputLogin1" name="username" placeholder="Username" type="text" onChange={this.inputChangeLogin} value={this.username} />
                 <br></br><br></br>
-                <input className="form-control inputLogin2" name="password" placeholder="Password" type="text" onChange={this.inputChangeLogin} value={this.password} />
+                <input className="form-control inputLogin2" name="password" placeholder="Password" type="password" onChange={this.inputChangeLogin} value={this.password} />
                 <br></br><br></br>
                 <Link className="btn btn-outline-secondary signUp" onClick={this.click} to={`/users/${this.username}`}>LOGIN</Link>
             </div>
