@@ -81,8 +81,8 @@ h2{
 }
 
 .searchinput{
-  bottom: 33px;
-  //bottom: 1px;
+  /* bottom: 33px; */
+  bottom: 1px;
   left: 517px;
   position: relative;
   width: 270px;
@@ -366,10 +366,12 @@ input[placeholder], [placeholder], *[placeholder]
     left: 450px; */
     position: absolute;
     /* border-radius: 7px; */
-    background-color: rgba(165, 186, 201, 0.712);
+    background-color: rgba(82, 26, 30, 0.555);
     width: 20%;
     bottom: -80px;
     left: 1080px;
+    /* width: 420px;
+    height: 980px; */
 }
 
 .timelinedetails{
@@ -381,7 +383,7 @@ input[placeholder], [placeholder], *[placeholder]
   height: 2px;
   border: 0ch;
   background-color: rgba(255, 255, 255, 0.575);
-
+}
 .hey{
   left: 5px;
   position: fixed; 
@@ -478,4 +480,12 @@ h6{
   font-size: 20px;
   cursor: pointer;
   display: inline-block;
+}
+
+.closebutton{
+  /* top: 100px; */
+  left: 230px; 
+  position: absolute;
+  height: 30px;
+  font-size: 10px;
 }
