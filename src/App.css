@@ -320,3 +320,7 @@ bottom: 189px;
   font-size: 80px;
   font-family: fantasy;
 }
+
+.logout{
+  float: right;
+}

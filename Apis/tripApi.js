@@ -4,9 +4,9 @@ const trips = require('../models/tripModel');
 const checkpoint = require('../models/checkpointModel');
 const users = require('../models/signupModel');
 
-router.get('/:username/trips', (req, res) => {
-    let username = req.params.username
-    users.findOne({ username: username }).populate('trips').exec((err, data) => {
+router.get('/:userId/trips', (req, res) => {
+    let userId = req.params.userId
+    users.findOne({ _id: userId }).populate('trips').exec((err, data) => {
         if (err) {
             res.status(500).send(err)
         }
@@ -14,24 +14,12 @@ router.get('/:username/trips', (req, res) => {
             res.send(data)
         }
     })
-    // trips.find({}).populate('checkpoints').exec((err,data)=>{
-
-    // })
 });
 
-router.post('/:username/trips', (req, res) => {
-    let username = req.params.username
+router.post('/:userId/trips', (req, res) => {
+    let userId = req.params.userId
     let newTrip = new trips(req.body);
-    // newTrip.save(function(err, data){
-    //     if(err){
-    //         res.status(500).send(err)
-    //     }
-    //     else{
-    //         console.log(data)
-    //         res.send(data)
-    //     }
-    // });
-    users.findOneAndUpdate({ username: username }, { $push: { trips: newTrip } }, { new: true }).exec((err, user) => {
+    users.findOneAndUpdate({ _id: userId }, { $push: { trips: newTrip } }, { new: true }).exec((err, user) => {
         newTrip.save(function (err, nt) {
             if (err) {
                 res.status(500).send(err)
@@ -40,7 +28,6 @@ router.post('/:username/trips', (req, res) => {
                 res.send(user)
             }
         })
-
     })
 });
 
