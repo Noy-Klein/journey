@@ -77,10 +77,12 @@ h2{
   height: 360px;
   background-color: rgba(82, 26, 30, 0.555);
   border-radius: 7px;
+  z-index: 1;
 }
 
 .searchinput{
-  bottom: 1px;
+  bottom: 33px;
+  //bottom: 1px;
   left: 517px;
   position: relative;
   width: 270px;
@@ -203,11 +205,10 @@ h2{
  margin-left:25%
 } */
 .map{
-  /* position:static */
+  position: absolute;
   top: 65%;
   left: 25%;
-  z-index: -1;
-  
+  /* z-index: -1; */
 }
 
 #inputCurr{
@@ -354,6 +355,31 @@ input[placeholder], [placeholder], *[placeholder]
   font-size: 80px;
   font-family: fantasy;
 }
+
+.logout{
+  float: right;
+}
+
+.wrapper {
+    /* top: 800px;
+    left: 450px; */
+    position: absolute;
+    /* border-radius: 7px; */
+    background-color: rgba(165, 186, 201, 0.712);
+    width: 20%;
+    bottom: -80px;
+    left: 1080px;
+}
+
+.timelinedetails{
+  display: none;
+}
+
+.hr1{
+  width: 270px;
+  height: 2px;
+  border: 0ch;
+  background-color: rgba(255, 255, 255, 0.575);
 
 .hey{
   left: 5px;

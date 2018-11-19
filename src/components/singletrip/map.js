@@ -19,6 +19,10 @@ class MapContainer extends Component {
         this.props.store.setCheckPoint(this.marker.id)
     }
 
+    // timeline = () => {
+    //     this.props.store.setCheckPoint();
+    // }
+
     render() {
         let trip = this.props.store.trip;
         let initialCenter = this.props.store.initialCenter;
