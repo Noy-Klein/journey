@@ -324,3 +324,23 @@ bottom: 189px;
 .logout{
   float: right;
 }
+
+.timeline{
+  /* top: 22%;
+  left: 85%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 420px;
+  height: 980px;
+  background-color: rgba(165, 186, 201, 0.712);
+  border-radius: 7px; */
+    top: 22%;
+    left: 89%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    position: fixed;
+    width: 370px;
+    height: 1028px;
+    background-color: rgba(165, 186, 201, 0.712);
+    border-radius: 7px;
+}

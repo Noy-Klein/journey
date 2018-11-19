@@ -27,7 +27,7 @@ class Home extends Component {
         <Navbar />
         {this.props.store.showpopupaddtrip ? <Popupaddtrip username={this.props.match.params.username} /> : null}
         <Trips username={this.props.match.params.username} />
-        {this.props.store.userId === '' ? <Redirect to='/' /> : null}
+        {/* {this.props.store.userId === '' ? <Redirect to='/' /> : null} */}
       </div>
     );
   }
