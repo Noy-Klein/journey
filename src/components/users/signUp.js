@@ -22,6 +22,8 @@ class SignUp extends Component {
         let user = await this.props.store.setLogin(this.username, this.password)
         this.props.store.setId(user.data._id)
         this.clicked = true;
+        this.props.store.login();
+        console.log(this.props.store.logged)
     }
 
     render() {
@@ -37,7 +39,7 @@ class SignUp extends Component {
                 <input className="form-control inputSignUp4" name="email" placeholder="Email" type="text" onChange={this.inputChangeSignUp} value={this.email} />
                 <br></br><br></br>
                 <button className="btn btn-outline-secondary signUp" type="button" onClick={this.add}>Sign Up</button>
-                {this.clicked ? <Redirect to='/trips'/> : null}
+                {this.clicked && this.props.store.logged ? <Redirect to='/trips'/> : null}
             </div>
         )
     }
