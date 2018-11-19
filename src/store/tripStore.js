@@ -1,6 +1,5 @@
 import { observable, action } from "mobx";
 import axios from 'axios';
-// let GoogleImages = require('google-images');
 
 class TripStore {
 
@@ -13,9 +12,16 @@ class TripStore {
     @observable ifexists = false
     @observable initialCenter = null
     @observable userId = localStorage.getItem('userId')
+    @observable username = "";
     @observable tripId = localStorage.getItem('tripId')
     @observable logged = true;
     @observable img = ''
+    @observable allCheckpoint = null;
+    @observable currentCP = null
+
+    @action changeCurrCP = (cp) => {
+        this.currentCP = cp;
+    }
 
     @action setId = (id) => {
         localStorage.setItem('userId', id)
@@ -70,8 +76,13 @@ class TripStore {
     @action setCheckPoint = async (id) => {
         let checkpoint = await axios.get('http://localhost:1000/checkpoints/' + id)
         this.currCheckpoint = checkpoint.data
+        this.allCheckpoint =  checkpoint.data
     } //???? why doesnt it get an id in showcheckpoint????
 
+    @action findnamebyid = async (id) => {
+        let name = await axios.get('http://localhost:1000/users/' + id)
+        this.username = name.data.username
+    }
 
     @action setTrip = async (id) => {
         let data = await axios.get('http://localhost:1000/trips/' + id);
@@ -103,6 +114,8 @@ class TripStore {
             console.log(newcp)
             let updatedTrip = await axios.get('http://localhost:1000/trips/' + this.trip._id)
             this.trip = updatedTrip.data
+            // this.trip.checkpoints.push()
+            console.log(this.trip)
         }
         catch (err) {
             console.error(err)

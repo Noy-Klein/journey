@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
 import '../../App.css'
 import { observable, action } from 'mobx';
 import { Redirect } from 'react-router-dom';
+import BigLogo from './Biglogo';
 
 @inject("store")
 @observer
@@ -17,37 +19,39 @@ class SignUp extends Component {
     @action inputChangeSignUp = (e) => { this[e.target.name] = e.target.value }
 
     add = async () => {
-        if(this.password.length < 4){
-            alert('Your Password Must Contains More Than 3 Characters')
-            return
+        if ((this.username==="")||(this.password==="")||(this.phone==="")){
+            alert ("Please fill out all the fields!")
         }
-        if(this.phone.length < 10){
-            alert('Your Phone Number Must Contain 10 Characters')
-            return
+        if ((this.email==="")||!(this.email.includes("@"))||!(this.email.includes(".com"))){
+            alert ("Please fill the Email correctly!")
         }
-        //validation!
-        await this.props.store.AddUser({username:this.username, password:this.password, phone:this.phone, email:this.email})
-        let user = await this.props.store.setLogin(this.username, this.password)
-        this.props.store.setId(user.data._id)
-        this.clicked = true;
-        this.props.store.login();
-        // console.log(this.props.store.logged)
+        else{
+            await this.props.store.AddUser({username:this.username, password:this.password, phone:this.phone, email:this.email})
+            let user = await this.props.store.setLogin(this.username, this.password)
+            this.props.store.setId(user.data._id)
+            this.clicked = true;
+            this.props.store.login();
+            console.log(this.props.store.logged)
+        }
     }
 
     render() {
-        return (
+        return (<div>
+            <BigLogo />
             <div className="sign-up">
                 <h1 className="title-sign-up">Sign Up</h1>
                 <input className="form-control inputSignUp1" name="username" placeholder="Username" type="text" onChange={this.inputChangeSignUp} value={this.username} />
                 <br></br><br></br>
-                <input className="form-control inputSignUp2" name="password" placeholder="Password" type="text" onChange={this.inputChangeSignUp} value={this.password} />
+                <input className="form-control inputSignUp2" name="password" placeholder="Password" type="password" onChange={this.inputChangeSignUp} value={this.password} />
                 <br></br><br></br>
                 <input className="form-control inputSignUp3" name="phone" placeholder="Phone" type="text" onChange={this.inputChangeSignUp} value={this.phone} />
                 <br></br><br></br>
                 <input className="form-control inputSignUp4" name="email" placeholder="Email" type="text" onChange={this.inputChangeSignUp} value={this.email} />
                 <br></br><br></br>
                 <button className="btn btn-outline-secondary signUp" type="button" onClick={this.add}>Sign Up</button>
+                <Link to='/'><button type="button" className="btn btn-outline-secondary homesignupbtn">HOME</button></Link>
                 {this.clicked && this.props.store.logged ? <Redirect to='/trips'/> : null}
+            </div>
             </div>
         )
     }
