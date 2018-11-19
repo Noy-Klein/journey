@@ -14,9 +14,14 @@ class TripStore {
     @observable initialCenter = null
     @observable userId = localStorage.getItem('userId')
     @observable tripId = localStorage.getItem('tripId')
+    @observable logged = true;
 
     @action setId = (id) => {
         localStorage.setItem('userId', id)
+    }
+
+    @action login = () => {
+        this.logged = true
     }
 
     @action logout = () => {
@@ -25,6 +30,7 @@ class TripStore {
         this.trips = [];
         this.trip = null;
         this.tripstosearch = [];
+        this.logged = false
     }
 
     @action setTripId = (id) => {
@@ -40,6 +46,7 @@ class TripStore {
         this.setTripsValue(trips.data.trips)
         console.log(this.trips)
         this.tripstosearch = [...this.trips];
+        this.logged = true
     }
 
     @action getTrips = async () => {
@@ -84,7 +91,7 @@ class TripStore {
     }
 
     Addtrip = async (title, description, startDate, endDate, imageurl) => {
-        await axios.post('http://localhost:1000/' + this.userId + '/trips', { title: title, description: description, startDate: startDate, endDate: endDate, imageurl: imageurl })
+        let trip = await axios.post('http://localhost:1000/' + this.userId + '/trips', { title: title, description: description, startDate: startDate, endDate: endDate, imageurl: imageurl })
         this.getTrips()
     }
 
