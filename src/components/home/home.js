@@ -11,10 +11,19 @@ import { Link, Redirect } from 'react-router-dom';
 @observer
 class Home extends Component {
 
-  // @observable logged = true;
-
   componentDidMount = async () => {
-    this.props.store.getTrips(this.props.match.params.username)
+    // this.props.store.getTrips()
+    this.props.store.setTrip(this.props.store.userId).then(()=>{
+      this.props.store.getTrips()
+      // this.props.store.setUserById(this.props.store.userId)
+      // this.props.store.findnamebyid(this.props.store.user._id)
+    })
+    // if(!this.userId && this.user){
+      // this.props.store.findnamebyid(this.props.store.user._Id)
+    // }
+    // else{
+    //   this.props.store.findnamebyid(this.props.store.userId)
+    // }
   }
 
   logout = () => {
@@ -23,15 +32,14 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props.store.logged)
     return (
       <div>
-        <h2 className='hey'>Hey {this.props.store.username},</h2>
+        <h2 className='hey'>Hey {this.props.store.username}!</h2>
         <h2 onClick={this.logout}><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
         <Logo />
         <Navbar />
-        {this.props.store.showpopupaddtrip ? <Popupaddtrip username={this.props.match.params.username} /> : null}
-        <Trips username={this.props.match.params.username} />
+        {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
+        <Trips />
         {!this.props.store.logged ? <Redirect to='/' /> : null}
       </div>
     );

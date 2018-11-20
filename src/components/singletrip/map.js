@@ -8,9 +8,9 @@ import { observable } from 'mobx';
 @observer
 class MapContainer extends Component {
     componentDidMount = () => {
-        this.props.store.setTrip(this.props.id)
-        console.log(this.props.store.trip)
-        this.props.store.addInitialCenter(this.props.store.trip.title.split(' ')[0])
+        this.props.store.setTrip(this.props.id).then(()=>{
+            this.props.store.addInitialCenter(this.props.store.trip.title.split(' ')[0])
+        })
     }
     @observable marker = {}
 
@@ -27,7 +27,9 @@ class MapContainer extends Component {
     render() {
         let trip = this.props.store.trip;
         let initialCenter = this.props.store.initialCenter;
+        
         if (trip && trip.checkpoints.length) {
+           let centerOfMap = trip.checkpoints[0].coordinant 
             let coordns = []
             for (let c of trip.checkpoints) {
                 coordns.push(c.coordinant)
@@ -40,9 +42,17 @@ class MapContainer extends Component {
                     return -1
                 }
             })
+            if(this.props.store.currentCP){
+                centerOfMap = trip.checkpoints.find(c => c.title === this.props.store.currentCP)
+                console.log(centerOfMap)
+                centerOfMap = centerOfMap.coordinant
+            }
+            else{
+                centerOfMap = trip.checkpoints[0].coordinant
+            }
             return (
                 <div className="mapDiv">
-                    <Map className="map" style={{ width: '50%', height: '50%' }} center={trip.checkpoints[0].coordinant} initialCenter={trip.checkpoints[0].coordinant} google={this.props.google} zoom={14}>
+                    <Map className="map" style={{ width: '50%', height: '50%' }} center={centerOfMap} initialCenter={centerOfMap} google={this.props.google} zoom={14}>
                         <Polyline
                             path={
                                 // trip.checkpoints.map(c => { return c.coordinant })
@@ -57,11 +67,10 @@ class MapContainer extends Component {
                         {trip.checkpoints.map(c => { return <Marker key={c._id} id={c._id} onClick={this.click} name={c.title} position={c.coordinant} /> })}
                     </Map>
                 </div>
-
             );
         }
         else if (trip && initialCenter) {
-            console.log(initialCenter)
+            // console.log(initialCenter)
             return (
                 <Map className="map" style={{ width: '50%', height: '50%' }} center={initialCenter} initialCenter={initialCenter} google={this.props.google} zoom={7}>
                     <Polyline
@@ -72,7 +81,7 @@ class MapContainer extends Component {
                         strokeWeight={2}
                         strokeStyle='dotted'
                         strokeOpacity={0.3} />
-                    <Marker id='1' onClick={this.click} name={trip.title} position={initialCenter} />
+                    {/* <Marker id='1' onClick={this.click} name={trip.title} position={initialCenter} /> */}
                 </Map>
             );
         }

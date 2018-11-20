@@ -12,12 +12,22 @@ class TripStore {
     @observable ifexists = false
     @observable initialCenter = null
     @observable userId = localStorage.getItem('userId')
-    @observable username = "";
+    @observable username = null;
     @observable tripId = localStorage.getItem('tripId')
     @observable logged = true;
     @observable img = ''
     @observable allCheckpoint = null;
-    @observable currentCP = null
+    @observable currentCP = null;
+    @observable user = null;
+
+    @action setUser = (user) => {
+        this.user = user;
+    }
+
+    @action setUserById = async (id) => {
+        let name = await axios.get('http://localhost:1000/users/' + id)
+        this.user = name.data
+    }
 
     @action changeCurrCP = (cp) => {
         this.currentCP = cp;
@@ -107,19 +117,18 @@ class TripStore {
     }
 
     Addtrip = async (title, description, startDate, endDate, imageurl) => {
-        let trip = await axios.post('http://localhost:1000/' + this.userId + '/trips', { title: title, description: description, startDate: startDate, endDate: endDate, imageurl: imageurl })
+        let images = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${title.split(' ')[0] + ' black icon'}&?searchType=Image&defaultToImageSearch=true&safe=active`)
+        let trip = await axios.post('http://localhost:1000/' + this.userId + '/trips', { title: title, description: description, startDate: startDate, endDate: endDate, imageurl: images.data.items[0].pagemap.imageobject[0].thumbnailurl })
         this.getTrips()
     }
 
     @action addCheckPoint = async (newCheckPoint) => {
         try {
             let data = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + newCheckPoint.data.adress + '&key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M')
-            let newcp = await axios.post('http://localhost:1000/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location });
-            console.log(newcp)
+            let images = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${newCheckPoint.data.adress}&?searchType=Image&defaultToImageSearch=true&safe=active`)
+            let newcp = await axios.post('http://localhost:1000/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location, images: images.data.items[0].pagemap.imageobject[0].thumbnailurl });
             let updatedTrip = await axios.get('http://localhost:1000/trips/' + this.trip._id)
             this.trip = updatedTrip.data
-            // this.trip.checkpoints.push()
-            console.log(this.trip)
         }
         catch (err) {
             console.error(err)
@@ -141,8 +150,8 @@ class TripStore {
     }
 
     getIcon = async (searchIconName) => {
-        return await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${searchIconName}&?searchType=Image&defaultToImageSearch=true&safe=active`)
-        // this.img = imgJson.data.items[0].pagemap.imageobject[0].thumbnailurl;
+        let json = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${searchIconName}&?searchType=Image&defaultToImageSearch=true&safe=active`)
+        this.img = json.data.items[0].pagemap.imageobject[0].thumbnailurl;
         // console.log(this.img)
     }
 }

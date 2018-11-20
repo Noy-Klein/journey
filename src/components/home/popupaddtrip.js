@@ -32,17 +32,14 @@ class Popupaddtrip extends Component {
   // }
 
   @action Addthetrip = () => {
-    if ((this.title === "") || (this.description === "") || (this.startDate === "") || (this.endDate === "") || (this.imageurl === "")) {
+    if ((this.title === "") || (this.description === "") || (this.startDate === "") || (this.endDate === "") ) {
       alert("Please fill out all the fields!")
     }// two folders cant have the same name!!
     else {
-      this.props.store.getIcon(this.title.split(' ')[0]).then((json)=>{
-        this.img = json.data.items[0].pagemap.imageobject[0].thumbnailurl;
-      })
       // console.log(this.title.split(' ')[0])
       // this.img = this.props.store.img
-      console.log(this.img)
-      this.props.store.Addtrip(this.title, this.description, this.startDate, this.endDate, this.imageurl);
+      // console.log(this.img)
+      this.props.store.Addtrip(this.title, this.description, this.startDate, this.endDate);
       this.closepopup()
       alert("Your trip saved!")
     }
