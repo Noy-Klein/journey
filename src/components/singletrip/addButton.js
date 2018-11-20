@@ -46,7 +46,7 @@ class AddButton extends Component {
     }
 
     render() {
-        console.log(this.props.store.trip.endDate)
+        // console.log(this.props.store.trip.endDate)
         return (
             <div className="add-button">
                 <div className="popupcurr">
