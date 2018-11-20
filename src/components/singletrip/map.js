@@ -11,7 +11,6 @@ class MapContainer extends Component {
         this.props.store.setTrip(this.props.id).then(()=>{
             this.props.store.addInitialCenter(this.props.store.trip.title.split(' ')[0])
         })
-        
     }
     @observable marker = {}
 

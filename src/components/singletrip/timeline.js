@@ -29,6 +29,10 @@ class TimeLine extends Component {
         this.props.store.changeCurrCP(e.target.innerText)
     }
 
+    clickClose = () => {
+        this.click = false;
+    }
+
     render() {
         let trip = this.props.store.trip
 
@@ -56,7 +60,6 @@ class TimeLine extends Component {
                                     :
                                     <h6 onClick={this.clickTitle}> {c.title}</h6>
                                 }
-                                    
                                     <br />
                                 </div>
                             </div>
@@ -64,6 +67,7 @@ class TimeLine extends Component {
                     })}
                     {this.props.store.currentCP && this.click ?
                         <div className="popupTitle">
+                            <button className="btn btn-outline-secondary closebutton" type="button" value="X" onClick={this.clickClose}>X</button>
                             <p>Description: {currentObjCP.description}</p>
                             <div>Date: {this.fixDate(currentObjCP.startDate)}</div>
                             <div>People: {currentObjCP.people.map(p => {

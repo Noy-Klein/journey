@@ -108,6 +108,10 @@ class TripStore {
         return trips
     }
 
+    @action sendmail = async (from, to, Emailadress, body) => {
+        await axios.post('http://localhost:1000/sendmail', { from:from, to:to, Emailadress:Emailadress, body:body})
+    }
+
     AddUser = async (newUser) => {
         await axios.post('http://localhost:1000/users', newUser)
     }
