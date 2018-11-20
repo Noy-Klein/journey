@@ -35,7 +35,8 @@ class CurrTrip extends Component {
         return (
             <div>
                 <h2 onClick={this.logout} className='hey'>Hey {this.props.store.username}!</h2>
-                <h2><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
+                <h2><Link className="logoutlink" to='/'>LOG OUT<img height='21px' width='21px' alt='logout' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Signout_font_awesome.svg/2000px-Signout_font_awesome.svg.png'/></Link></h2>
+                <h2 className="back" onClick={this.click}>Back</h2>
                 <Logo />
                 <hr />
                 <img src="https://cdn0.iconfinder.com/data/icons/pixon-1/24/arrow_right_left_back_next_forward_circle-512.png" height="25px" alt="arrow" className="back" onClick={this.click}/>
