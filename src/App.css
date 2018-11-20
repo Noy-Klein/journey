@@ -81,8 +81,8 @@ h2{
 }
 
 .searchinput{
-  bottom: 33px;
-  //bottom: 1px;
+  /* bottom: 33px; */
+  bottom: 1px;
   left: 517px;
   position: relative;
   width: 270px;
@@ -241,7 +241,7 @@ bottom: 189px;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   position: fixed;
-  width: 332px;
+  width: 400px;
   height: 200px;
   background-color: rgba(99, 45, 48, 0.719);
   border-radius: 7px;
@@ -381,6 +381,7 @@ input[placeholder], [placeholder], *[placeholder]
   height: 2px;
   border: 0ch;
   background-color: rgba(255, 255, 255, 0.575);
+}
 
 .hey{
   left: 5px;

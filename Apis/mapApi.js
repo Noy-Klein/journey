@@ -60,6 +60,7 @@ router.post('/checkpoints', (req, res) => {
     console.log(newCheckPoint)
     trips.findOneAndUpdate({ _id: id }, { $push: { checkpoints: newCheckPoint } }, { new: true }).exec((err, trip) => {
         newCheckPoint.coordinant = req.body.coo;
+        newCheckPoint.pictures.push(req.body.images);
         newCheckPoint.save((err, cp) => {
             if (err) {
                 res.status(500).send(err)

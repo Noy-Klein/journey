@@ -10,7 +10,7 @@ class TimeLine extends Component {
     @observable currentCP = null
 
     componentDidMount = () => {
-        console.log(this.props.id)
+        // console.log(this.props.id)
         this.props.store.setTrip(this.props.id)
 
     }
@@ -24,7 +24,7 @@ class TimeLine extends Component {
     }
 
     clickTitle = (e) => {
-        this.click = !this.click;
+        this.click = true;
         // console.log(e.target.innerText)
         this.props.store.changeCurrCP(e.target.innerText)
     }
@@ -32,7 +32,7 @@ class TimeLine extends Component {
     render() {
         let trip = this.props.store.trip
 
-        console.log(trip)
+        // console.log(trip)
         if (trip) {
             trip.checkpoints.splice().sort(function (a, b) {
                 if (new Date(a.startDate) > new Date(b.startDate)) {
@@ -41,17 +41,22 @@ class TimeLine extends Component {
                 if (new Date(a.startDate) < new Date(b.startDate)) {
                     return -1
                 }
-                // return new Date(b.startDate) - new Date(a.startDate);
+                return 0
             })
             let currentObjCP = trip.checkpoints.find(c => c.title === this.props.store.currentCP)
-            console.log(trip.checkpoints)
+            // console.log(trip.checkpoints)
             return (
                 <div className='wrapper'>
                     {trip.checkpoints.map(c => {
                         return (
-                            <div>
+                            <div key={c._id}>
                                 <div className="timeline" >
-                                    <h5 onClick={this.clickTitle}> {c.title}</h5>
+                                {c.title === this.props.store.currentCP ?
+                                    <h6 style={{border: 'black solid 1px'}} onClick={this.clickTitle}> {c.title}</h6>
+                                    :
+                                    <h6 onClick={this.clickTitle}> {c.title}</h6>
+                                }
+                                    
                                     <br />
                                 </div>
                             </div>

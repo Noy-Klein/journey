@@ -31,9 +31,10 @@ class ShowCheckPoint extends Component {
                     <input className="btn btn-outline-secondary closepopupbutton" type="button" value="X" onClick={this.closeButtonCheckPoint} />
                     <br/>
                     <h1>{cp.title}</h1>
-                    <h2>Description: {cp.description}</h2>
+                    <div style={{maxHeight: '150px', maxWidth: '300'}}><img alt='checkpoint' src={cp.pictures[0]} /></div>
+                    {/* <h2>Description: {cp.description}</h2>
                     <h2>Date: {this.fixDate(cp.startDate)}</h2>
-                    <h2>with: {cp.people.map(p => {return <span> {p}</span>})}</h2>
+                    <h2>with: {cp.people.map(p => {return <span> {p}</span>})}</h2> */}
                 </div>
             )
         }

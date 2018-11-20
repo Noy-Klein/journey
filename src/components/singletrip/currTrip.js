@@ -31,7 +31,7 @@ class CurrTrip extends Component {
     render() {
         return (
             <div>
-                <h2 onClick={this.logout} className='hey'>Hey {this.props.store.username},</h2>
+                <h2 onClick={this.logout} className='hey'>Hey {this.props.store.username}!</h2>
                 <h2><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
                 <Logo />
                 <hr />
