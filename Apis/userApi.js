@@ -27,18 +27,19 @@ router.get('/users/:id', function (req, res) {
     })
 });
 
-router.get('/users/:username', function (req, res) {
+router.get('/findusers/:username', function (req, res) {
     let username = req.params.username
+    console.log(username)
     users.findOne({ username:username }).exec((err, user) => {
         if (err) {
-            res.status(500).send(err);
+            res.send("doesntexist");
         }
         else {
-            res.send(user)
+            console.log(user)
+            res.send("exist")
         }
     })
 });
-
 
 router.post('/users', (req, res) => {
     let newUser = new users(req.body);

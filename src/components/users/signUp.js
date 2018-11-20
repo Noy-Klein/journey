@@ -16,25 +16,29 @@ class SignUp extends Component {
 
     @observable clicked = false
 
-    @action inputChangeSignUp = (e) => { this[e.target.name] = e.target.value }
+    @action inputChangeSignUp = (e) => { 
+        this[e.target.name] = e.target.value
+        if(e.target.name){
+            this.props.store.checkusernameexist(e.target.value)
+        }
+        
+    }
 
     add = async () => {
-        // await this.props.store.checkIf(this.username.charAt(0).toUpperCase() + this.username.slice(1))
-        // console.log(this.props.store.ifExist)
-        // if (this.props.store.ifExist.username) {
-        //     alert('This Username Is Already Taken... Pick A Different One')
-        //     return
-        // }
-        // else {
-            if ((this.username === "") || (this.password === "") || (this.phone === "")) {
-                alert("Please fill out all the fields!")
-            }
-            if ((this.email === "") || !(this.email.includes("@")) || !(this.email.includes(".com"))) {
-                alert("Please fill the Email correctly!")
-            }
-            else {
-                let upperusername = this.username.charAt(0).toUpperCase() + this.username.slice(1)
-                await this.props.store.AddUser({ username: upperusername, password: this.password, phone: this.phone, email: this.email })
+        let upperusername=this.username.charAt(0).toUpperCase() + this.username.slice(1)
+        // this.props.store.checkusernameexist(upperusername)
+        //console.log(this.props.store.usernameexist)
+        if (this.props.store.usernameexist===true){
+            alert ("This Username is taken!")
+        }
+        if ((this.username==="")||(this.password==="")||(this.phone==="")){
+            alert ("Please fill out all the fields!")
+        }
+        if ((this.email==="")||!(this.email.includes("@"))||!(this.email.includes(".com"))){
+            alert ("Please fill the Email correctly!")
+        }
+        else{
+            await this.props.store.AddUser({ username: upperusername, password: this.password, phone: this.phone, email: this.email })
                 await this.props.store.setLogin(this.username, this.password)
                 // console.log(user)
                 this.props.store.setId(this.props.store.user._id)
@@ -42,10 +46,7 @@ class SignUp extends Component {
                 console.log(this.props.store.username)
                 this.clicked = true;
                 this.props.store.login();
-                // console.log(this.props.store.logged)
-            }
-        // }
-
+        }
     }
 
     render() {

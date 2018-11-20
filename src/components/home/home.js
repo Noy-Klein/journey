@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './navbar';
 import Trips from './trips';
 import Logo from './logo';
+import Header from './header';
 import Popupaddtrip from './popupaddtrip';
 import { observer, inject } from 'mobx-react';
 import '../../App.css';
@@ -48,8 +49,7 @@ class Home extends Component {
         // console.log(json)
     return (
       <div>
-        <h2 className='hey'>Hey {this.props.store.username}!</h2>
-        <h2 onClick={this.logout}><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
+        <Header />
         <Logo />
         <Navbar />
         {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}

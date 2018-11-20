@@ -59,9 +59,10 @@ class TimeLine extends Component {
                                     {c.title === this.props.store.currentCP ?
                                         <h6 style={{ backgroundColor: 'rgba(175, 175, 175, 0.493)' }} onClick={this.clickTitle}> {c.title} </h6>
                                         :
-                                       <span> <h6 className='timeline-title' onClick={this.clickTitle}> {c.title}</h6></span>
+                                        <span> <h7 assName='timeline-title' onClick={this.clickTitle}> {c.title}</h7></span>
                                     }
                                 </div>
+                                    <hr className="hr1"></hr>
                             </div>
                         )
                     })}
