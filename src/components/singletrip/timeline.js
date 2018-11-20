@@ -31,6 +31,7 @@ class TimeLine extends Component {
 
     clickClose = () => {
         this.click = false;
+        this.props.store.changeCurrCP('')
     }
 
     render() {
@@ -39,16 +40,16 @@ class TimeLine extends Component {
         // console.log(trip)
         if (trip) {
             trip.checkpoints.splice().sort(function (a, b) {
-                if (new Date(a.startDate) > new Date(b.startDate)) {
+                if (new Date(a.startDate).getTime() > new Date(b.startDate).getTime()) {
                     return 1
                 }
-                if (new Date(a.startDate) < new Date(b.startDate)) {
+                if (new Date(a.startDate).getTime() < new Date(b.startDate).getTime()) {
                     return -1
                 }
-                return 0
+                // return 0
             })
             let currentObjCP = trip.checkpoints.find(c => c.title === this.props.store.currentCP)
-            // console.log(trip.checkpoints)
+            console.log(trip.checkpoints)
             return (
                 <div className='wrapper'>
                     {trip.checkpoints.map(c => {
@@ -56,9 +57,9 @@ class TimeLine extends Component {
                             <div key={c._id}>
                                 <div className="timeline" >
                                 {c.title === this.props.store.currentCP ?
-                                    <h6 style={{border: 'black solid 1px'}} onClick={this.clickTitle}> {c.title}</h6>
+                                    <h6 style={{backgroundColor: 'rgba(175, 175, 175, 0.493)'}} onClick={this.clickTitle}> {c.title}</h6>
                                     :
-                                    <h6 onClick={this.clickTitle}> {c.title}</h6>
+                                    <h6 className='timeline-title' onClick={this.clickTitle}> {c.title}</h6>
                                 }
                                     <br />
                                 </div>
@@ -67,7 +68,7 @@ class TimeLine extends Component {
                     })}
                     {this.props.store.currentCP && this.click ?
                         <div className="popupTitle">
-                            <button className="btn btn-outline-secondary closebutton" type="button" value="X" onClick={this.clickClose}>X</button>
+                            <div><button className="btn btn-outline-secondary closebutton" type="button" value="X" onClick={this.clickClose}>X</button></div>
                             <p>Description: {currentObjCP.description}</p>
                             <div>Date: {this.fixDate(currentObjCP.startDate)}</div>
                             <div>People: {currentObjCP.people.map(p => {

@@ -242,7 +242,7 @@ bottom: 189px;
   transform: translate(-50%,-50%);
   position: fixed;
   width: 400px;
-  height: 200px;
+  height: 500px;
   background-color: rgba(99, 45, 48, 0.904);
   border-radius: 7px;
   color: black;
@@ -386,6 +386,7 @@ input[placeholder], [placeholder], *[placeholder]
     /* top: 800px;
     left: 450px; */
     position: absolute;
+    padding: 10px;
     /* border-radius: 7px; */
     background-color: rgba(255, 255, 255, 0.493);
     width: 20%;
@@ -510,8 +511,16 @@ h6{
 
 .closebutton{
   /* top: 100px; */
+  /* text-align: center; */
   left: 230px; 
+  /* color: rgba(175, 175, 175, 0.493); */
+  /* top: 1px; */
   position: absolute;
   height: 30px;
+  /* width: 20px; */
   font-size: 10px;
+}
+
+.timeline-title:hover{
+  background-color: rgba(175, 175, 175, 0.493)
 }
