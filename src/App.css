@@ -510,13 +510,19 @@ h6{
 }
 
 .closebutton{
-  /* top: 100px; */
+  /* top: 36px; */
   /* text-align: center; */
-  left: 230px; 
+  /* margin-left: 150px;  */
+  margin-left: 223px;
+  margin-top: -39px;
+  border: none;
   /* color: rgba(175, 175, 175, 0.493); */
   /* top: 1px; */
-  position: absolute;
+  /* position: inline; */
+  /* bottom: 180px; */
+  display: inline-block;
   height: 30px;
+  /* top: 90px; */
   /* width: 20px; */
   font-size: 10px;
 }

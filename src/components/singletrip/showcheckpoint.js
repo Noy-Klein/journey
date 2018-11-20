@@ -58,7 +58,7 @@ class ShowCheckPoint extends Component {
                     <input className="btn btn-outline-secondary closepopupbutton" type="button" value="X" onClick={this.closeButtonCheckPoint} />
                     <br/>
                     <h1>{cp.title}</h1>
-                    <div style={{maxHeight: '150px', maxWidth: '300'}}><img alt='checkpoint' src={cp.pictures[0]} /></div>
+                    <div style={{maxHeight: '150px', maxWidth: '300'}}><img height={'200'} width={'300px'} alt='checkpoint' src={cp.pictures[0]} /></div>
                     <input className="form-control inputpopup" id="inputmail2" type="text" name="Emailadress" placeholder="Email adress" value={this.Emailadress} onChange={this.inputChange}/>   
                     <br></br>
                     <input className="form-control inputpopup" id="inputmail1" type="text" name="to" placeholder="To" value={this.to} onChange={this.inputChange}/>
