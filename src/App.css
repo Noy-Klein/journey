@@ -385,15 +385,23 @@ input[placeholder], [placeholder], *[placeholder]
 .wrapper {
     /* top: 800px;
     left: 450px; */
+    /* position: absolute;
+    padding: 10px; */
+    /* border-radius: 7px; */
+    /* background-color: rgba(255, 255, 255, 0.493);
+    width: 20%;
+    bottom: -80px; */
+    /* left: 1080px; */
+    /* width: 420px;
+    height: 980px; */
     position: absolute;
     padding: 10px;
     /* border-radius: 7px; */
     background-color: rgba(255, 255, 255, 0.493);
-    width: 20%;
-    bottom: -80px;
-    left: 1080px;
-    /* width: 420px;
-    height: 980px; */
+    width: 15%;
+    bottom: -151px;
+    left: 35px;
+    /* left: 1080px; */
 }
 
 .timelinedetails{
@@ -401,9 +409,12 @@ input[placeholder], [placeholder], *[placeholder]
 }
 
 .hr1{
-  width: 270px;
+  width: 171px;
+  /* width: 244px; */
   height: 2px;
   border: 0ch;
+  /* position: relative;
+  bottom: 20px; */
   background-color: rgba(255, 255, 255, 0.575);
 }
 
@@ -509,12 +520,20 @@ h6{
   display: inline-block;
 }
 
+/* 
+.header{
+  background-color: rgba(255, 255, 255, 0.493);
+  top:-8px;
+  position: relative;
+  height: 40px;
+} */
+
 .closebutton{
   /* top: 36px; */
   /* text-align: center; */
   /* margin-left: 150px;  */
-  margin-left: 223px;
-  margin-top: -39px;
+  margin-left: 161px;
+  margin-top: -25px;
   border: none;
   /* color: rgba(175, 175, 175, 0.493); */
   /* top: 1px; */
