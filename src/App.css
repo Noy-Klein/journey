@@ -556,6 +556,11 @@ h6{
   background-color: rgba(175, 175, 175, 0.493)
 }
 
+.back{
+  position: absolute;
+  right: 320px;
+}
+
 .spanTitle{
   font-weight: bolder;
 }
