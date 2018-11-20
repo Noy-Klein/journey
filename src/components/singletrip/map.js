@@ -27,9 +27,8 @@ class MapContainer extends Component {
     render() {
         let trip = this.props.store.trip;
         let initialCenter = this.props.store.initialCenter;
-        
-        if (trip && trip.checkpoints.length) {
-           let centerOfMap = trip.checkpoints[0].coordinant 
+        if (trip && trip.checkpoints &&  trip.checkpoints.length) {
+           let centerOfMap = trip.checkpoints[0].coordinant ;
             let coordns = []
             for (let c of trip.checkpoints) {
                 coordns.push(c.coordinant)

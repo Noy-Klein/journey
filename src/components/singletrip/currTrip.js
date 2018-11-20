@@ -23,6 +23,9 @@ class CurrTrip extends Component {
         this.showPopup = false
     }
 
+    click = () => {
+        this.props.store.goBack()
+    }
 
     componentDidMount = () => {
         this.props.store.setTrip(this.props.match.params.id)
@@ -33,6 +36,7 @@ class CurrTrip extends Component {
             <div>
                 <h2 onClick={this.logout} className='hey'>Hey {this.props.store.username}!</h2>
                 <h2><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
+                <h2 className="back" onClick={this.click}>Back</h2>
                 <Logo />
                 <hr />
                 <AddForm />
@@ -48,8 +52,8 @@ class CurrTrip extends Component {
                         : null}
                 </div>
 
-                {!this.props.store.logged ? <Redirect to='/'/> : null}
-                
+                {!this.props.store.logged ? <Redirect to='/' /> : null}
+                {this.props.store.back ?<Redirect to='/trips' /> : null}
             </div>
         );
     }

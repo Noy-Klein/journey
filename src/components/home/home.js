@@ -7,6 +7,8 @@ import Popupaddtrip from './popupaddtrip';
 import { observer, inject } from 'mobx-react';
 import '../../App.css';
 import { Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
+
 
 @inject("store")
 @observer
@@ -14,7 +16,11 @@ class Home extends Component {
 
   componentDidMount = async () => {
     // this.props.store.getTrips()
+    this.props.store.Wentback()
+    // console.log(this.props.store.back)
+    // this.props.store.getIcon()
     this.props.store.setTrip(this.props.store.userId).then(()=>{
+      this.props.store.findnamebyid(this.props.store.userId)
       this.props.store.getTrips()
       // this.props.store.setUserById(this.props.store.userId)
       // this.props.store.findnamebyid(this.props.store.user._id)
@@ -27,12 +33,20 @@ class Home extends Component {
     // }
   }
 
+  // icon = async () => {
+  //   let json = await axios.get("https://api.icons8.com/api/iconsets/search?term=romania")
+  //   console.log(json)
+  // }
+
   logout = () => {
     this.props.store.logout();
     this.logged = false;
   }
 
   render() {
+    // this.icon()
+    // let json = await axios.get("https://api.icons8.com/api/iconsets/search?term=romania")
+        // console.log(json)
     return (
       <div>
         <Header />

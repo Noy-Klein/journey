@@ -23,6 +23,7 @@ class Login extends Component {
             let user = await this.props.store.setLogin(upperusername, this.password)
         if (user.data.username) {
             this.ifexists = true
+            this.props.store.findnamebyid(user.data._id)
             this.props.store.getTripsInLogin(user.data._id)
             this.props.store.setUser(user.data)
             this.props.store.setId(user.data._id)

@@ -27,7 +27,7 @@ class SignUp extends Component {
     add = async () => {
         let upperusername=this.username.charAt(0).toUpperCase() + this.username.slice(1)
         // this.props.store.checkusernameexist(upperusername)
-        console.log(this.props.store.usernameexist)
+        //console.log(this.props.store.usernameexist)
         if (this.props.store.usernameexist===true){
             alert ("This Username is taken!")
         }
@@ -38,12 +38,14 @@ class SignUp extends Component {
             alert ("Please fill the Email correctly!")
         }
         else{
-            await this.props.store.AddUser({username:upperusername, password:this.password, phone:this.phone, email:this.email})
-            let user = await this.props.store.setLogin(this.username, this.password)
-            this.props.store.setId(user.data._id)
-            this.clicked = true;
-            this.props.store.login();
-            console.log(this.props.store.logged)
+            await this.props.store.AddUser({ username: upperusername, password: this.password, phone: this.phone, email: this.email })
+                await this.props.store.setLogin(this.username, this.password)
+                // console.log(user)
+                this.props.store.setId(this.props.store.user._id)
+                this.props.store.findnamebyid(this.props.store.user._id)
+                console.log(this.props.store.username)
+                this.clicked = true;
+                this.props.store.login();
         }
     }
 
@@ -62,9 +64,9 @@ class SignUp extends Component {
                 <br></br><br></br>
                 <button className="btn btn-outline-secondary signUp" type="button" onClick={this.add}>Sign Up</button>
                 <Link to='/'><button type="button" className="btn btn-outline-secondary homesignupbtn">HOME</button></Link>
-                {this.clicked && this.props.store.logged ? <Redirect to='/trips'/> : null}
+                {this.clicked && this.props.store.logged ? <Redirect to='/trips' /> : null}
             </div>
-            </div>
+        </div>
         )
     }
 }

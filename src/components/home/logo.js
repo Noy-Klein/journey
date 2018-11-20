@@ -17,7 +17,6 @@ class Logo extends Component {
       return <h1>MY JOURNEYS</h1>
     }
   }
-
   render() {
     return (<div className="logo">
       <Link to="/trips"><img src="https://www.thebyte.com.au/wp-content/uploads/2016/09/global.png" height="120px" alt="error" /></Link>
@@ -27,5 +26,4 @@ class Logo extends Component {
     );
   }
 }
-
 export default Logo;
