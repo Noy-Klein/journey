@@ -417,14 +417,14 @@ input[placeholder], [placeholder], *[placeholder]
 }
 
 .hey{
-  left: 5px;
+  left: 17px;
   position: fixed;
   font-weight: 600; 
 }
 
 .in{
   top: 15px;
-  left: 130px;
+  left: 5px;
   position: fixed;
 }
 
