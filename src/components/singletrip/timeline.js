@@ -70,8 +70,8 @@ class TimeLine extends Component {
                         <div className="popupTitle">
                             <button className="btn btn-outline-secondary closebutton" type="button" value="X" onClick={this.clickClose}>X</button>
                             <p>{currentObjCP.description}</p>
-                            <div>On: {this.fixDate(currentObjCP.startDate)}</div>
-                            <div>With {currentObjCP.people.map(p => {
+                            <div><span className="spanTitle">On: </span>{this.fixDate(currentObjCP.startDate)}</div>
+                            <div><span className="spanTitle">With</span> {currentObjCP.people.map(p => {
                                 return <span>{p}</span>
                             })}</div>
                             <hr className="hr1"></hr>
