@@ -63,7 +63,7 @@ class AddButton extends Component {
                     <br></br><br></br>
                     <input className="form-control inputpopup" id="inputCurr4" type="text" name="adress" placeholder="Adress - Please Be Specific!" value={this.adress} onChange={this.inputChange} />
                     <br></br><br></br>
-                    <input className="form-control inputpopup" id="inputCurr5" type="text" name="pictures" placeholder="Pictures" value={this.pictures} onChange={this.inputChange} />
+                    {/* <input className="form-control inputpopup" id="inputCurr5" type="text" name="pictures" placeholder="Pictures" value={this.pictures} onChange={this.inputChange} /> */}
                     <br></br><br></br>
                     {/* <Images /> */}
                     <button className="btn btn-outline-secondary addtripbuttoncurr" type="button" value="Add Checkpoint" onClick={this.addNewCheckpoint}>Add Checkpoint</button>
