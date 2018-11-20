@@ -38,7 +38,6 @@ class Login extends Component {
             this.clicked = true
         }
     }
-    // welcome back alert...
 
     @action inputChangeLogin = (e) => { this[e.target.name] = e.target.value }
 
