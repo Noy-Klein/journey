@@ -15,28 +15,12 @@ import axios from 'axios';
 class Home extends Component {
 
   componentDidMount = async () => {
-    // this.props.store.getTrips()
     this.props.store.Wentback()
-    // console.log(this.props.store.back)
-    // this.props.store.getIcon()
-    this.props.store.setTrip(this.props.store.userId).then(()=>{
+    this.props.store.setTrip(this.props.store.userId).then(() => {
       this.props.store.findnamebyid(this.props.store.userId)
       this.props.store.getTrips()
-      // this.props.store.setUserById(this.props.store.userId)
-      // this.props.store.findnamebyid(this.props.store.user._id)
     })
-    // if(!this.userId && this.user){
-      // this.props.store.findnamebyid(this.props.store.user._Id)
-    // }
-    // else{
-    //   this.props.store.findnamebyid(this.props.store.userId)
-    // }
   }
-
-  // icon = async () => {
-  //   let json = await axios.get("https://api.icons8.com/api/iconsets/search?term=romania")
-  //   console.log(json)
-  // }
 
   logout = () => {
     this.props.store.logout();
@@ -44,9 +28,6 @@ class Home extends Component {
   }
 
   render() {
-    // this.icon()
-    // let json = await axios.get("https://api.icons8.com/api/iconsets/search?term=romania")
-        // console.log(json)
     return (
       <div>
         <Header />
