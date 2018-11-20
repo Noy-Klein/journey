@@ -41,7 +41,7 @@ class Popupaddtrip extends Component {
       // console.log(this.img)
       let uppertitle=this.title.charAt(0).toUpperCase() + this.title.slice(1)
       let upperdescription=this.description.charAt(0).toUpperCase() + this.description.slice(1)
-      this.props.store.Addtrip(uppertitle, upperdescription, this.startDate, this.endDate);
+      this.props.store.Addtrip(uppertitle, upperdescription, this.startDate, this.endDate, this.imageurl);
       this.closepopup()
       alert("Your trip saved!")
     }
