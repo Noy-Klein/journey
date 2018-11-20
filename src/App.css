@@ -349,7 +349,7 @@ bottom: 189px;
   width: 300px;
   background-color: rgba(255, 255, 255, 0.493);
 }
-
+/* 
 INPUT::-webkit-input-placeholder, 
 INPUT:-moz-placeholder {
     color:black;
@@ -357,7 +357,7 @@ INPUT:-moz-placeholder {
 input[placeholder], [placeholder], *[placeholder]
 {
     color:black;
-}
+} */
 
 .inputLogin2{
   left: 50%;

@@ -51,7 +51,6 @@ class MapContainer extends Component {
                 centerOfMap = trip.checkpoints[0].coordinant
             }
             return (
-                <div className="mapDiv">
                     <Map className="map" style={{ width: '50%', height: '50%' }} center={centerOfMap} initialCenter={centerOfMap} google={this.props.google} zoom={14}>
                         <Polyline
                             path={
@@ -66,7 +65,6 @@ class MapContainer extends Component {
 
                         {trip.checkpoints.map(c => { return <Marker key={c._id} id={c._id} onClick={this.click} name={c.title} position={c.coordinant} /> })}
                     </Map>
-                </div>
             );
         }
         else if (trip && initialCenter) {

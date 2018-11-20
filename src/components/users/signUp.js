@@ -16,9 +16,21 @@ class SignUp extends Component {
 
     @observable clicked = false
 
-    @action inputChangeSignUp = (e) => { this[e.target.name] = e.target.value }
+    @action inputChangeSignUp = (e) => { 
+        this[e.target.name] = e.target.value
+        if(e.target.name){
+            this.props.store.checkusernameexist(e.target.value)
+        }
+        
+    }
 
     add = async () => {
+        let upperusername=this.username.charAt(0).toUpperCase() + this.username.slice(1)
+        // this.props.store.checkusernameexist(upperusername)
+        console.log(this.props.store.usernameexist)
+        if (this.props.store.usernameexist===true){
+            alert ("This Username is taken!")
+        }
         if ((this.username==="")||(this.password==="")||(this.phone==="")){
             alert ("Please fill out all the fields!")
         }
@@ -26,7 +38,6 @@ class SignUp extends Component {
             alert ("Please fill the Email correctly!")
         }
         else{
-            let upperusername=this.username.charAt(0).toUpperCase() + this.username.slice(1)
             await this.props.store.AddUser({username:upperusername, password:this.password, phone:this.phone, email:this.email})
             let user = await this.props.store.setLogin(this.username, this.password)
             this.props.store.setId(user.data._id)
