@@ -28,11 +28,14 @@ class SignUp extends Component {
         else{
             let upperusername=this.username.charAt(0).toUpperCase() + this.username.slice(1)
             await this.props.store.AddUser({username:upperusername, password:this.password, phone:this.phone, email:this.email})
-            let user = await this.props.store.setLogin(this.username, this.password)
-            this.props.store.setId(user.data._id)
+            let user = this.props.store.user
+            this.props.store.setId(user._id)
+            console.log(user)
+            // this.props.store.getTripsInLogin(user._id)
+            // this.props.store.setUser(user)
+            // this.props.store.setId(user._id)
+            // this.props.store.login();
             this.clicked = true;
-            this.props.store.login();
-            console.log(this.props.store.logged)
         }
     }
 

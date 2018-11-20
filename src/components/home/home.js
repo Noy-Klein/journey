@@ -13,13 +13,14 @@ class Home extends Component {
 
   componentDidMount = async () => {
     // this.props.store.getTrips()
-    this.props.store.setTrip(this.props.store.userId).then(()=>{
-      this.props.store.getTrips()
+    this.props.store.setTrip(this.props.store.userId).then(() => {
+      // this.props.store.getTrips()
+      this.props.store.setUserById()
       // this.props.store.setUserById(this.props.store.userId)
       // this.props.store.findnamebyid(this.props.store.user._id)
     })
     // if(!this.userId && this.user){
-      // this.props.store.findnamebyid(this.props.store.user._Id)
+    // this.props.store.findnamebyid(this.props.store.user._Id)
     // }
     // else{
     //   this.props.store.findnamebyid(this.props.store.userId)
@@ -32,17 +33,34 @@ class Home extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <h2 className='hey'>Hey {this.props.store.username}!</h2>
-        <h2 onClick={this.logout}><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
-        <Logo />
-        <Navbar />
-        {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
-        <Trips />
-        {!this.props.store.logged ? <Redirect to='/' /> : null}
-      </div>
-    );
+    let user = this.props.store.user
+    console.log(user)
+    if (user) {
+      return (
+        <div>
+          <h2 className='hey'>Hey {user.username}!</h2>
+          <h2 onClick={this.logout}><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
+          <Logo />
+          <Navbar />
+          {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
+          <Trips />
+          {!this.props.store.logged ? <Redirect to='/' /> : null}
+        </div>
+      );
+    }
+    else {
+      return (
+        <div>
+          <h2 className='hey'>Hey!</h2>
+          <h2 onClick={this.logout}><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
+          <Logo />
+          <Navbar />
+          {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
+          <Trips />
+          {!this.props.store.logged ? <Redirect to='/' /> : null}
+        </div>
+      );
+    }
   }
 }
 

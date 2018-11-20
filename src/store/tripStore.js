@@ -24,8 +24,8 @@ class TripStore {
         this.user = user;
     }
 
-    @action setUserById = async (id) => {
-        let name = await axios.get('http://localhost:1000/users/' + id)
+    @action setUserById = async () => {
+        let name = await axios.get('http://localhost:1000/users/' + this.userId)
         this.user = name.data
     }
 
@@ -105,7 +105,8 @@ class TripStore {
 
     @action setLogin = async (username, password) => {
         let trips = await axios.get('http://localhost:1000/users/' + username + '/' + password)
-        return trips
+        // return trips
+        this.user = trips.data
     }
 
     @action sendmail = async (from, to, Emailadress, body) => {
@@ -113,7 +114,8 @@ class TripStore {
     }
 
     AddUser = async (newUser) => {
-        await axios.post('http://localhost:1000/users', newUser)
+        let newuser = await axios.post('http://localhost:1000/users', newUser)
+        this.user = newuser.data
     }
 
     Addtrip = async (title, description, startDate, endDate, imageurl) => {
