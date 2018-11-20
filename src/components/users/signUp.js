@@ -26,7 +26,8 @@ class SignUp extends Component {
             alert ("Please fill the Email correctly!")
         }
         else{
-            await this.props.store.AddUser({username:this.username, password:this.password, phone:this.phone, email:this.email})
+            let upperusername=this.username.charAt(0).toUpperCase() + this.username.slice(1)
+            await this.props.store.AddUser({username:upperusername, password:this.password, phone:this.phone, email:this.email})
             let user = await this.props.store.setLogin(this.username, this.password)
             this.props.store.setId(user.data._id)
             this.clicked = true;

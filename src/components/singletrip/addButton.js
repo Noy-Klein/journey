@@ -31,7 +31,11 @@ class AddButton extends Component {
         }
         // this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
         else {
-            this.props.store.addCheckPoint({ data: { title: this.trip.title, description: this.trip.description, startDate: this.trip.startDate, people: this.trip.people, adress: this.trip.adress, pictures: this.trip.pictures }, id: this.props.store.trip._id })
+            let uppertitle=this.trip.title.charAt(0).toUpperCase() + this.trip.title.slice(1)
+            let upperdescription=this.trip.description.charAt(0).toUpperCase() + this.trip.description.slice(1)
+            let upperpeople = this.trip.people.charAt(0).toUpperCase() + this.trip.people.slice(1)
+            let upperadress=this.trip.adress.charAt(0).toUpperCase() + this.trip.adress.slice(1)
+            this.props.store.addCheckPoint({ data: { title: uppertitle, description: upperdescription, startDate: this.trip.startDate, people: upperpeople, adress: upperadress, pictures: this.trip.pictures }, id: this.props.store.trip._id })
             this.closeButton()
             // alert ("Your checkpoint saved!")
         }
@@ -46,7 +50,6 @@ class AddButton extends Component {
     }
 
     render() {
-        // console.log(this.props.store.trip.endDate)
         return (
             <div className="add-button">
                 <div className="popupcurr">
