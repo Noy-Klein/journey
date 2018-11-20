@@ -35,7 +35,7 @@ class TripStore {
     }
 
     @action setUserById = async (id) => {
-        let name = await axios.get('http://localhost:1000/users/' + id)
+        let name = await axios.get('/users/' + id)
         this.user = name.data
     }
 
@@ -69,7 +69,7 @@ class TripStore {
     }
 
     @action getTripsInLogin = async (id) => {
-        let trips = await axios.get('http://localhost:1000/' + id + '/trips')
+        let trips = await axios.get('/' + id + '/trips')
         this.setTripsValue(trips.data.trips)
         console.log(this.trips)
         this.tripstosearch = [...this.trips];
@@ -77,7 +77,7 @@ class TripStore {
     }
 
     @action checkusernameexist = async (username) => {
-        let check = await axios.get('http://localhost:1000/findusers/' + username)
+        let check = await axios.get('/findusers/' + username)
         // console.log(check)
         if (check.data==="doesntexist"){
             this.usernameexist=false;
@@ -89,7 +89,7 @@ class TripStore {
 
     @action getTrips = async () => {
         // if (id === '') {
-        let trips = await axios.get('http://localhost:1000/' + this.userId + '/trips')
+        let trips = await axios.get('/' + this.userId + '/trips')
         this.setTripsValue(trips.data.trips)
         this.tripstosearch = [...this.trips];
         // }
@@ -105,23 +105,23 @@ class TripStore {
     }
 
     @action checkIf = async (username) => {
-        let ifE = await axios.get('http://localhost:1000/users/' + username);
+        let ifE = await axios.get('/users/' + username);
         this.ifExist = ifE.data
     }
 
     @action setCheckPoint = async (id) => {
-        let checkpoint = await axios.get('http://localhost:1000/checkpoints/' + id)
+        let checkpoint = await axios.get('/checkpoints/' + id)
         this.currCheckpoint = checkpoint.data
         this.allCheckpoint = checkpoint.data
     } //???? why doesnt it get an id in showcheckpoint????
 
     @action findnamebyid = async (id) => {
-        let name = await axios.get('http://localhost:1000/users/' + id)
+        let name = await axios.get('/users/' + id)
         this.username = name.data.username
     }
 
     @action setTrip = async (id) => {
-        let data = await axios.get('http://localhost:1000/trips/' + id);
+        let data = await axios.get('/trips/' + id);
         this.trip = data.data
     }
 
@@ -130,16 +130,16 @@ class TripStore {
     }
 
     @action setLogin = async (username, password) => {
-        let trips = await axios.get('http://localhost:1000/users/' + username + '/' + password)
+        let trips = await axios.get('/users/' + username + '/' + password)
         return trips
     }
 
     @action sendmail = async (from, to, Emailadress, body) => {
-        await axios.post('http://localhost:1000/sendmail', { from: from, to: to, Emailadress: Emailadress, body: body })
+        await axios.post('/sendmail', { from: from, to: to, Emailadress: Emailadress, body: body })
     }
 
     AddUser = async (newUser) => {
-        let New = await axios.post('http://localhost:1000/users', newUser)
+        let New = await axios.post('/users', newUser)
         this.user = New.data
         this.username = New.data.user
     }
@@ -147,7 +147,7 @@ class TripStore {
     Addtrip = async (title, description, startDate, endDate, imageurl) => {
         let images = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${title.split(' ')[0] + ' place'}&?searchType=Image&defaultToImageSearch=true&safe=active`)
         // console.log(images.data.items[0].pagemap.imageobject[0].thumbnailurl)
-        let trip = await axios.post('http://localhost:1000/' + this.userId + '/trips', { title: title, description: description, startDate: startDate, endDate: endDate, imageurl: imageurl })
+        let trip = await axios.post('/' + this.userId + '/trips', { title: title, description: description, startDate: startDate, endDate: endDate, imageurl: imageurl })
         this.trips.push(trip.data)
         this.getTrips()
     }
@@ -157,13 +157,13 @@ class TripStore {
             let data = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + newCheckPoint.data.adress + '&key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M')
             let images = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${newCheckPoint.data.adress}&?searchType=Image&defaultToImageSearch=true&safe=active`)
             if (newCheckPoint.data.pictures.length) {
-                let newcp = await axios.post('http://localhost:1000/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location, images: newCheckPoint.data.pictures });
+                let newcp = await axios.post('/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location, images: newCheckPoint.data.pictures });
             }
             else {
-                let newcp = await axios.post('http://localhost:1000/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location, images: images.data.items[0].pagemap.imageobject[0].thumbnailurl });
+                let newcp = await axios.post('/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location, images: images.data.items[0].pagemap.imageobject[0].thumbnailurl });
 
             }
-            let updatedTrip = await axios.get('http://localhost:1000/trips/' + this.trip._id)
+            let updatedTrip = await axios.get('/trips/' + this.trip._id)
             this.trip = updatedTrip.data
         }
         catch (err) {
