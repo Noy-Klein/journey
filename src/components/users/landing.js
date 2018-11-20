@@ -3,12 +3,12 @@ import '../../App.css';
 import { Link } from 'react-router-dom';
 
 
-class Landing extends Component{
-    render(){
-        return(
+class Landing extends Component {
+    render() {
+        return (
             <div>
                 <h5>Welcome to MY JOURNEY</h5>
-                <br/>
+                <br />
                 <h6>How many times did you get to fly abroad and after a few years you were upset that you did not record every minute of your journey?</h6>
                 <h6>On your journey after army? On a trip to Poland? Roots trip? It probably happened a few times...</h6>
                 <h6>So we're here to solve the problem,</h6>

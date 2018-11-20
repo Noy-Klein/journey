@@ -11,9 +11,6 @@ class Popupaddtrip extends Component {
   @observable description = ""
   @observable startDate = ""
   @observable endDate = ""
-  @observable imageurl = ""
-
-  @observable img = ''
 
   // componentDidMount=()=>{
   //   this.props.store.getIcon(this.title.split(' ')[0] + ' icon transparent')
@@ -42,7 +39,7 @@ class Popupaddtrip extends Component {
       let uppertitle=this.title.charAt(0).toUpperCase() + this.title.slice(1)
       let upperdescription=this.description.charAt(0).toUpperCase() + this.description.slice(1)
       //`https://maxcdn.icons8.com/iOS7/PNG/25/Maps/${uppertitle.split(' ')[0]}_map-25.png`
-      this.props.store.Addtrip(uppertitle, upperdescription, this.startDate, this.endDate, this.imageurl || `https://maxcdn.icons8.com/iOS7/PNG/25/City/city_filled-25.png`);  // picture of tikia
+      this.props.store.Addtrip(uppertitle, upperdescription, this.startDate, this.endDate || `https://maxcdn.icons8.com/iOS7/PNG/25/City/city_filled-25.png`);  // picture of tikia
       this.closepopup()
       alert("Your trip saved!")
     }
@@ -59,8 +56,6 @@ class Popupaddtrip extends Component {
       <input id="input3" name="startDate" onChange={this.inputChange} value={this.startDate} placeholder="Start Date" type="Date" className="form-control inputpopup" aria-describedby="button-addon2" />
       <br />
       <input id="input4" name="endDate" min={this.startDate} onChange={this.inputChange} value={this.endDate} placeholder="End Date" type="Date" className="form-control inputpopup" aria-describedby="button-addon2" />
-      <br />
-      <input id="input5" name="imageurl" onChange={this.inputChange} value={this.imageurl} placeholder="Image url" type="text" className="form-control inputpopup" aria-describedby="button-addon2" />
       <br />
       <button className="btn btn-outline-secondary addtripbutton" onClick={this.Addthetrip} type="button" id="button-addon2">Create Trip</button>
       <button onClick={this.closepopup} className="btn btn-outline-secondary closepopupbutton" type="button">X</button>
