@@ -19,24 +19,33 @@ class SignUp extends Component {
     @action inputChangeSignUp = (e) => { this[e.target.name] = e.target.value }
 
     add = async () => {
-        if ((this.username==="")||(this.password==="")||(this.phone==="")){
-            alert ("Please fill out all the fields!")
-        }
-        if ((this.email==="")||!(this.email.includes("@"))||!(this.email.includes(".com"))){
-            alert ("Please fill the Email correctly!")
-        }
-        else{
-            let upperusername=this.username.charAt(0).toUpperCase() + this.username.slice(1)
-            await this.props.store.AddUser({username:upperusername, password:this.password, phone:this.phone, email:this.email})
-            let user = this.props.store.user
-            this.props.store.setId(user._id)
-            console.log(user)
-            // this.props.store.getTripsInLogin(user._id)
-            // this.props.store.setUser(user)
-            // this.props.store.setId(user._id)
-            // this.props.store.login();
-            this.clicked = true;
-        }
+        // await this.props.store.checkIf(this.username.charAt(0).toUpperCase() + this.username.slice(1))
+        // console.log(this.props.store.ifExist)
+        // if (this.props.store.ifExist.username) {
+        //     alert('This Username Is Already Taken... Pick A Different One')
+        //     return
+        // }
+        // else {
+            if ((this.username === "") || (this.password === "") || (this.phone === "")) {
+                alert("Please fill out all the fields!")
+            }
+            if ((this.email === "") || !(this.email.includes("@")) || !(this.email.includes(".com"))) {
+                alert("Please fill the Email correctly!")
+            }
+            else {
+                let upperusername = this.username.charAt(0).toUpperCase() + this.username.slice(1)
+                await this.props.store.AddUser({ username: upperusername, password: this.password, phone: this.phone, email: this.email })
+                await this.props.store.setLogin(this.username, this.password)
+                // console.log(user)
+                this.props.store.setId(this.props.store.user._id)
+                this.props.store.findnamebyid(this.props.store.user._id)
+                console.log(this.props.store.username)
+                this.clicked = true;
+                this.props.store.login();
+                // console.log(this.props.store.logged)
+            }
+        // }
+
     }
 
     render() {
@@ -54,9 +63,9 @@ class SignUp extends Component {
                 <br></br><br></br>
                 <button className="btn btn-outline-secondary signUp" type="button" onClick={this.add}>Sign Up</button>
                 <Link to='/'><button type="button" className="btn btn-outline-secondary homesignupbtn">HOME</button></Link>
-                {this.clicked && this.props.store.logged ? <Redirect to='/trips'/> : null}
+                {this.clicked && this.props.store.logged ? <Redirect to='/trips' /> : null}
             </div>
-            </div>
+        </div>
         )
     }
 }

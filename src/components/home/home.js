@@ -6,6 +6,8 @@ import Popupaddtrip from './popupaddtrip';
 import { observer, inject } from 'mobx-react';
 import '../../App.css';
 import { Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
+
 
 @inject("store")
 @observer
@@ -13,19 +15,27 @@ class Home extends Component {
 
   componentDidMount = async () => {
     // this.props.store.getTrips()
-    this.props.store.setTrip(this.props.store.userId).then(() => {
-      // this.props.store.getTrips()
-      this.props.store.setUserById()
+    this.props.store.Wentback()
+    // console.log(this.props.store.back)
+    // this.props.store.getIcon()
+    this.props.store.setTrip(this.props.store.userId).then(()=>{
+      this.props.store.findnamebyid(this.props.store.userId)
+      this.props.store.getTrips()
       // this.props.store.setUserById(this.props.store.userId)
       // this.props.store.findnamebyid(this.props.store.user._id)
     })
     // if(!this.userId && this.user){
-    // this.props.store.findnamebyid(this.props.store.user._Id)
+      // this.props.store.findnamebyid(this.props.store.user._Id)
     // }
     // else{
     //   this.props.store.findnamebyid(this.props.store.userId)
     // }
   }
+
+  // icon = async () => {
+  //   let json = await axios.get("https://api.icons8.com/api/iconsets/search?term=romania")
+  //   console.log(json)
+  // }
 
   logout = () => {
     this.props.store.logout();
@@ -33,34 +43,20 @@ class Home extends Component {
   }
 
   render() {
-    let user = this.props.store.user
-    console.log(user)
-    if (user) {
-      return (
-        <div>
-          <h2 className='hey'>Hey {user.username}!</h2>
-          <h2 onClick={this.logout}><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
-          <Logo />
-          <Navbar />
-          {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
-          <Trips />
-          {!this.props.store.logged ? <Redirect to='/' /> : null}
-        </div>
-      );
-    }
-    else {
-      return (
-        <div>
-          <h2 className='hey'>Hey!</h2>
-          <h2 onClick={this.logout}><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
-          <Logo />
-          <Navbar />
-          {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
-          <Trips />
-          {!this.props.store.logged ? <Redirect to='/' /> : null}
-        </div>
-      );
-    }
+    // this.icon()
+    // let json = await axios.get("https://api.icons8.com/api/iconsets/search?term=romania")
+        // console.log(json)
+    return (
+      <div>
+        <h2 className='hey'>Hey {this.props.store.username}!</h2>
+        <h2 onClick={this.logout}><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
+        <Logo />
+        <Navbar />
+        {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
+        <Trips />
+        {!this.props.store.logged ? <Redirect to='/' /> : null}
+      </div>
+    );
   }
 }
 

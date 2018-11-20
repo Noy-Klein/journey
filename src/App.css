@@ -1,3 +1,7 @@
+/* @import url('https://fonts.googleapis.com/css?family=Vast+Shadow'); */
+
+
+
 .App {
   text-align: center;
 }
@@ -6,7 +10,8 @@ body{
   background-image: url("https://www.eccgreece.gr/wp-content/uploads/2017/07/pexels-photo-59519.jpeg");
   background-size: cover;
   overflow-x:hidden;
-  /* overflow-y:hidden; */
+  /* font-family: 'Vast Shadow', cursive; */
+    /* overflow-y:hidden; */
   /* background-repeat: no-repeat; */
   /* background-attachment: fixed; */
 }

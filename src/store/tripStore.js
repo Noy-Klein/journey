@@ -19,13 +19,23 @@ class TripStore {
     @observable allCheckpoint = null;
     @observable currentCP = null;
     @observable user = null;
+    @observable ifExist = false;
+    @observable back = '';
+
+    @action goBack = () => {
+        this.back = '!'
+    }
+
+    @action Wentback = () => {
+        this.back = '';
+    }
 
     @action setUser = (user) => {
         this.user = user;
     }
 
-    @action setUserById = async () => {
-        let name = await axios.get('http://localhost:1000/users/' + this.userId)
+    @action setUserById = async (id) => {
+        let name = await axios.get('http://localhost:1000/users/' + id)
         this.user = name.data
     }
 
@@ -83,10 +93,15 @@ class TripStore {
         this.trips = trips
     }
 
+    @action checkIf = async (username) => {
+        let ifE = await axios.get('http://localhost:1000/users/' + username);
+        this.ifExist = ifE.data
+    }
+
     @action setCheckPoint = async (id) => {
         let checkpoint = await axios.get('http://localhost:1000/checkpoints/' + id)
         this.currCheckpoint = checkpoint.data
-        this.allCheckpoint =  checkpoint.data
+        this.allCheckpoint = checkpoint.data
     } //???? why doesnt it get an id in showcheckpoint????
 
     @action findnamebyid = async (id) => {
@@ -105,22 +120,24 @@ class TripStore {
 
     @action setLogin = async (username, password) => {
         let trips = await axios.get('http://localhost:1000/users/' + username + '/' + password)
-        // return trips
-        this.user = trips.data
+        return trips
     }
 
     @action sendmail = async (from, to, Emailadress, body) => {
-        await axios.post('http://localhost:1000/sendmail', { from:from, to:to, Emailadress:Emailadress, body:body})
+        await axios.post('http://localhost:1000/sendmail', { from: from, to: to, Emailadress: Emailadress, body: body })
     }
 
     AddUser = async (newUser) => {
-        let newuser = await axios.post('http://localhost:1000/users', newUser)
-        this.user = newuser.data
+        let New = await axios.post('http://localhost:1000/users', newUser)
+        this.user = New.data
+        this.username = New.data.user
     }
 
-    Addtrip = async (title, description, startDate, endDate) => {
-        let images = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${title.split(' ')[0] + ' black icon'}&?searchType=Image&defaultToImageSearch=true&safe=active`)
-        await axios.post('http://localhost:1000/' + this.userId + '/trips', { title: title, description: description, startDate: startDate, endDate: endDate, imageurl: images.data.items[0].pagemap.imageobject[0].thumbnailurl })
+    Addtrip = async (title, description, startDate, endDate, imageurl) => {
+        let images = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${title.split(' ')[0] + ' place'}&?searchType=Image&defaultToImageSearch=true&safe=active`)
+        // console.log(images.data.items[0].pagemap.imageobject[0].thumbnailurl)
+        let trip = await axios.post('http://localhost:1000/' + this.userId + '/trips', { title: title, description: description, startDate: startDate, endDate: endDate, imageurl: imageurl })
+        this.trips.push(trip.data)
         this.getTrips()
     }
 
@@ -128,7 +145,13 @@ class TripStore {
         try {
             let data = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + newCheckPoint.data.adress + '&key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M')
             let images = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${newCheckPoint.data.adress}&?searchType=Image&defaultToImageSearch=true&safe=active`)
-            let newcp = await axios.post('http://localhost:1000/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location, images: images.data.items[0].pagemap.imageobject[0].thumbnailurl });
+            if (newCheckPoint.data.pictures.length) {
+                let newcp = await axios.post('http://localhost:1000/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location, images: newCheckPoint.data.pictures });
+            }
+            else {
+                let newcp = await axios.post('http://localhost:1000/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location, images: images.data.items[0].pagemap.imageobject[0].thumbnailurl });
+
+            }
             let updatedTrip = await axios.get('http://localhost:1000/trips/' + this.trip._id)
             this.trip = updatedTrip.data
         }
@@ -152,9 +175,11 @@ class TripStore {
     }
 
     getIcon = async (searchIconName) => {
-        let json = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${searchIconName}&?searchType=Image&defaultToImageSearch=true&safe=active`)
-        this.img = json.data.items[0].pagemap.imageobject[0].thumbnailurl;
+        // let json = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${searchIconName}&?searchType=Image&defaultToImageSearch=true&safe=active`)
+        // this.img = json.data.items[0].pagemap.imageobject[0].thumbnailurl;
         // console.log(this.img)
+        let json = await axios.get("https://api.icons8.com/api/iconsets/search?term=romania")
+        console.log(json)
     }
 }
 

@@ -41,7 +41,8 @@ class Popupaddtrip extends Component {
       // console.log(this.img)
       let uppertitle=this.title.charAt(0).toUpperCase() + this.title.slice(1)
       let upperdescription=this.description.charAt(0).toUpperCase() + this.description.slice(1)
-      this.props.store.Addtrip(uppertitle, upperdescription, this.startDate, this.endDate, this.imageurl);
+      //`https://maxcdn.icons8.com/iOS7/PNG/25/Maps/${uppertitle.split(' ')[0]}_map-25.png`
+      this.props.store.Addtrip(uppertitle, upperdescription, this.startDate, this.endDate, this.imageurl || `https://maxcdn.icons8.com/iOS7/PNG/25/City/city_filled-25.png`);  // picture of tikia
       this.closepopup()
       alert("Your trip saved!")
     }
