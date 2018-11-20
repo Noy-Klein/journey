@@ -36,9 +36,9 @@ class CurrTrip extends Component {
             <div>
                 <h2 onClick={this.logout} className='hey'>Hey {this.props.store.username}!</h2>
                 <h2><Link className="logoutlink" to='/'>LOG OUT</Link></h2>
-                <h2 className="back" onClick={this.click}>Back</h2>
                 <Logo />
                 <hr />
+                <img src="https://cdn0.iconfinder.com/data/icons/pixon-1/24/arrow_right_left_back_next_forward_circle-512.png" height="25px" alt="arrow" className="back" onClick={this.click}/>
                 <AddForm />
                 <TripDetails id={this.props.match.params.id} />
                 <MapContainer id={this.props.match.params.id} togglePopupCheckPoint={this.togglePopupCheckPoint} />

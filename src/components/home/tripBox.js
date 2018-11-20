@@ -14,7 +14,7 @@ class TripBox extends Component {
     render() {
         return (
             <div style={{ display: 'inline-block', width: '15%' }}>
-                <Link to={`/trips/${this.props.trip._id}`}><img onClick={this.set} alt='file' src={this.props.trip.imageurl} height="100px" /></Link>
+                <Link to={`/trips/${this.props.trip._id}`}><img onClick={this.set} alt='file' src="https://static.thenounproject.com/png/8841-200.png" height="80px" /></Link>
                 <h2>{this.props.trip.title}</h2>
             </div>
         );
