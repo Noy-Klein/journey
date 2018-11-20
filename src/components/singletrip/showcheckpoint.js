@@ -40,8 +40,9 @@ class ShowCheckPoint extends Component {
     @action send = () => {
         let cp = this.props.store.currCheckpoint
         let from= this.props.store.username
-        let body= `${cp.title}\n${this.fixDate(cp.startDate)}\n ${cp.description} `
-        this.props.store.sendmail(from, this.to, this.Emailadress, body)
+        let body= `When we where in ${cp.title}\n On ${this.fixDate(cp.startDate)}\n With ${cp.people}\n ${cp.description} `
+        let upperto= this.to.charAt(0).toUpperCase() + this.to.slice(1)
+        this.props.store.sendmail(from, upperto, this.Emailadress, body)
     }
 
     @action inputChange = (t) => {
@@ -57,12 +58,7 @@ class ShowCheckPoint extends Component {
                     <input className="btn btn-outline-secondary closepopupbutton" type="button" value="X" onClick={this.closeButtonCheckPoint} />
                     <br/>
                     <h1>{cp.title}</h1>
-                    <div style={{maxHeight: '150px', maxWidth: '300'}}><img height={'200'} width={'300px'} alt='checkpoint' src={cp.pictures[0]} /></div>
-                    {/* <h2>Description: {cp.description}</h2>
-                    <h2>Date: {this.fixDate(cp.startDate)}</h2>
-                    <h2>with: {cp.people.map(p => {return <span> {p}</span>})}</h2> */}
-              {/*<h2>with: {cp.people.map(p => {return <span> {p}</span>})}</h2> */}
-
+                    <div style={{maxHeight: '150px', maxWidth: '300'}}><img alt='checkpoint' src={cp.pictures[0]} /></div>
                     <input className="form-control inputpopup" id="inputmail2" type="text" name="Emailadress" placeholder="Email adress" value={this.Emailadress} onChange={this.inputChange}/>   
                     <br></br>
                     <input className="form-control inputpopup" id="inputmail1" type="text" name="to" placeholder="To" value={this.to} onChange={this.inputChange}/>

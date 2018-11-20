@@ -68,10 +68,10 @@ class TimeLine extends Component {
                     })}
                     {this.props.store.currentCP && this.click ?
                         <div className="popupTitle">
-                            <div><button className="btn btn-outline-secondary closebutton" type="button" value="X" onClick={this.clickClose}>X</button></div>
-                            <p>Description: {currentObjCP.description}</p>
-                            <div>Date: {this.fixDate(currentObjCP.startDate)}</div>
-                            <div>People: {currentObjCP.people.map(p => {
+                            <button className="btn btn-outline-secondary closebutton" type="button" value="X" onClick={this.clickClose}>X</button>
+                            <p>{currentObjCP.description}</p>
+                            <div>On: {this.fixDate(currentObjCP.startDate)}</div>
+                            <div>With {currentObjCP.people.map(p => {
                                 return <span>{p}</span>
                             })}</div>
                             <hr className="hr1"></hr>

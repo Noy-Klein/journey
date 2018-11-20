@@ -19,7 +19,8 @@ class Login extends Component {
             alert ("Please fill out all the fields!")
         }
         else{
-            let user = await this.props.store.setLogin(this.username, this.password)
+            let upperusername=this.username.charAt(0).toUpperCase() + this.username.slice(1)
+            let user = await this.props.store.setLogin(upperusername, this.password)
         if (user.data.username) {
             this.ifexists = true
             this.props.store.getTripsInLogin(user.data._id)

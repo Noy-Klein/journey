@@ -58,7 +58,7 @@ class MapContainer extends Component {
                                 // trip.checkpoints.map(c => { return c.coordinant })
                                 coordns.map(c => { return c })
                             }
-                            strokeColor="green"
+                            strokeColor="grey"
                             strokeWeight={2}
                             strokeStyle='dotted'
                             strokeOpacity={0.3}
