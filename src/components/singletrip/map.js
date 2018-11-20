@@ -20,10 +20,6 @@ class MapContainer extends Component {
         this.props.store.setCheckPoint(this.marker.id)
     }
 
-    // timeline = () => {
-    //     this.props.store.setCheckPoint();
-    // }
-
     render() {
         let trip = this.props.store.trip;
         let initialCenter = this.props.store.initialCenter;
@@ -43,7 +39,7 @@ class MapContainer extends Component {
             })
             if(this.props.store.currentCP){
                 centerOfMap = trip.checkpoints.find(c => c.title === this.props.store.currentCP)
-                console.log(centerOfMap)
+                // console.log(centerOfMap)
                 centerOfMap = centerOfMap.coordinant
             }
             else{
@@ -62,7 +58,7 @@ class MapContainer extends Component {
                             strokeOpacity={0.3}
                         />
 
-                        {trip.checkpoints.map(c => { return <Marker key={c._id} id={c._id} onClick={this.click} name={c.title} position={c.coordinant} /> })}
+                        {trip.checkpoints.map(c => { return <Marker  animation= {this.props.google.maps.Animation.DROP} key={c._id} id={c._id} onClick={this.click} name={c.title} position={c.coordinant} /> })}
                     </Map>
             );
         }
