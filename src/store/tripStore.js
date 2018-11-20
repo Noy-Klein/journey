@@ -19,6 +19,7 @@ class TripStore {
     @observable allCheckpoint = null;
     @observable currentCP = null;
     @observable user = null;
+    @observable usernameexist = "";
 
     @action setUser = (user) => {
         this.user = user;
@@ -64,6 +65,17 @@ class TripStore {
         console.log(this.trips)
         this.tripstosearch = [...this.trips];
         this.logged = true
+    }
+
+    @action checkusernameexist = async (username) => {
+        let check = await axios.get('http://localhost:1000/findusers/' + username)
+        // console.log(check)
+        if (check.data==="doesntexist"){
+            this.usernameexist=false;
+        }
+        else{
+            this.usernameexist=true;
+        }
     }
 
     @action getTrips = async () => {
