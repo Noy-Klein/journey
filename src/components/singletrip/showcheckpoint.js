@@ -31,8 +31,8 @@ class ShowCheckPoint extends Component {
             alert ("Please fill out all the fields!")
         }
         else{
-            {this.send()}
-            {this.closeButtonCheckPoint()}
+            this.send()
+            this.closeButtonCheckPoint()
             alert ("Email sent successfully!")
         }
     }
