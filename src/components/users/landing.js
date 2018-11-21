@@ -7,8 +7,9 @@ class Landing extends Component {
     render() {
         return (
             <div>
-                <h5>Welcome Welcome to MY JOURNEY</h5>
                 <br />
+                <h10>Welcome to</h10>
+                <h5>MY JOURNEY</h5>
                 <h6>How many times did you get to fly abroad and after a few years you were upset that you did not record every minute of your journey?</h6>
                 <h6>On your journey after army? On a trip to Poland? Roots trip? It probably happened a few times...</h6>
                 <h6>So we're here to solve the problem,</h6>
@@ -16,7 +17,7 @@ class Landing extends Component {
                 <h6>So What are you waiting for? sign in and start recording!</h6>
                 <Link to='/signup'><button type="button" className="btn btn-outline-secondary signupbtn">SIGN UP</button></Link>
                 <Link to='/login'><button type="button" className="btn btn-outline-secondary loginbtn">LOGIN</button></Link>
-                <img src="https://cimss.ssec.wisc.edu/satmet/modules/6_sat_winds/images/aircraft.gif" className="gif"/>
+                {/* <img src="https://cimss.ssec.wisc.edu/satmet/modules/6_sat_winds/images/aircraft.gif" className="gif"/> */}
             </div>
         );
     }

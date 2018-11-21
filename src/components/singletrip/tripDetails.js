@@ -20,7 +20,7 @@ class TripDetails extends Component {
 
     render() {
         let trip = this.props.store.trip;
-        if (trip) {
+        if (trip && trip.startDate && trip.endDate) {
             return (
                 <div className="tripdetails">
                     <h1>{trip.title}</h1>

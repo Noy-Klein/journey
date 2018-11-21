@@ -31,7 +31,10 @@ class AddButton extends Component {
         }
         // this.props.store.addTrip(this.trip.title, this.trip.description, this.trip.startDate, this.trip.endDate, this.trip.people, this.trip.adress, this.trip.pictures)
         else {
-            this.props.store.addCheckPoint({ data: { title: this.trip.title, description: this.trip.description, startDate: this.trip.startDate, people: this.trip.people, adress: this.trip.adress, pictures: this.trip.pictures }, id: this.props.store.trip._id })
+            let uppertitle=this.trip.title.charAt(0).toUpperCase() + this.trip.title.slice(1)
+            let upperdescription=this.trip.description.charAt(0).toUpperCase() + this.trip.description.slice(1)
+            let upperpeople=this.trip.people.charAt(0).toUpperCase() + this.trip.people.slice(1)
+            this.props.store.addCheckPoint({ data: { title: uppertitle, description: upperdescription, startDate: this.trip.startDate, people: upperpeople, adress: this.trip.adress, pictures: this.trip.pictures }, id: this.props.store.trip._id })
             this.closeButton()
             // alert ("Your checkpoint saved!")
         }
@@ -58,7 +61,7 @@ class AddButton extends Component {
                     <br></br><br></br>
                     <input className="form-control inputpopup" id="inputCurr3" type="text" name="people" placeholder="People" value={this.people} onChange={this.inputChange} />
                     <br></br><br></br>
-                    <input className="form-control inputpopup" id="inputCurr4" type="text" name="adress" placeholder="Adress - Please Be Specific!" value={this.adress} onChange={this.inputChange} />
+                    <input className="form-control inputpopup" id="inputCurr4" type="text" name="adress" placeholder="Address - Please Be Specific!" value={this.adress} onChange={this.inputChange} />
                     <br></br><br></br>
                     <input className="form-control inputpopup" id="inputCurr5" type="text" name="pictures" placeholder="Picture url" value={this.pictures} onChange={this.inputChange} />
                     <br></br><br></br>

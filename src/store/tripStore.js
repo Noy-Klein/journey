@@ -121,7 +121,7 @@ class TripStore {
     }
 
     @action setTrip = async (id) => {
-        let data = await axios.get('/trips/' + id);
+        let data = await axios.get('/tripsAPI/' + id);
         this.trip = data.data
     }
 
@@ -165,7 +165,7 @@ class TripStore {
                 let newcp = await axios.post('/checkpoints', { object: newCheckPoint, coo: data.data.results[0].geometry.location, images: images.data.items[0].pagemap.imageobject[0].thumbnailurl });
 
             }
-            let updatedTrip = await axios.get('/trips/' + this.trip._id)
+            let updatedTrip = await axios.get('/tripsAPI/' + this.trip._id)
             this.trip = updatedTrip.data
         }
         catch (err) {

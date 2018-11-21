@@ -5,6 +5,7 @@ let tripApi = require("./Apis/tripApi");
 let sendmail = require("./Apis/sendmail");
 let mapApi = require('./Apis/mapApi');
 let usersApi = require('./Apis/userApi')
+const path = require("path");
 
 let app = express()
 
@@ -31,7 +32,7 @@ app.use(usersApi)
 app.use('/', tripApi)
 app.use('/', sendmail)
 app.get('*', (req,res)=>{
-    res.sendFile("/build/index.html")
+    res.sendFile( path.join(__dirname, '/build/index.html'))
 })
 
 app.listen(process.env.PORT||1000, () => {

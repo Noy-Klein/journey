@@ -402,12 +402,13 @@ input[placeholder], [placeholder], *[placeholder]
 }
 
 .wrapper {
-    position: absolute;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.493);
-    width: 15%;
-    bottom: -151px;
-    left: 35px;
+  height: -webkit-fill-available;
+  position: absolute;
+  padding: 30px;
+  background-color: hsla(0,0%,100%,.493);
+  width: 22%;
+  bottom: -210px;
+  /* left: 0px; */
 }
 
 .timelinedetails{
@@ -415,14 +416,14 @@ input[placeholder], [placeholder], *[placeholder]
 }
 
 .hr1{
-  width: 171px;
-  /* width: 244px; */
-  height: 2px;
-  border: 0ch;
-  /* position: relative;
-  bottom: 20px; */
-  background-color: rgba(255, 255, 255, 0.575);
+  width: 254px;
+    right: 10px;
+    height: 2px;
+    position: relative;
+    border: 0;
+    background-color: hsla(0,0%,100%,.575);
 }
+
 
 .hey{
   left: 17px;
@@ -452,7 +453,7 @@ background-color: rgba(26, 25, 25, 0.575);;
 }
 
 .signupbtn{
-  top: 60%;
+  top: 70%;
   left: 40%;
   position: fixed;
   width: 300px;
@@ -465,7 +466,7 @@ background-color: rgba(26, 25, 25, 0.575);;
 }
 
 .loginbtn{
-  top: 68%;
+  top: 78%;
   left: 40%;
   position: fixed;
   width: 300px;
@@ -481,6 +482,12 @@ h5{
   color: black;
   font-weight: 100;
   font-size: 100px;
+}
+
+h10{
+  font-size: 40px;
+  color: black;
+  font-weight: 100px;
 }
 
 h6{

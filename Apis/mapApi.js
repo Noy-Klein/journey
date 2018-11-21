@@ -15,9 +15,9 @@ router.get('/checkpoints', (req, res) => {
     })
 });
 
-router.get('/trips/:id', (req, res) => {
+router.get('/tripsAPI/:id', (req, res) => {
     let id = req.params.id;
-    trips.findOne({_id: id}).populate('checkpoints').exec((err, data)=>{
+    trips.findOne({_id: id} ).populate({path: 'checkpoints', options: { sort: { 'startDate': -1 } } }).exec((err, data)=>{
         if(err){
             res.status(500).send(err)
         }

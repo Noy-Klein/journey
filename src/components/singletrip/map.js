@@ -55,7 +55,7 @@ class MapContainer extends Component {
                             strokeColor="grey"
                             strokeWeight={2}
                             strokeStyle='dotted'
-                            strokeOpacity={0.3}
+                            strokeOpacity={0.8}
                         />
 
                         {trip.checkpoints.map(c => { return <Marker  animation= {this.props.google.maps.Animation.DROP} key={c._id} id={c._id} onClick={this.click} name={c.title} position={c.coordinant} /> })}

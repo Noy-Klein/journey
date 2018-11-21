@@ -26,7 +26,8 @@ class TimeLine extends Component {
     clickTitle = (e) => {
         this.click = true;
         // console.log(e.target.innerText)
-        this.props.store.changeCurrCP(e.target.innerText)
+        this.props.store.changeCurrCP(e.target.id)
+        console.log(e.target.id)
     }
 
     clickClose = () => {
@@ -38,20 +39,21 @@ class TimeLine extends Component {
         let trip = this.props.store.trip
 
         // console.log(trip)
-        if (trip) {
-            trip.checkpoints.splice().sort(function (a, b) {
-                // if (new Date(a.startDate).getTime() > new Date(b.startDate).getTime()) {
-                //     return 1
-                // }
-                // if (new Date(a.startDate).getTime() < new Date(b.startDate).getTime()) {
-                //     return -1
-                // }
-                return new Date(a.startDate) - new Date(b.startDate)
-            })
+        if (trip && trip.checkpoints && trip.checkpoints.length) {
+            // trip.checkpoints.splice().sort(function (a, b) {
+            //     // if (new Date(a.startDate).getTime() > new Date(b.startDate).getTime()) {
+            //     //     return 1
+            //     // }
+            //     // if (new Date(a.startDate).getTime() < new Date(b.startDate).getTime()) {
+            //     //     return -1
+            //     // }
+            //     return new Date(a.startDate) - new Date(b.startDate)
+            // })
             let currentObjCP = trip.checkpoints.find(c => c.title === this.props.store.currentCP)
             // console.log(trip.checkpoints)
             return (
                 <div className='wrapper'>
+                <h3>Places You've Been</h3>
                     {trip.checkpoints.map(c => {
                         return (
                             <div key={c._id}>
@@ -59,7 +61,7 @@ class TimeLine extends Component {
                                     {c.title === this.props.store.currentCP ?
                                         <h6 style={{ backgroundColor: 'rgba(175, 175, 175, 0.493)' }} onClick={this.clickTitle}> {c.title} </h6>
                                         :
-                                        <span> <h6 className='timeline-title' onClick={this.clickTitle}> {c.title}</h6></span>
+                                        <span> <h6 className='timeline-title' onClick={this.clickTitle} id={c.title}>{this.fixDate(c.startDate)} - {c.title}</h6></span>
                                     }
                                 </div>
                                     <hr className="hr1"></hr>
