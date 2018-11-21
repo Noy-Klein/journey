@@ -381,25 +381,12 @@ input[placeholder], [placeholder], *[placeholder]
 }
 
 .wrapper {
-    /* top: 800px;
-    left: 450px; */
-    /* position: absolute;
-    padding: 10px; */
-    /* border-radius: 7px; */
-    /* background-color: rgba(255, 255, 255, 0.493);
-    width: 20%;
-    bottom: -80px; */
-    /* left: 1080px; */
-    /* width: 420px;
-    height: 980px; */
     position: absolute;
     padding: 10px;
-    /* border-radius: 7px; */
     background-color: rgba(255, 255, 255, 0.493);
     width: 15%;
     bottom: -151px;
     left: 35px;
-    /* left: 1080px; */
 }
 
 .timelinedetails{
