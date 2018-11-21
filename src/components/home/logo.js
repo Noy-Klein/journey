@@ -6,6 +6,13 @@ import { observer, inject } from 'mobx-react';
 @inject("store")
 @observer
 class Logo extends Component {
+  componentDidMount=()=>{
+    this.props.store.setTrip(this.props.store.userId).then(() => {
+    this.props.store.findnamebyid(this.props.store.userId)
+    })
+  }
+
+  
 
   findname = () => {
     if (this.props.store.userId) {
