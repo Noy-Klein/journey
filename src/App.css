@@ -614,3 +614,12 @@ span:hover.tooltips span {
   margin-left: -76px;
   z-index: 999;
 } */
+
+.hr5{
+  height: -webkit-fill-available;
+  position: absolute;
+  padding: 30px;
+  background-color: green;
+  width: 22%;
+  bottom: -210px;
+}
