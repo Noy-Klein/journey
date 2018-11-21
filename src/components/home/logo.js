@@ -14,7 +14,7 @@ class Logo extends Component {
     }
     else {
       return <h1>MY JOURNEYS</h1>
-    // }
+    }
   }
   render() {
     return (<div className="logo">
