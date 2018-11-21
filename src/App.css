@@ -53,6 +53,12 @@ h1{
   font-weight: 400;
 }
 
+h9{
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+}
+
 h2{
   font-size: 17px;
   color: black;
@@ -98,10 +104,25 @@ h2{
   transform: translate(-50%,-50%);
   position: fixed;
   width: 300px;
-  background-color: rgba(255, 255, 255, 0.685);
+  background-color: rgba(255, 255, 255, 0.836);
   border: none;
   color: black;
 }
+
+.gif{
+  margin-top: 10%;
+}
+
+/* .cover{
+  position: absolute;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  top: 0%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  filter: blur(100px);
+  width: 100%;
+  height: 100%;
+} */
 
 #input1{
   top: 15%;
@@ -141,7 +162,7 @@ h2{
   width: 200px;
   color: black;
   border: 0ch;
-  background-color: rgba(255, 255, 255, 0.678);
+  background-color: rgba(214, 208, 208, 0.836);
 }
 
 .addtripbuttoncurr{
@@ -152,7 +173,7 @@ h2{
   width: 200px;
   border: none;
   color: black;
-  background-color: rgba(255, 255, 255, 0.699);
+  background-color: rgba(214, 208, 208, 0.836);
 }
 
 .searchbutton{
@@ -241,7 +262,7 @@ bottom: 189px;
   position: fixed;
   width: 400px;
   height: 420px;
-  background-color: rgba(99, 45, 48, 0.904);
+  background-color: rgba(150, 89, 92, 0.904);
   border-radius: 7px;
   color: black;
   border: none;
@@ -252,7 +273,7 @@ bottom: 189px;
   left: 25%;
   position: fixed;
   width: 200px;
-  background-color: rgba(255, 255, 255, 0.616);
+  background-color: rgba(214, 208, 208, 0.836);
   color: black;
   border: none;
   font-size: 16px;

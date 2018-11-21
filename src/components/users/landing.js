@@ -16,6 +16,7 @@ class Landing extends Component {
                 <h6>So What are you waiting for? sign in and start recording!</h6>
                 <Link to='/signup'><button type="button" className="btn btn-outline-secondary signupbtn">SIGN UP</button></Link>
                 <Link to='/login'><button type="button" className="btn btn-outline-secondary loginbtn">LOGIN</button></Link>
+                <img src="https://cimss.ssec.wisc.edu/satmet/modules/6_sat_winds/images/aircraft.gif" className="gif"/>
             </div>
         );
     }

@@ -28,6 +28,10 @@ class Home extends Component {
   }
 
   render() {
+    // this.icon()
+    // let json = await axios.get("https://api.icons8.com/api/iconsets/search?term=romania")
+        // console.log(json)
+
     return (
       <div>
         <Header />
