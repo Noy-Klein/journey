@@ -148,6 +148,8 @@ class TripStore {
         let images = await axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M&cx=014991769965957097369:idopkmpkkbo&q=${title.split(' ')[0] + ' place'}&?searchType=Image&defaultToImageSearch=true&safe=active`)
         // console.log(images.data.items[0].pagemap.imageobject[0].thumbnailurl)
         let trip = await axios.post('/' + this.userId + '/trips', { title: title, description: description, startDate: startDate, endDate: endDate, imageurl: imageurl })
+        this.trip = trip.data
+        this.tripstosearch.push(trip.data)
         this.trips.push(trip.data)
         this.getTrips()
     }
