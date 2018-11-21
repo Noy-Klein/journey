@@ -47,16 +47,31 @@ class Home extends Component {
     // this.icon()
     // let json = await axios.get("https://api.icons8.com/api/iconsets/search?term=romania")
         // console.log(json)
-    return (
-      <div>
-        <Header />
-        <Logo />
-        <Navbar />
-        {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
-        <Trips />
-        {!this.props.store.logged ? <Redirect to='/' /> : null}
-      </div>
-    );
+      // if (this.props.store.showpopupaddtrip){
+      //   return (
+      //     <div>
+      //     <div className="cover">
+      //     </div>
+      //       <Header />
+      //       <Logo />
+      //       <Navbar />
+      //       <Popupaddtrip /> : null}
+      //       <Trips />
+      //       {!this.props.store.logged ? <Redirect to='/' /> : null}
+      //     </div>)
+      // }
+      // else {
+        return (
+          <div>
+            <Header />
+            <Logo />
+            <Navbar />
+            {this.props.store.showpopupaddtrip ? <Popupaddtrip /> : null}
+            <Trips />
+            {!this.props.store.logged ? <Redirect to='/' /> : null}
+          </div>
+        )
+      // }
   }
 }
 
