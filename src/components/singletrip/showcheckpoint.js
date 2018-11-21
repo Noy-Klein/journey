@@ -40,7 +40,7 @@ class ShowCheckPoint extends Component {
     @action send = () => {
         let cp = this.props.store.currCheckpoint
         let from= this.props.store.username
-        let body= `When we where in ${cp.title}\n On ${this.fixDate(cp.startDate)}\n With ${cp.people}\n ${cp.description} `
+        let body= `When we where in ${cp.title}\n On ${this.fixDate(cp.startDate)}\n With ${cp.people}\n ${cp.description} \n https://my-journey-app.herokuapp.com/ `
         let upperto= this.to.charAt(0).toUpperCase() + this.to.slice(1)
         this.props.store.sendmail(from, upperto, this.Emailadress, body)
     }
