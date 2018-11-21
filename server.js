@@ -30,9 +30,9 @@ app.use(mapApi)
 app.use(usersApi)
 app.use('/', tripApi)
 app.use('/', sendmail)
-// app.get('/key', (req,res)=>{
-//     res.send('AIzaSyA-NDun_On5Bx3TerMVbAaC8jfU7jotv8M')
-// })
+app.get('*', (req,res)=>{
+    res.sendFile("/build/index.html")
+})
 
 app.listen(process.env.PORT||1000, () => {
     console.log('server started on port 1000')
