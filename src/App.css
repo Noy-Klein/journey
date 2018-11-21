@@ -402,25 +402,12 @@ input[placeholder], [placeholder], *[placeholder]
 }
 
 .wrapper {
-    /* top: 800px;
-    left: 450px; */
-    /* position: absolute;
-    padding: 10px; */
-    /* border-radius: 7px; */
-    /* background-color: rgba(255, 255, 255, 0.493);
-    width: 20%;
-    bottom: -80px; */
-    /* left: 1080px; */
-    /* width: 420px;
-    height: 980px; */
     position: absolute;
     padding: 10px;
-    /* border-radius: 7px; */
     background-color: rgba(255, 255, 255, 0.493);
     width: 15%;
     bottom: -151px;
     left: 35px;
-    /* left: 1080px; */
 }
 
 .timelinedetails{
@@ -438,14 +425,14 @@ input[placeholder], [placeholder], *[placeholder]
 }
 
 .hey{
-  left: 5px;
+  left: 17px;
   position: fixed;
   font-weight: 600; 
 }
 
 .in{
   top: 15px;
-  left: 130px;
+  left: 5px;
   position: fixed;
 }
 
@@ -575,7 +562,7 @@ h6{
 }
 
 .timeline-title:hover{
-  background-color: rgba(175, 175, 175, 0.493)
+  background-color: rgba(124, 123, 123, 0.493)
 }
 
 .back{
@@ -586,3 +573,37 @@ h6{
 .spanTitle{
   font-weight: bolder;
 }
+/* span.tooltips {
+  position: relative;
+  display: inline;
+}
+span.tooltips span {
+  position: absolute;
+  width:140px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+span.tooltips span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+span:hover.tooltips span {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 999;
+} */

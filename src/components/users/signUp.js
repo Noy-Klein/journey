@@ -28,9 +28,9 @@ class SignUp extends Component {
         let upperusername=this.username.charAt(0).toUpperCase() + this.username.slice(1)
         // this.props.store.checkusernameexist(upperusername)
         //console.log(this.props.store.usernameexist)
-        if (this.props.store.usernameexist===true){
-            alert ("This Username is taken!")
-        }
+        // if (this.props.store.usernameexist===true){
+        //     alert ("This Username is taken!")
+        // }
         if ((this.username==="")||(this.password==="")||(this.phone==="")){
             alert ("Please fill out all the fields!")
         }

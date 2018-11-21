@@ -40,16 +40,16 @@ class TimeLine extends Component {
         // console.log(trip)
         if (trip) {
             trip.checkpoints.splice().sort(function (a, b) {
-                if (new Date(a.startDate).getTime() > new Date(b.startDate).getTime()) {
-                    return 1
-                }
-                if (new Date(a.startDate).getTime() < new Date(b.startDate).getTime()) {
-                    return -1
-                }
-                // return 0
+                // if (new Date(a.startDate).getTime() > new Date(b.startDate).getTime()) {
+                //     return 1
+                // }
+                // if (new Date(a.startDate).getTime() < new Date(b.startDate).getTime()) {
+                //     return -1
+                // }
+                return new Date(a.startDate) - new Date(b.startDate)
             })
             let currentObjCP = trip.checkpoints.find(c => c.title === this.props.store.currentCP)
-            console.log(trip.checkpoints)
+            // console.log(trip.checkpoints)
             return (
                 <div className='wrapper'>
                     {trip.checkpoints.map(c => {
@@ -59,7 +59,7 @@ class TimeLine extends Component {
                                     {c.title === this.props.store.currentCP ?
                                         <h6 style={{ backgroundColor: 'rgba(175, 175, 175, 0.493)' }} onClick={this.clickTitle}> {c.title} </h6>
                                         :
-                                        <span> <h7 assName='timeline-title' onClick={this.clickTitle}> {c.title}</h7></span>
+                                        <span> <h6 className='timeline-title' onClick={this.clickTitle}> {c.title}</h6></span>
                                     }
                                 </div>
                                     <hr className="hr1"></hr>
@@ -72,7 +72,7 @@ class TimeLine extends Component {
                             <p>{currentObjCP.description}</p>
                             <div><span className="spanTitle">On: </span>{this.fixDate(currentObjCP.startDate)}</div>
                             <div><span className="spanTitle">With</span> {currentObjCP.people.map(p => {
-                                return <span>{p}</span>
+                                return <span key={p}>{p}</span>
                             })}</div>
                             <hr className="hr1"></hr>
 
