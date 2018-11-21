@@ -53,7 +53,7 @@ class TimeLine extends Component {
             // console.log(trip.checkpoints)
             return (
                 <div className='wrapper'>
-                <h3 className="hr5">Places You've Been</h3>
+                <h4 className="titletimeline">Places You've Been</h4>
                     {trip.checkpoints.map(c => {
                         return (
                             <div key={c._id}>

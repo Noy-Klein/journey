@@ -615,11 +615,11 @@ span:hover.tooltips span {
   z-index: 999;
 } */
 
-.hr5{
-  height: -webkit-fill-available;
-  position: absolute;
-  padding: 30px;
-  background-color: green;
-  width: 22%;
-  bottom: -210px;
+.titletimeline{
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: hsla(0,0%,100%,.575);
+  width: 240px;
+  color: black;
 }
